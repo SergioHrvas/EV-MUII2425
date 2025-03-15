@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dwurs1obw8ui4"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Cubo" type="CSGBox3D" parent="."]
+size = Vector3(2, 1, 1.2)
+
+[node name="Interior" type="CSGBox3D" parent="Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+operation = 2
+size = Vector3(1.9, 0.9, 1.1)
+
+[node name="Tapadera" type="CSGBox3D" parent="Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.609735, 0)
+size = Vector3(2, 0.2, 1.2)
+
+[node name="Bisagra1" type="CSGBox3D" parent="Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.496, -0.61)
+size = Vector3(0.1, 0.3, 0.03)
+
+[node name="Bisagra2" type="CSGBox3D" parent="Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.496, -0.61)
+size = Vector3(0.1, 0.3, 0.03)
+
+[node name="Cerradura1" type="CSGBox3D" parent="Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496, 0.61)
+size = Vector3(0.1, 0.3, 0.03)
+
+[node name="Cerradura2" type="CSGBox3D" parent="Cubo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33426, 0.61)
+size = Vector3(0.3, 0.3, 0.03)
+
+[node name="CerraduraHueco" type="CSGBox3D" parent="Cubo/Cerradura2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.156708, 0)
+operation = 2
+size = Vector3(0.11, 0.3, 0.03)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3g517ra8mka5"]
+
+[ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://plataforma.tscn" id="1_eb3sw"]
+[ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://bola.tscn" id="2_wh65v"]
+[ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://gancho.tscn" id="3_nqbf4"]
+[ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://palanca.tscn" id="4_vy1a3"]
+[ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://silla.tscn" id="5_0giyi"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Habitacion" type="CSGBox3D" parent="."]
+size = Vector3(20, 5, 20)
+
+[node name="Interior" type="CSGBox3D" parent="Habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543528, 0, 0)
+operation = 2
+size = Vector3(19.5, 4.5, 19.5)
+
+[node name="Salida" type="CSGBox3D" parent="Habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 2, 0)
+operation = 2
+size = Vector3(5, 3, 5)
+
+[node name="Plataforma1" parent="." instance=ExtResource("1_eb3sw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72978, -6.91595)
+
+[node name="Plataforma2" parent="." instance=ExtResource("1_eb3sw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, -1.72978, -6.91595)
+
+[node name="Bola1" parent="." instance=ExtResource("2_wh65v")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.70087, 7.19862)
+
+[node name="Bola2" parent="." instance=ExtResource("2_wh65v")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64786, -1.68458, 7.19862)
+
+[node name="Gancho" parent="." instance=ExtResource("3_nqbf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51924, -0.829458, 8.03395)
+
+[node name="Palanca" parent="." instance=ExtResource("4_vy1a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2.275, -7)
+
+[node name="Silla" parent="." instance=ExtResource("5_0giyi")]
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 6.91708, -2.149, 0)

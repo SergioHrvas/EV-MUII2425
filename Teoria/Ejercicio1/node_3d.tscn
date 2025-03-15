@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c21tcko7o3vu7"]
+
+[ext_resource type="Script" path="res://MeshInstance3D.gd" id="2_mu7st"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lbqct"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.843401, -0.244382, 0.47849, 0, 0.89057, 0.454846, -0.537285, -0.383617, 0.751108, 0, 2.68972, 3.62127)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.68533, 5.15408)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_lbqct")
+script = ExtResource("2_mu7st")
