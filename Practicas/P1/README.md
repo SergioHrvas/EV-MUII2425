@@ -1,7 +1,7 @@
 # Práctica 1 -  Introducción al entorno jerárquico
 
-- Sergio Hervás Cobo 
-- Entornos Virtuales - Master Universitario en Ingeniería Informática en la Universidad ee Granada
+- Autor: Sergio Hervás Cobo 
+- Asignatura: Entornos Virtuales - Master Universitario en Ingeniería Informática en la Universidad ee Granada
 
 ## Estructura del proyecto
 Dos escenas principales:
