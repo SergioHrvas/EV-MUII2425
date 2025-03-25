@@ -1,4 +1,4 @@
-extends Node3D  # Este script iría en CameraPivot
+extends Node3D
 
 @export var rotation_speed: float = 90.0  # Velocidad en grados por segundo
 @export var sup_tilt: float = -70.0  # Límite superior de inclinación
