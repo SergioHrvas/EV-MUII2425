@@ -4,8 +4,6 @@
 - Asignatura: Entornos Virtuales - Master Universitario en Ingeniería Informática en la Universidad ee Granada
 
 ## Estructura del proyecto
-Dos escenas principales:
-
 
 Dos modelos principales:
 - **gancho.blender**: Modelo de un gancho. Este contiene tres operaciones de modelado:
