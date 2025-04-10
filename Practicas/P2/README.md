@@ -28,3 +28,16 @@ Dos modelos principales:
         - **Gancho**: Toroide con sombreado suave con la siguiente operación booleana:
             - **Llaveros**: Cilindro con modificador de curva que sigue el círculo **FormaLlavero**. También tiene un array de 3 para duplicarse
         - **CIlindroAdornoTapa**: Cilindro con modificador de curva que sigue el círculo **Circulo_BezierAdornoTapa**. También tiene un array para hacer la decoración completa de la tapadera.
+
+
+De esta forma se cubren todas las técnicas de modelado vistas en prácticas:
+- Array
+- Extrusión
+- Solevado
+- Curva
+- Booleano
+- Revolución
+- Biselado
+
+*Nota*: Para poder realizar booleanos sobre solevados, he tenido que convertirlo en mesh. Aún así, he dejado la curva para que se vea el recorrido del solevado.
+*Nota2*: Se dejan también el desenrollado UV en otros modelos a parte (por necesidad de aplicar ciertos modificadores)
