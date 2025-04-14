@@ -17,3 +17,7 @@ size = Vector3(5, 10, 5)
 [node name="PasilloInterior" type="CSGBox3D" parent="Pasillo"]
 operation = 2
 size = Vector3(4.9, 10, 4.9)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.0173302, 0, -0.99985, 0, 1, 0, 0.99985, 0, 0.0173302, -0.0308304, 3.92295, 3.17358)
+current = true

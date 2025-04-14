@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj615ur7xcds0"]
 
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://silla.tscn" id="1_c4v57"]
-[ext_resource type="Script" path="res://camera.gd" id="2_j6f7f"]
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="2_j6f7f"]
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0318384, -0.0324774, -0.0110912)
