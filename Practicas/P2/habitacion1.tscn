@@ -1,25 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3g517ra8mka5"]
+[gd_scene load_steps=7 format=3 uid="uid://d3g517ra8mka5"]
 
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://plataforma.tscn" id="1_eb3sw"]
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://bola.tscn" id="2_wh65v"]
 [ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://gancho.tscn" id="3_nqbf4"]
 [ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://palanca.tscn" id="4_vy1a3"]
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://silla.tscn" id="5_0giyi"]
+[ext_resource type="PackedScene" uid="uid://b6ouxym8fttkp" path="res://gancho_blender.tscn" id="6_kt6jv"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Habitacion" type="CSGBox3D" parent="."]
-size = Vector3(20, 5, 20)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
+size = Vector3(30, 5, 30)
 
 [node name="Interior" type="CSGBox3D" parent="Habitacion"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543528, 0, 0)
 operation = 2
-size = Vector3(19.5, 4.5, 19.5)
+size = Vector3(29.5, 4.5, 29.5)
 
 [node name="Salida" type="CSGBox3D" parent="Habitacion"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 2, 0)
 operation = 2
 size = Vector3(5, 3, 5)
+
+[node name="Ventana2" type="CSGBox3D" parent="Habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, -0.075, 14.57)
+operation = 2
+size = Vector3(5, 4, 1.99)
+
+[node name="Ventana1" type="CSGBox3D" parent="Habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5, -0.075, -15.5611)
+operation = 2
+size = Vector3(5, 4, 1.99)
 
 [node name="Plataforma1" parent="." instance=ExtResource("1_eb3sw")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72978, -6.91595)
@@ -40,4 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51924, -0.829458, 8.03395)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2.275, -7)
 
 [node name="Silla" parent="." instance=ExtResource("5_0giyi")]
-transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 6.91708, -2.149, 0)
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 5.84364, -2.149, 0)
+
+[node name="GanchoBlender" parent="." instance=ExtResource("6_kt6jv")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.61573, -2.245, 10.0344)
