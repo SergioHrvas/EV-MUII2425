@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dthtmwrllbf6c"]
 
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://escalera.tscn" id="1_lxnyj"]
-[ext_resource type="PackedScene" uid="uid://dwurs1obw8ui4" path="res://cofre.tscn" id="2_uj32x"]
+[ext_resource type="PackedScene" uid="uid://b4wnrrrh8aas5" path="res://cofre_blender.tscn" id="2_ji1t2"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,5 +21,5 @@ size = Vector3(5, 2, 5)
 [node name="Escalera" parent="Habitacion" instance=ExtResource("1_lxnyj")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.5, 0)
 
-[node name="Cofre" parent="Habitacion" instance=ExtResource("2_uj32x")]
-transform = Transform3D(-2.62268e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.62268e-08, -1.859, -3.1, 0)
+[node name="cofrebueno" parent="." instance=ExtResource("2_ji1t2")]
+transform = Transform3D(0.4, 1.42768e-05, -1.62002e-05, -1.42692e-05, 0.4, 0.000201304, 1.62069e-05, -0.000201303, 0.4, -1.219, -2.955, 0)
