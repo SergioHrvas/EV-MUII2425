@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://82103a3nrmh4"]
+
+[ext_resource type="PackedScene" uid="uid://dpayfvwpglk63" path="res://cofre_ani.glb" id="1_012ym"]
+[ext_resource type="Script" uid="uid://4dustf5q4w2y" path="res://cofre_ani.gd" id="2_nt2u4"]
+
+[node name="cofre_ani" instance=ExtResource("1_012ym")]
+script = ExtResource("2_nt2u4")
+
+[node name="Martillo" parent="." index="0"]
+transform = Transform3D(2, -4.76995e-07, -2.08501e-14, 0, -8.74228e-08, 2, -4.76995e-07, -2, -8.74228e-08, 3.61929, 0.12, -0.0132089)
+
+[node name="Tapadera" parent="." index="2"]
+transform = Transform3D(1.4, 0, 0, 0, -6.99382e-08, -1.4, 0, 1.6, -6.11959e-08, -1.38851, 1.07701, 0.0047742)

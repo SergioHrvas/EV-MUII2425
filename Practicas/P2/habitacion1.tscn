@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3g517ra8mka5"]
+[gd_scene load_steps=9 format=3 uid="uid://d3g517ra8mka5"]
 
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://plataforma.tscn" id="1_eb3sw"]
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://bola.tscn" id="2_wh65v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://silla.tscn" id="5_0giyi"]
 [ext_resource type="PackedScene" uid="uid://b6ouxym8fttkp" path="res://gancho_blender.tscn" id="6_kt6jv"]
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://gancho_ani.tscn" id="7_6j36w"]
+[ext_resource type="PackedScene" uid="uid://82103a3nrmh4" path="res://cofre_ani.tscn" id="8_qgt2x"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -53,10 +54,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51924, -0.829458, 8.03395)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2.275, -7)
 
 [node name="Silla" parent="." instance=ExtResource("5_0giyi")]
-transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 5.84364, -2.149, 0)
+transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 3.84277, -2.149, 0)
 
 [node name="GanchoBlender" parent="." instance=ExtResource("6_kt6jv")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.61573, -2.245, 10.0344)
 
 [node name="gancho_ani" parent="." instance=ExtResource("7_6j36w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96961)
+
+[node name="cofre_ani" parent="." instance=ExtResource("8_qgt2x")]
+transform = Transform3D(-0.798179, 0, 0.0539526, 0, 0.8, 0, -0.0539526, 0, -0.798179, 15.7824, -1.68175, -3)
