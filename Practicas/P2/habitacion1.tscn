@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3g517ra8mka5"]
+[gd_scene load_steps=10 format=3 uid="uid://d3g517ra8mka5"]
 
-[ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://plataforma.tscn" id="1_eb3sw"]
-[ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://bola.tscn" id="2_wh65v"]
-[ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://gancho.tscn" id="3_nqbf4"]
-[ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://palanca.tscn" id="4_vy1a3"]
-[ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://silla.tscn" id="5_0giyi"]
-[ext_resource type="PackedScene" uid="uid://b6ouxym8fttkp" path="res://gancho_blender.tscn" id="6_kt6jv"]
-[ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://gancho_ani.tscn" id="7_6j36w"]
-[ext_resource type="PackedScene" uid="uid://82103a3nrmh4" path="res://cofre_ani.tscn" id="8_qgt2x"]
+[ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
+[ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
+[ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://elements/gancho.tscn" id="3_nqbf4"]
+[ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://elements/palanca.tscn" id="4_vy1a3"]
+[ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://elements/silla.tscn" id="5_0giyi"]
+[ext_resource type="PackedScene" uid="uid://b6ouxym8fttkp" path="res://elements/gancho_blender.tscn" id="6_kt6jv"]
+[ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
+[ext_resource type="PackedScene" uid="uid://82103a3nrmh4" path="res://elements/cofre_ani.tscn" id="8_qgt2x"]
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="9_bh3rd"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="Habitacion" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7.5, 0)
@@ -36,31 +37,41 @@ operation = 2
 size = Vector3(9, 12, 2)
 
 [node name="Plataforma1" parent="." instance=ExtResource("1_eb3sw")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72978, -6.91595)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72978, -11.7276)
 
 [node name="Plataforma2" parent="." instance=ExtResource("1_eb3sw")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, -1.72978, -6.91595)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, -1.72978, -11.7276)
 
 [node name="Bola1" parent="." instance=ExtResource("2_wh65v")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.70087, 7.19862)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.70087, 12.2818)
 
 [node name="Bola2" parent="." instance=ExtResource("2_wh65v")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64786, -1.68458, 7.19862)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64786, -1.68458, 12.2818)
 
 [node name="Gancho" parent="." instance=ExtResource("3_nqbf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.51924, -0.829458, 8.03395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.10809, -0.829458, 12.4186)
 
 [node name="Palanca" parent="." instance=ExtResource("4_vy1a3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2.275, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -2.275, -11.8116)
 
 [node name="Silla" parent="." instance=ExtResource("5_0giyi")]
-transform = Transform3D(-0.8, 0, -1.20797e-07, 0, 0.8, 0, 1.20797e-07, 0, -0.8, 3.84277, -2.149, 0)
+transform = Transform3D(-0.00111688, 0, -0.799999, 0, 0.8, 0, 0.799999, 0, -0.00111688, 8.32429, -2.149, -11.7982)
 
 [node name="GanchoBlender" parent="." instance=ExtResource("6_kt6jv")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.61573, -2.245, 10.0344)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 5.64019, -2.245, 12.1981)
 
 [node name="gancho_ani" parent="." instance=ExtResource("7_6j36w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96961)
 
 [node name="cofre_ani" parent="." instance=ExtResource("8_qgt2x")]
 transform = Transform3D(-0.798179, 0, 0.0539526, 0, 0.8, 0, -0.0539526, 0, -0.798179, 15.7824, -1.68175, -3)
+
+[node name="CaperaPivot" type="Node3D" parent="cofre_ani"]
+script = ExtResource("9_bh3rd")
+
+[node name="CameraPitch" type="Node3D" parent="cofre_ani/CaperaPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
+
+[node name="Camera3D" type="Camera3D" parent="cofre_ani/CaperaPivot/CameraPitch"]
+transform = Transform3D(1.25, 0, 7.45058e-09, 0, 1.25, 0, -7.45058e-09, 0, 1.25, -15.7396, 1.64615, 17.3289)
+current = true

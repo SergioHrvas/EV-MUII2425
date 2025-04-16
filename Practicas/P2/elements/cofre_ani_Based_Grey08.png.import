@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cew5d066q1hbm"
-path.s3tc="res://.godot/imported/cofre_ani_Based_Grey08.png-5a170335b025b459b1c9a49a8a09ecab.s3tc.ctex"
+uid="uid://dskec6os78k5a"
+path.s3tc="res://.godot/imported/cofre_ani_Based_Grey08.png-a70874b43682ff4cae50348515855360.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://BLENDER/APLICADAS/cofre_ani_Based_Grey08.png"
-dest_files=["res://.godot/imported/cofre_ani_Based_Grey08.png-5a170335b025b459b1c9a49a8a09ecab.s3tc.ctex"]
+source_file="res://elements/cofre_ani_Based_Grey08.png"
+dest_files=["res://.godot/imported/cofre_ani_Based_Grey08.png-a70874b43682ff4cae50348515855360.s3tc.ctex"]
 
 [params]
 

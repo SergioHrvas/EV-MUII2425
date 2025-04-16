@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cekhiibt5fl6e"
-path="res://.godot/imported/gancho_ani.glb-33b6558bf6b3fd836b0bb1577d47e8df.scn"
+uid="uid://bsfrwbsmrqyra"
+path="res://.godot/imported/gancho.glb-7f456cf1803047dd22187ba2bbc33775.scn"
 
 [deps]
 
-source_file="res://gancho_ani.glb"
-dest_files=["res://.godot/imported/gancho_ani.glb-33b6558bf6b3fd836b0bb1577d47e8df.scn"]
+source_file="res://elements/gancho.glb"
+dest_files=["res://.godot/imported/gancho.glb-7f456cf1803047dd22187ba2bbc33775.scn"]
 
 [params]
 

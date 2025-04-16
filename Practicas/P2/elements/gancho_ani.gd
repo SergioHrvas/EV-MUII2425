@@ -6,8 +6,8 @@ func _ready() -> void:
 
 
 func _process(delta: float):
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("espacio"):
 		$AnimationPlayer.play("Curva_Bezier_001_acción_001")
-	if Input.is_action_just_released("ui_right"):
+	if Input.is_action_just_released("espacio"):
 		$AnimationPlayer.pause()
 	pass

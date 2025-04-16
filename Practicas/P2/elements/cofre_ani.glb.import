@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dpayfvwpglk63"
-path="res://.godot/imported/cofre_ani.glb-0f7b6900963e1068c8ef940fdf76f4e2.scn"
+uid="uid://buda1prlbs6au"
+path="res://.godot/imported/cofre_ani.glb-8d1956674f1d1fe3075a8a9ffe959de9.scn"
 
 [deps]
 
-source_file="res://cofre_ani.glb"
-dest_files=["res://.godot/imported/cofre_ani.glb-0f7b6900963e1068c8ef940fdf76f4e2.scn"]
+source_file="res://elements/cofre_ani.glb"
+dest_files=["res://.godot/imported/cofre_ani.glb-8d1956674f1d1fe3075a8a9ffe959de9.scn"]
 
 [params]
 

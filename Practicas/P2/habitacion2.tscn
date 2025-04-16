@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dthtmwrllbf6c"]
 
-[ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://escalera.tscn" id="1_lxnyj"]
-[ext_resource type="PackedScene" uid="uid://b4wnrrrh8aas5" path="res://cofre_blender.tscn" id="2_ji1t2"]
+[ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
+[ext_resource type="PackedScene" uid="uid://b4wnrrrh8aas5" path="res://elements/cofre_blender.tscn" id="2_ji1t2"]
 
 [node name="Node3D" type="Node3D"]
 

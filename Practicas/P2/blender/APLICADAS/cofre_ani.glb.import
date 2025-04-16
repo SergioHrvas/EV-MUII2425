@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c016f67vafpy8"
-path="res://.godot/imported/gancho.glb-ad16fef6df49a4590a1a07fe6c7fe3f2.scn"
+uid="uid://dt5gx6711q717"
+path="res://.godot/imported/cofre_ani.glb-a82cce15a717105bea330626eb0e6db4.scn"
 
 [deps]
 
-source_file="res://BLENDER/APLICADAS/gancho.glb"
-dest_files=["res://.godot/imported/gancho.glb-ad16fef6df49a4590a1a07fe6c7fe3f2.scn"]
+source_file="res://blender/APLICADAS/cofre_ani.glb"
+dest_files=["res://.godot/imported/cofre_ani.glb-a82cce15a717105bea330626eb0e6db4.scn"]
 
 [params]
 
