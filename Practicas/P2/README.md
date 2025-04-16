@@ -61,3 +61,5 @@ En Godot es posible reproducir estas animaciones en la escena "Santuario" (la es
 
 
 *Nota 3*: Me he liado un poco con los arhivos de blender y godot por las distintas cosas que debía dejar o no de modificadores aplicados y de UV para la futura práctica, por lo que si faltase algo o hubiese algún problema, dígamelo y lo resuelvo lo antes posible
+
+Repositorio de Github: https://github.com/SergioHrvas/EV-MUII2425 (Está en privado)
