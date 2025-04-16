@@ -8,10 +8,10 @@
 [node name="Habitacion1" parent="." instance=ExtResource("1_oplxr")]
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5c0m4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.438, 16.725, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3001, 33.1872, 0)
 
 [node name="Pasillo" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.20782, 5.97691, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 22.44, 0)
 size = Vector3(5, 10, 5)
 
 [node name="PasilloInterior" type="CSGBox3D" parent="Pasillo"]
@@ -19,5 +19,5 @@ operation = 2
 size = Vector3(4.9, 10, 4.9)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.0173302, 0, -0.99985, 0, 1, 0, 0.99985, 0, 0.0173302, -0.0308304, 3.92295, 3.17358)
+transform = Transform3D(0.0173302, 0, -0.99985, 0, 1, 0, 0.99985, 0, 0.0173302, -0.0308304, 1.64615, 3.17358)
 current = true
