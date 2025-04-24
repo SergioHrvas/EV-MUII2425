@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4wnrrrh8aas5"]
+
+[ext_resource type="PackedScene" uid="uid://clxga4hjq23u7" path="res://elements/cofrebueno.glb" id="1_juj6x"]
+
+[node name="cofrebueno" instance=ExtResource("1_juj6x")]

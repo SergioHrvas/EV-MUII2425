@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dcwx80nwehwv0"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Base" type="CSGBox3D" parent="."]
+size = Vector3(5, 2, 5)
+
+[node name="Hueco" type="CSGSphere3D" parent="Base"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10393, 0)
+operation = 2
+radius = 2.5
+radial_segments = 29
+rings = 23
+
+[node name="Hueco2" type="CSGSphere3D" parent="Base/Hueco"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.40116, 0)
+radius = 0.6
+radial_segments = 29
+rings = 23
+
+[node name="Decoracion1" type="CSGTorus3D" parent="Base"]
+transform = Transform3D(-0.000174566, -1, 0, 1, -0.000174566, 0, 0, 0, 1, 0, 1.93683, 0)
+operation = 2
+inner_radius = 2.425
+outer_radius = 2.203
+sides = 35
+ring_sides = 21
+
+[node name="Decoracion2" type="CSGTorus3D" parent="Base"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 1.93683, 0)
+operation = 2
+inner_radius = 2.425
+outer_radius = 2.203
+sides = 35
+ring_sides = 21
