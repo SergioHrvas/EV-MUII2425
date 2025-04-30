@@ -3,10 +3,7 @@
 - Autor: Sergio Hervás Cobo 
 - Asignatura: Entornos Virtuales - Master Universitario en Ingeniería Informática en la Universidad ee Granada
 
-## Estructura del proyecto
-
-
-## Modelaado
+## Modelado
 
 Dos modelos principales:
 - **gancho.blender**: Modelo de un gancho. Este contiene tres operaciones de modelado:
@@ -30,7 +27,7 @@ Dos modelos principales:
         - **TapaderaSust**: Cilindro de menor tamaño para dejar un hueco en la tapadera
         - **Gancho**: Toroide con sombreado suave con la siguiente operación booleana:
             - **Llaveros**: Cilindro con modificador de curva que sigue el círculo **FormaLlavero**. También tiene un array de 3 para duplicarse
-        - **CIlindroAdornoTapa**: Cilindro con modificador de curva que sigue el círculo **Circulo_BezierAdornoTapa**. También tiene un array para hacer la decoración completa de la tapadera.
+        - **CilindroAdornoTapa**: Cilindro con modificador de curva que sigue el círculo **Circulo_BezierAdornoTapa**. También tiene un array para hacer la decoración completa de la tapadera.
 
 
 De esta forma se cubren todas las técnicas de modelado vistas en prácticas:
@@ -57,9 +54,12 @@ Se han realizado dos animaciones:
 
 Ambas animaciones se pueden ver en BLENDER/APLICADAS.
 
-En Godot es posible reproducir estas animaciones en la escena "Santuario" (la escena principal)
+En Godot es posible reproducir estas animaciones en la escena "Santuario" (la escena principal) con la tecla ESCAPE. Esta escena también tiene 
 
 
-*Nota 3*: Me he liado un poco con los arhivos de blender y godot por las distintas cosas que debía dejar o no de modificadores aplicados y de UV para la futura práctica, por lo que si faltase algo o hubiese algún problema, dígamelo y lo resuelvo lo antes posible
+*Nota 3*: Me he liado un poco con los arhivos de blender y godot por las distintas cosas que debía dejar o no de modificadores aplicados y de UV para la práctica3, por lo que si faltase algo o hubiese algún problema, dígamelo y lo resuelvo lo antes posible. Siento el lío de carpetas, pero en resumen:
+- Blender/SIN_UV: Modelados con las modificaciones sin aplicar
+- Blender/CON_UV: Modelados con el UV
+- Blender/APLICADAS: Modelados con modificaciones aplicadas y animaciones
 
-Repositorio de Github: https://github.com/SergioHrvas/EV-MUII2425 (Está en privado)
+Repositorio de Github: https://github.com/SergioHrvas/EV-MUII2425 (Está en privado, si lo necesita contácteme y le añado como colaborador)

@@ -10,4 +10,4 @@ func _process(delta: float):
 		$AnimationPlayer.play("MartilloTapaderaAccion")
 	
 	if Input.is_action_just_released("espacio"):
-		$AnimationPlayer.pause()  # Usamos stop() en lugar de pause()
+		$AnimationPlayer.pause() 

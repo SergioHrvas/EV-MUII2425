@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dthtmwrllbf6c"]
+[gd_scene load_steps=8 format=3 uid="uid://dthtmwrllbf6c"]
 
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
-[ext_resource type="PackedScene" uid="uid://b4wnrrrh8aas5" path="res://elements/cofre_blender.tscn" id="2_ji1t2"]
+[ext_resource type="PackedScene" uid="uid://b7f3mkq7un6hj" path="res://cofre_material.tscn" id="2_ji1t2"]
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="3_ydil0"]
+[ext_resource type="Texture2D" uid="uid://drpy8bfcxd763" path="res://glowing.jpeg" id="4_bvsdu"]
+[ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ty8r2"]
+size = Vector3(19.5, 0.2, 11.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whvtv"]
+albedo_texture = ExtResource("4_bvsdu")
+emission_enabled = true
+emission = Color(0.365376, 0.895318, 0.0762654, 1)
+emission_energy_multiplier = 1.17
+emission_operator = 1
+emission_texture = ExtResource("4_bvsdu")
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,5 +35,38 @@ size = Vector3(5, 2, 5)
 [node name="Escalera" parent="Habitacion" instance=ExtResource("1_lxnyj")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.5, 0)
 
-[node name="cofrebueno" parent="." instance=ExtResource("2_ji1t2")]
-transform = Transform3D(0.4, 1.42768e-05, -1.62002e-05, -1.42692e-05, 0.4, 0.000201304, 1.62069e-05, -0.000201303, 0.4, -1.219, -2.955, 0)
+[node name="cofree" parent="." instance=ExtResource("2_ji1t2")]
+transform = Transform3D(0.37957, 0, 0, 0, 0.37957, 0, 0, 0, 0.37957, -1.46248, -3.00558, -0.0342397)
+
+[node name="CaperaPivot" type="Node3D" parent="cofree"]
+script = ExtResource("3_ydil0")
+
+[node name="CameraPitch" type="Node3D" parent="cofree/CaperaPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
+
+[node name="Camera3D" type="Camera3D" parent="cofree/CaperaPivot/CameraPitch"]
+transform = Transform3D(1.25, 0, 7.45058e-09, 0, 1.25, 0, -7.45058e-09, 0, 1.25, -15.7396, 1.64615, 17.3289)
+visible = false
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0034906, 0.999994, 0, -0.999994, -0.0034906, 0, 5.91335, 0)
+light_color = Color(0.715998, 1, 0.688543, 1)
+light_energy = 0.523
+light_indirect_energy = 1.67
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.00245009, -0.62591, 0.779891, -0.00196634, 0.779895, 0.625907, -0.999995, 1.16416e-10, -0.00314156, 3.46214, 0.912055, -0.0342397)
+visible = false
+spot_range = 13.973
+spot_attenuation = 0.0
+spot_angle = 7.44
+spot_angle_attenuation = 0.435276
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.69448, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
+
+[node name="Node3D" parent="." instance=ExtResource("5_ty8r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444534, 0, 0)
