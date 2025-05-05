@@ -1,7 +1,42 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://dthtmwrllbf6c"]
 
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
 [ext_resource type="PackedScene" uid="uid://b4wnrrrh8aas5" path="res://elements/cofre_blender.tscn" id="2_ji1t2"]
+=======
+[gd_scene load_steps=12 format=3 uid="uid://dthtmwrllbf6c"]
+
+[ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
+[ext_resource type="PackedScene" uid="uid://b7f3mkq7un6hj" path="res://cofre_material.tscn" id="2_ji1t2"]
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="3_ydil0"]
+[ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://habitacion2.gdshader" id="4_ty8r2"]
+[ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
+[ext_resource type="Shader" uid="uid://bkfshn8p6t353" path="res://shader2.gdshader" id="6_whvtv"]
+[ext_resource type="PackedScene" uid="uid://618qgs0f55a5" path="res://zelda_triangulo.tscn" id="7_8plxl"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ty8r2"]
+size = Vector3(19.5, 0.25, 11.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_whvtv"]
+render_priority = 0
+shader = ExtResource("4_ty8r2")
+shader_parameter/fog_color = Color(0.196813, 0.791062, 0.681183, 1)
+shader_parameter/speed = 0.1
+shader_parameter/scale = 2.0
+shader_parameter/intensity = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8plxl"]
+render_priority = 0
+shader = ExtResource("6_whvtv")
+shader_parameter/fog_color = Color(8.37475e-06, 0.755679, 0.340487, 1)
+shader_parameter/speed = 0.0
+shader_parameter/scale = 5.0
+shader_parameter/intensity = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whvtv"]
+emission_enabled = true
+emission = Color(0, 0.392334, 0.394711, 1)
+>>>>>>> 0cb23c02a2acd3427bf674f8adbef2fd8c93d7a0
 
 [node name="Node3D" type="Node3D"]
 
@@ -21,5 +56,50 @@ size = Vector3(5, 2, 5)
 [node name="Escalera" parent="Habitacion" instance=ExtResource("1_lxnyj")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.5, 0)
 
+<<<<<<< HEAD
 [node name="cofrebueno" parent="." instance=ExtResource("2_ji1t2")]
 transform = Transform3D(0.4, 1.42768e-05, -1.62002e-05, -1.42692e-05, 0.4, 0.000201304, 1.62069e-05, -0.000201303, 0.4, -1.219, -2.955, 0)
+=======
+[node name="cofree" parent="." instance=ExtResource("2_ji1t2")]
+transform = Transform3D(0.37957, 0, 0, 0, 0.37957, 0, 0, 0, 0.37957, -1.46248, -3.00558, -0.0342397)
+
+[node name="CaperaPivot" type="Node3D" parent="cofree"]
+script = ExtResource("3_ydil0")
+
+[node name="CameraPitch" type="Node3D" parent="cofree/CaperaPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
+
+[node name="Camera3D" type="Camera3D" parent="cofree/CaperaPivot/CameraPitch"]
+transform = Transform3D(1.25, 0, 7.45058e-09, 0, 1.25, 0, -7.45058e-09, 0, 1.25, -15.7396, 1.64615, 17.3289)
+visible = false
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0034906, 0.999994, 0, -0.999994, -0.0034906, 0, 5.91335, 0)
+light_color = Color(0.715998, 1, 0.688543, 1)
+light_energy = 0.523
+light_indirect_energy = 1.67
+
+[node name="TechoAnim2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.91309, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+surface_material_override/0 = SubResource("ShaderMaterial_whvtv")
+
+[node name="Luz" parent="." instance=ExtResource("5_ty8r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444534, 0, 0)
+
+[node name="TechoAnim" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.95379, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+skeleton = NodePath("../TechoAnim2")
+surface_material_override/0 = SubResource("ShaderMaterial_8plxl")
+
+[node name="Techo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.49116, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+skeleton = NodePath("../TechoAnim2")
+surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
+
+[node name="TrianguloZelda" parent="." instance=ExtResource("7_8plxl")]
+transform = Transform3D(-8.74228e-08, -1, -1.73205, 0, 1.73205, -1, 2, -4.37114e-08, -7.57103e-08, 5.23598, 1.76336, 0)
+>>>>>>> 0cb23c02a2acd3427bf674f8adbef2fd8c93d7a0
