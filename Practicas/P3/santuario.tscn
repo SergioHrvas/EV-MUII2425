@@ -1,10 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqr4oh1x1aytq"]
 
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://d3g517ra8mka5" path="res://habitacion1.tscn" id="1_xkxwq"]
-=======
 [ext_resource type="PackedScene" uid="uid://d3g517ra8mka5" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
->>>>>>> 0cb23c02a2acd3427bf674f8adbef2fd8c93d7a0
 [ext_resource type="PackedScene" uid="uid://dthtmwrllbf6c" path="res://habitacion2.tscn" id="2_5hydm"]
 
 [node name="Node3D" type="Node3D"]

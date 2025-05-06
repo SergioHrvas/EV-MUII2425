@@ -14,7 +14,7 @@ void fragment() {
     float pattern = sin(uv.x * 3.0 + TIME) * cos(uv.y * 3.0 - TIME);
     pattern = abs(pattern);
 
-    float mask = smoothstep(0.3, 0.6, pattern); 
+    float mask = smoothstep(0.3, 0.6, pattern);
 
     ALBEDO = fog_color.rgb;
     ALPHA = (1.0 - mask) * fog_color.a;

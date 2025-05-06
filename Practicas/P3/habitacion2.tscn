@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-[gd_scene load_steps=3 format=3 uid="uid://dthtmwrllbf6c"]
-
-[ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
-[ext_resource type="PackedScene" uid="uid://b4wnrrrh8aas5" path="res://elements/cofre_blender.tscn" id="2_ji1t2"]
-=======
 [gd_scene load_steps=12 format=3 uid="uid://dthtmwrllbf6c"]
 
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
@@ -36,7 +30,6 @@ shader_parameter/intensity = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whvtv"]
 emission_enabled = true
 emission = Color(0, 0.392334, 0.394711, 1)
->>>>>>> 0cb23c02a2acd3427bf674f8adbef2fd8c93d7a0
 
 [node name="Node3D" type="Node3D"]
 
@@ -56,10 +49,6 @@ size = Vector3(5, 2, 5)
 [node name="Escalera" parent="Habitacion" instance=ExtResource("1_lxnyj")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.5, 0)
 
-<<<<<<< HEAD
-[node name="cofrebueno" parent="." instance=ExtResource("2_ji1t2")]
-transform = Transform3D(0.4, 1.42768e-05, -1.62002e-05, -1.42692e-05, 0.4, 0.000201304, 1.62069e-05, -0.000201303, 0.4, -1.219, -2.955, 0)
-=======
 [node name="cofree" parent="." instance=ExtResource("2_ji1t2")]
 transform = Transform3D(0.37957, 0, 0, 0, 0.37957, 0, 0, 0, 0.37957, -1.46248, -3.00558, -0.0342397)
 
@@ -102,4 +91,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
 
 [node name="TrianguloZelda" parent="." instance=ExtResource("7_8plxl")]
 transform = Transform3D(-8.74228e-08, -1, -1.73205, 0, 1.73205, -1, 2, -4.37114e-08, -7.57103e-08, 5.23598, 1.76336, 0)
->>>>>>> 0cb23c02a2acd3427bf674f8adbef2fd8c93d7a0
