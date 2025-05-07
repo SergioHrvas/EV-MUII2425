@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=3 uid="uid://drw6eg2q544qi"]
+
+[ext_resource type="PackedScene" uid="uid://c8b4h6ippype1" path="res://cofre.glb" id="1_a8yx5"]
+[ext_resource type="Script" uid="uid://b1h6xtk4wvymo" path="res://cofre.gd" id="2_ljcb7"]
+[ext_resource type="Material" uid="uid://cjqu463r76657" path="res://materiales/tapadera.tres" id="2_n7v01"]
+[ext_resource type="Material" uid="uid://c1wd1qlowkp1k" path="res://materiales/orange_metalic.tres" id="3_4ctoc"]
+[ext_resource type="Material" uid="uid://b4genisxtfb3a" path="res://materiales/adorno_material.tres" id="3_n7v01"]
+[ext_resource type="Material" uid="uid://dlqosehagpnau" path="res://materiales/tornillosmaterial.tres" id="4_4ctoc"]
+[ext_resource type="Material" uid="uid://bk4kteesc62wm" path="res://materiales/plasticgrey.tres" id="5_7wf3r"]
+[ext_resource type="Material" uid="uid://b0eli04alq1ap" path="res://materiales/llaveros_material.tres" id="6_c2jto"]
+
+[node name="cofre" instance=ExtResource("1_a8yx5")]
+script = ExtResource("2_ljcb7")
+
+[node name="Martillo" parent="." index="0"]
+transform = Transform3D(0.457182, 0, 0, 0, 0.457182, 1.28985e-07, 0, -1.28985e-07, 0.457182, 0.057621, -0.593906, -0.0132089)
+
+[node name="Caja" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_n7v01")
+
+[node name="AdornoFlecha" parent="Caja" index="0"]
+surface_material_override/0 = ExtResource("3_n7v01")
+
+[node name="TornillosZAdorno" parent="Caja/AdornoFlecha" index="0"]
+surface_material_override/0 = ExtResource("4_4ctoc")
+
+[node name="Cerradura" parent="Caja" index="1"]
+transform = Transform3D(-0.00226716, 0.0333324, 0, -0.299991, -0.000251907, 0, 0, 0, 0.2, 1, 0.9, 0)
+surface_material_override/0 = ExtResource("3_4ctoc")
+
+[node name="MarcoSup" parent="Caja" index="2"]
+surface_material_override/0 = ExtResource("5_7wf3r")
+
+[node name="Refuerzos" parent="Caja" index="3"]
+surface_material_override/0 = ExtResource("3_4ctoc")
+
+[node name="TornillosX" parent="Caja/Refuerzos" index="0"]
+surface_material_override/0 = ExtResource("4_4ctoc")
+
+[node name="TornillosZ" parent="Caja/Refuerzos" index="1"]
+surface_material_override/0 = ExtResource("4_4ctoc")
+
+[node name="Tapadera" parent="." index="2"]
+transform = Transform3D(1.31879, 4.38317e-10, 0.00324251, 0.00305442, -3.77895e-07, -1.4, 3.64628e-10, 1.58531, -3.33723e-07, -1.32639, 1.09109, 0.00715792)
+surface_material_override/0 = ExtResource("2_n7v01")
+
+[node name="CilindroAdornoTapa" parent="Tapadera" index="0"]
+surface_material_override/0 = ExtResource("3_4ctoc")
+
+[node name="Gancho" parent="Tapadera" index="1"]
+surface_material_override/0 = ExtResource("5_7wf3r")
+
+[node name="Llaveros" parent="Tapadera/Gancho" index="0"]
+surface_material_override/0 = ExtResource("6_c2jto")

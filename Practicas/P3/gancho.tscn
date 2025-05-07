@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmkmv7rnwhkig"]
 
 [ext_resource type="PackedScene" uid="uid://dwpx17cbvpisi" path="res://gancho.glb" id="1_5wn4d"]
-[ext_resource type="Texture2D" uid="uid://dawr0xj7r73y1" path="res://Onyx015_2K-JPG/Onyx015_2K-JPG_Color.jpg" id="2_1el6q"]
-[ext_resource type="Texture2D" uid="uid://bstnag63dspkj" path="res://Onyx015_2K-JPG/Onyx015_2K-JPG_NormalGL.jpg" id="3_08oi7"]
-[ext_resource type="Texture2D" uid="uid://drp2asj3od85" path="res://Onyx015_2K-JPG/Onyx015_2K-JPG_Roughness.jpg" id="4_krfu8"]
+[ext_resource type="Texture2D" uid="uid://dawr0xj7r73y1" path="res://materiales/Onyx015_2K-JPG/Onyx015_2K-JPG_Color.jpg" id="2_1el6q"]
+[ext_resource type="Texture2D" uid="uid://bstnag63dspkj" path="res://materiales/Onyx015_2K-JPG/Onyx015_2K-JPG_NormalGL.jpg" id="3_08oi7"]
+[ext_resource type="Texture2D" uid="uid://drp2asj3od85" path="res://materiales/Onyx015_2K-JPG/Onyx015_2K-JPG_Roughness.jpg" id="4_krfu8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4o5dd"]
 albedo_texture = ExtResource("2_1el6q")
