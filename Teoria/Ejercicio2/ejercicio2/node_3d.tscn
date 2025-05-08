@@ -1,18 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnufnutem0gcd"]
+[gd_scene load_steps=7 format=3 uid="uid://cnufnutem0gcd"]
 
 [ext_resource type="Shader" uid="uid://bhy62nqv050lf" path="res://node_3d.gdshader" id="1_a202f"]
+[ext_resource type="Texture2D" uid="uid://c26twcxtn2iok" path="res://BUMPP.jpg" id="2_a0tk4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_a202f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0tk4"]
 render_priority = 0
 shader = ExtResource("1_a202f")
+shader_parameter/heightmap = ExtResource("2_a0tk4")
+shader_parameter/bump_scale = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_noarx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_noarx"]
+resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_a202f")
+shader_parameter/heightmap = ExtResource("2_a0tk4")
+shader_parameter/bump_scale = 1.0
 
 [node name="Node3D" type="Node3D"]
 
@@ -26,12 +32,12 @@ mesh = SubResource("SphereMesh_noarx")
 surface_material_override/0 = SubResource("ShaderMaterial_noarx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.89825, -0.0600647, 0.43536, -0.036653, 0.976927, 0.210406, -0.437953, -0.204955, 0.875323, 2.67609, 0.16736, 1.2182)
+transform = Transform3D(0.916331, -0.222545, 0.332885, -0.00466382, 0.825345, 0.564609, -0.400396, -0.518921, 0.755251, 0.865077, 0.687929, 1.43096)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.830454, 0.984793)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982923, 0.830454, 0.984793)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.24676, 1.16615, 4.5375)
-light_energy = 0.97
+visible = false
+light_energy = 0.845
