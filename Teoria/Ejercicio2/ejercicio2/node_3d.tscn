@@ -9,7 +9,7 @@
 render_priority = 0
 shader = ExtResource("1_a202f")
 shader_parameter/heightmap = ExtResource("2_a0tk4")
-shader_parameter/bump_scale = 1.0
+shader_parameter/bump_scale = 2.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_noarx"]
 
@@ -18,7 +18,7 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_a202f")
 shader_parameter/heightmap = ExtResource("2_a0tk4")
-shader_parameter/bump_scale = 1.0
+shader_parameter/bump_scale = 1.84
 
 [node name="Node3D" type="Node3D"]
 
@@ -32,7 +32,7 @@ mesh = SubResource("SphereMesh_noarx")
 surface_material_override/0 = SubResource("ShaderMaterial_noarx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.916331, -0.222545, 0.332885, -0.00466382, 0.825345, 0.564609, -0.400396, -0.518921, 0.755251, 0.865077, 0.687929, 1.43096)
+transform = Transform3D(0.916821, 0.378428, -0.127404, -0.139323, 0.602193, 0.7861, 0.374204, -0.702962, 0.604827, 0.489301, 1.66313, 1.90232)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982923, 0.830454, 0.984793)

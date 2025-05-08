@@ -9,7 +9,7 @@ void vertex() {
 // Textura de altura para calcular las normales
 uniform sampler2D heightmap;
 // Factor para ajustar la intensidad del efecto
-uniform float bump_scale : hint_range(0, 1) = 2;
+uniform float bump_scale : hint_range(0, 2) = 2;
 
 void fragment() {
     vec2 uv = UV;
