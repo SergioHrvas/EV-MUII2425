@@ -2,9 +2,8 @@ shader_type spatial;
 
 
 void vertex() {
-	// Called for every vertex the material is visible on.
+	// No hacemos nada porque no alteramos la geometría
 }
-
 
 // Textura de altura para calcular las normales
 uniform sampler2D heightmap;
@@ -40,6 +39,6 @@ void fragment() {
     mat3 TBN = mat3(tangent, binormal, normal);
     vec3 final_normal = normalize(TBN * bump_normal);
 
-    // Aplicamos la normal resultante
+    // Aplicamos la normal
     NORMAL = final_normal;
 }
