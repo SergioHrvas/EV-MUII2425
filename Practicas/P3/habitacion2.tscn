@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dthtmwrllbf6c"]
+[gd_scene load_steps=14 format=3 uid="uid://dthtmwrllbf6c"]
 
+[ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_4sf3t"]
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
+[ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="3_h8uj6"]
 [ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="3_ydil0"]
 [ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://habitacion2.gdshader" id="4_ty8r2"]
 [ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
@@ -34,12 +36,15 @@ emission = Color(0, 0.392334, 0.394711, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="Habitacion" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114684, -0.0180297, 0.0094533)
 size = Vector3(20, 12, 12)
+material = ExtResource("1_4sf3t")
 
 [node name="Interior" type="CSGBox3D" parent="Habitacion"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543528, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0462151, 0, 0.0374801)
 operation = 2
 size = Vector3(19.5, 11.5, 11.5)
+material = ExtResource("1_4sf3t")
 
 [node name="Entrada" type="CSGBox3D" parent="Habitacion"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.283, -6, 0)
@@ -47,7 +52,17 @@ operation = 2
 size = Vector3(5, 2, 5)
 
 [node name="Escalera" parent="Habitacion" instance=ExtResource("1_lxnyj")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.5, 0)
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.49669, 0)
+
+[node name="Suelo" type="CSGBox3D" parent="Habitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.7, 0)
+size = Vector3(19.5, 0.1, 11.5)
+material = ExtResource("3_h8uj6")
+
+[node name="Entrada" type="CSGBox3D" parent="Habitacion/Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.283, 0.481094, 0)
+operation = 2
+size = Vector3(5, 2, 5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0034906, 0.999994, 0, -0.999994, -0.0034906, 0, 5.91335, 0)
@@ -61,7 +76,7 @@ mesh = SubResource("BoxMesh_ty8r2")
 surface_material_override/0 = SubResource("ShaderMaterial_whvtv")
 
 [node name="Luz" parent="." instance=ExtResource("5_ty8r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444534, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.444534, 0.00331116, 0)
 
 [node name="TechoAnim" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.95379, 0)
@@ -76,10 +91,10 @@ skeleton = NodePath("../TechoAnim2")
 surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
 
 [node name="TrianguloZelda" parent="." instance=ExtResource("7_8plxl")]
-transform = Transform3D(-8.74228e-08, -1, -1.73205, 0, 1.73205, -1, 2, -4.37114e-08, -7.57103e-08, 5.23598, 1.76336, 0)
+transform = Transform3D(-8.74228e-08, -1, -1.73205, 0, 1.73205, -1, 2, -4.37114e-08, -7.57103e-08, 5.23598, 1.76667, 0)
 
 [node name="cofre" parent="." instance=ExtResource("6_8plxl")]
-transform = Transform3D(0.37957, 0, 0, 0, 0.37957, 0, 0, 0, 0.37957, -1.46248, -3.00558, -0.0342397)
+transform = Transform3D(0.37957, 0, 0, 0, 0.37957, 0, 0, 0, 0.37957, -1.46248, -3.00227, -0.0342397)
 
 [node name="CaperaPivot" type="Node3D" parent="cofre"]
 script = ExtResource("3_ydil0")
@@ -89,5 +104,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
 
 [node name="Camera3D" type="Camera3D" parent="cofre/CaperaPivot/CameraPitch"]
 transform = Transform3D(1.25, 0, 7.45058e-09, 0, 1.25, 0, -7.45058e-09, 0, 1.25, -15.7396, 1.64615, 17.3289)
-visible = false
 current = true
