@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvr5pyxx5314u"]
+[gd_scene load_steps=3 format=3 uid="uid://bvr5pyxx5314u"]
 
 [ext_resource type="PackedScene" uid="uid://cekhiibt5fl6e" path="res://elements/gancho_ani.glb" id="1_snml0"]
 [ext_resource type="Script" uid="uid://dgmu5sw3urx8i" path="res://elements/gancho_ani.gd" id="2_t0v4c"]
-[ext_resource type="Material" uid="uid://d4kqoypqlleou" path="res://materiales/gancho.tres" id="3_djyao"]
-[ext_resource type="Material" uid="uid://b0eli04alq1ap" path="res://materiales/llaveros_material.tres" id="4_iuar1"]
 
 [node name="gancho_ani" instance=ExtResource("1_snml0")]
 script = ExtResource("2_t0v4c")
 
 [node name="GanchoFull" parent="." index="0"]
-transform = Transform3D(4.79647, 0.181544, -0.0497759, 0.030742, -1.55903, -7.56609, -0.181398, 4.53613, -2.59841, -58.6404, 28.094, 35.6394)
-surface_material_override/0 = ExtResource("3_djyao")
+transform = Transform3D(4.79295, -0.256811, 0.0683293, 0.0694729, 0.535178, -7.94927, 0.250612, 4.76315, 0.896847, -58.7089, 28.3652, -29.3268)
 
 [node name="Rail" parent="." index="1"]
 transform = Transform3D(13.1677, 0, 0, 0, 13.1677, 0, 0, 0, 13.1677, 1.54428, 25.099, 0.293373)
-surface_material_override/0 = ExtResource("4_iuar1")

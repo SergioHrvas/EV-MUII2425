@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d3g517ra8mka5"]
+[gd_scene load_steps=16 format=3 uid="uid://d3g517ra8mka5"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="8_san7q"]
 [ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://elements/azul.tres" id="11_rvkbe"]
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="11_vwrra"]
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://elements/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://elements/techo.tres" id="13_c342v"]
 
@@ -85,6 +86,16 @@ light_indirect_energy = 1.67
 
 [node name="cofre" parent="." instance=ExtResource("8_san7q")]
 transform = Transform3D(-0.997893, 0, -0.0648806, 0, 1, 0, 0.0648806, 0, -0.997893, 15.8234, -1.27679, 1.50986)
+
+[node name="CaperaPivot" type="Node3D" parent="cofre"]
+script = ExtResource("11_vwrra")
+
+[node name="CameraPitch" type="Node3D" parent="cofre/CaperaPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
+
+[node name="Camera3D" type="Camera3D" parent="cofre/CaperaPivot/CameraPitch"]
+transform = Transform3D(2.63456, 0, 1.57032e-08, 0, 2.63456, 0, -1.57032e-08, 0, 2.63456, -15.7396, 1.64615, 14.8791)
+current = true
 
 [node name="Techo" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 17.157, 0)

@@ -41,3 +41,7 @@ outer_radius = 2.203
 sides = 35
 ring_sides = 21
 material = ExtResource("1_q06hq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.232243, 0)
+light_color = Color(0.970629, 0.627514, 0, 1)
