@@ -33,7 +33,6 @@ También se le han añadido los materiales al resto de objetos de la escena como
 
 ## Luces
 Se han añadido las siguientes luces:
-- **Luz direccional:** 
-- **Luz focal:** Sale del triángulo de zelda como si fuese un foco y se proyecta sobre el cofre. Se encuentra en la habitación 2. Apretando "l", se produce la animación de "titilar" donde la luz se apaga y se enciende varias veces y finalmente se atenua.
-
-- **Luz ambiental:**
+- **Luz direccional:** De color verdoso. Sale de la parte superior de las dos habitaciones. Simula la iluminación que da el efecto de magia realizado en el techo. 
+- **Luz focal (SpotLight):** De color amarillo. Sale del triángulo de zelda como si fuese un foco y se proyecta sobre el cofre. Se encuentra en la habitación 2. Apretando "l", se produce la animación de "titilar" donde la luz se apaga y se enciende varias veces y finalmente se atenua.
+- **Luz puntual (OmniLight):** Se encuentran en la habitación 1. Hay dos de color naranja sobre los objetos "plataforma", simulando que emiten esa luz desde el centro. También hay otra azul en la parte superior del hacha que sale del cofre, simulando una emisión de luz de dicha herramienta.

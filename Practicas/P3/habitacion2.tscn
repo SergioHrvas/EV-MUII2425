@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="6_8plxl"]
 [ext_resource type="Shader" uid="uid://bkfshn8p6t353" path="res://shader2.gdshader" id="6_whvtv"]
-[ext_resource type="PackedScene" uid="uid://618qgs0f55a5" path="res://zelda_triangulo.tscn" id="7_8plxl"]
 [ext_resource type="Texture2D" uid="uid://dtasb0cuafk0s" path="res://materiales/NightSkyHDRI012_2K-TONEMAPPED.jpg" id="7_vvsux"]
 [ext_resource type="Texture2D" uid="uid://bwqdusqc4t267" path="res://materiales/NightSkyHDRI012_2K-HDR.exr" id="8_250mc"]
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="11_250mc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ty8r2"]
-size = Vector3(19.5, 0.25, 11.5)
+size = Vector3(39.5, 0.25, 19.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_whvtv"]
 render_priority = 0
@@ -42,14 +42,15 @@ uv1_offset = Vector3(-0.4, 1.325, -0.09)
 [node name="Node3D" type="Node3D"]
 
 [node name="Habitacion" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114684, -0.0180297, 0.0094533)
-size = Vector3(20, 12, 12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, 0.009)
+size = Vector3(40, 27, 20)
 material = ExtResource("1_4sf3t")
 
 [node name="Interior" type="CSGBox3D" parent="Habitacion"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0462151, 0, 0.0374801)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.037)
+layers = 3
 operation = 2
-size = Vector3(19.5, 11.5, 11.5)
+size = Vector3(39.5, 26.5, 16.5)
 material = ExtResource("1_4sf3t")
 
 [node name="Entrada" type="CSGBox3D" parent="Habitacion"]
@@ -58,46 +59,58 @@ operation = 2
 size = Vector3(5, 2, 5)
 
 [node name="Escalera" parent="Habitacion" instance=ExtResource("1_lxnyj")]
-transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 3.6323, -5.49669, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.70761, -10.4065, 0.00017041)
 
-[node name="Suelo" type="CSGBox3D" parent="Habitacion"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.7, 0)
-size = Vector3(19.5, 0.1, 11.5)
-material = ExtResource("3_h8uj6")
+[node name="LuzTitilar" parent="." instance=ExtResource("5_ty8r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76047, 7.21129, 0)
 
-[node name="Entrada" type="CSGBox3D" parent="Habitacion/Suelo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.283, 0.481094, 0)
-operation = 2
-size = Vector3(5, 2, 5)
+[node name="cofre" parent="." instance=ExtResource("6_8plxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3046, -2.77542, -0.0342397)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="CaperaPivot" type="Node3D" parent="cofre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.670529)
+script = ExtResource("11_250mc")
+
+[node name="CameraPitch" type="Node3D" parent="cofre/CaperaPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
+
+[node name="Camera3D" type="Camera3D" parent="cofre/CaperaPivot/CameraPitch"]
+transform = Transform3D(1, 0, 5.96046e-09, 0, 1, 0, -5.96046e-09, 0, 1, -15.7396, -3.39457, 8.2497)
+current = true
+
+[node name="TechoSuelo" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 11.118, 0)
+
+[node name="TechoAnim2" type="MeshInstance3D" parent="TechoSuelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_whvtv")
+
+[node name="TechoAnim" type="MeshInstance3D" parent="TechoSuelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+skeleton = NodePath("../TechoAnim2")
+surface_material_override/0 = SubResource("ShaderMaterial_8plxl")
+
+[node name="Techo" type="MeshInstance3D" parent="TechoSuelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
+mesh = SubResource("BoxMesh_ty8r2")
+skeleton = NodePath("../TechoAnim2")
+surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TechoSuelo"]
 transform = Transform3D(1, 0, 0, 0, -0.0034906, 0.999994, 0, -0.999994, -0.0034906, 0, 5.91335, 0)
 light_color = Color(0.715998, 1, 0.688543, 1)
 light_energy = 0.523
 light_indirect_energy = 1.67
 
-[node name="TechoAnim2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.41695, 0)
-mesh = SubResource("BoxMesh_ty8r2")
-surface_material_override/0 = SubResource("ShaderMaterial_whvtv")
+[node name="Suelo" type="CSGBox3D" parent="TechoSuelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.318, 0.009)
+size = Vector3(39.5, 0.1, 19.5)
+material = ExtResource("3_h8uj6")
 
-[node name="Luz" parent="." instance=ExtResource("5_ty8r2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.41063, 2.93733, 0)
-
-[node name="TechoAnim" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.45765, 0)
-mesh = SubResource("BoxMesh_ty8r2")
-skeleton = NodePath("../TechoAnim2")
-surface_material_override/0 = SubResource("ShaderMaterial_8plxl")
-
-[node name="Techo" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.49116, 0)
-mesh = SubResource("BoxMesh_ty8r2")
-skeleton = NodePath("../TechoAnim2")
-surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
-
-[node name="TrianguloZelda" parent="." instance=ExtResource("7_8plxl")]
-transform = Transform3D(-8.74228e-08, -1, -1.73205, 0, 1.73205, -1, 2, -4.37114e-08, -7.57103e-08, 9.20208, 4.70069, 0)
-
-[node name="cofre" parent="." instance=ExtResource("6_8plxl")]
-transform = Transform3D(0.37957, 0, 0, 0, 0.37957, 0, 0, 0, 0.37957, -1.46248, -3.00227, -0.0342397)
+[node name="Entrada" type="CSGBox3D" parent="TechoSuelo/Suelo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.283, 0.481094, 0)
+operation = 2
+size = Vector3(5, 2, 5)
