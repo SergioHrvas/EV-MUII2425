@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dthtmwrllbf6c"]
+[gd_scene load_steps=17 format=3 uid="uid://dthtmwrllbf6c"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_4sf3t"]
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
@@ -6,7 +6,6 @@
 [ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://techo.gdshader" id="4_ty8r2"]
 [ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="6_8plxl"]
-[ext_resource type="Shader" uid="uid://bkfshn8p6t353" path="res://techo2.gdshader" id="6_whvtv"]
 [ext_resource type="Texture2D" uid="uid://dtasb0cuafk0s" path="res://materiales/NightSkyHDRI012_2K-TONEMAPPED.jpg" id="7_vvsux"]
 [ext_resource type="Texture2D" uid="uid://bwqdusqc4t267" path="res://materiales/NightSkyHDRI012_2K-HDR.exr" id="8_250mc"]
 [ext_resource type="PackedScene" uid="uid://3rygovqjnn16" path="res://elements/shrine_goal.tscn" id="11_4sf3t"]
@@ -34,11 +33,11 @@ shader_parameter/edge_softness = 0.4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8plxl"]
 render_priority = 0
-shader = ExtResource("6_whvtv")
-shader_parameter/fog_color = Color(8.37475e-06, 0.755679, 0.340487, 1)
-shader_parameter/speed = 0.0
-shader_parameter/scale = 4.66
-shader_parameter/intensity = 0.5
+shader = ExtResource("4_ty8r2")
+shader_parameter/fog_color = Color(0, 0.756863, 0.341176, 1)
+shader_parameter/speed = 0.05
+shader_parameter/scale = 2.0
+shader_parameter/intensity = 0.8
 shader_parameter/density = 0.8
 shader_parameter/edge_softness = 0.4
 
@@ -88,24 +87,24 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.452736, 0.204241, 
 [node name="cofre" parent="MeshInstance3D" instance=ExtResource("6_8plxl")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0486228, -0.391021, -0.00216199)
 
-[node name="TechoSuelo" type="Node3D" parent="MeshInstance3D"]
+[node name="Techos" type="Node3D" parent="MeshInstance3D"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.4309, -0.00045)
 
-[node name="TechoAnim2" type="MeshInstance3D" parent="MeshInstance3D/TechoSuelo"]
+[node name="TechoAnim2" type="MeshInstance3D" parent="MeshInstance3D/Techos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
 layers = 16
 mesh = SubResource("BoxMesh_ty8r2")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_whvtv")
 
-[node name="TechoAnim" type="MeshInstance3D" parent="MeshInstance3D/TechoSuelo"]
+[node name="TechoAnim" type="MeshInstance3D" parent="MeshInstance3D/Techos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
 layers = 16
 mesh = SubResource("BoxMesh_ty8r2")
 skeleton = NodePath("../TechoAnim2")
 surface_material_override/0 = SubResource("ShaderMaterial_8plxl")
 
-[node name="Techo" type="MeshInstance3D" parent="MeshInstance3D/TechoSuelo"]
+[node name="Techo" type="MeshInstance3D" parent="MeshInstance3D/Techos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
 layers = 16
 mesh = SubResource("BoxMesh_ty8r2")

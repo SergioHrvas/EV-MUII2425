@@ -138,7 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77745, -2.22505, 0)
 mesh = SubResource("CylinderMesh_rvkbe")
 
 [node name="RunaLampara" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77335, 16.2585, 0.0978231)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77335, 15.9427, 0.0978231)
 mesh = SubResource("CylinderMesh_vwrra")
 skeleton = NodePath("../Runa2")
 surface_material_override/0 = SubResource("StandardMaterial3D_rvkbe")

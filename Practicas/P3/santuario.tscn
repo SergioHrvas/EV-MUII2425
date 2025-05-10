@@ -1,11 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqr4oh1x1aytq"]
+[gd_scene load_steps=7 format=3 uid="uid://bqr4oh1x1aytq"]
 
 [ext_resource type="PackedScene" uid="uid://d3g517ra8mka5" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
 [ext_resource type="PackedScene" uid="uid://dthtmwrllbf6c" path="res://elements/habitacion2.tscn" id="2_5hydm"]
+[ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="3_5hydm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xkxwq"]
+energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_5hydm"]
+sky_material = SubResource("ProceduralSkyMaterial_xkxwq")
 
 [sub_resource type="Environment" id="Environment_xkxwq"]
+sky = SubResource("Sky_5hydm")
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0259
+volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 
 [node name="Node3D" type="Node3D"]
@@ -14,18 +22,21 @@ volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0, 0, 0)
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.993, 36.7429, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.993, 37.3168, 0)
 
 [node name="Pasillo" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 21.0929, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 21.6668, 0)
 size = Vector3(5, 10, 5)
+material = ExtResource("3_5hydm")
 
 [node name="PasilloInterior" type="CSGBox3D" parent="Pasillo"]
 operation = 2
 size = Vector3(4.9, 10, 4.9)
+material = ExtResource("3_5hydm")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.640418, 0.768027, 0, -0.768027, -0.640418, 0, 76.759, -17.1236)
+light_color = Color(1, 0.956863, 0.839216, 1)
 light_cull_mask = 4294967279
 shadow_enabled = true
 shadow_opacity = 0.5
