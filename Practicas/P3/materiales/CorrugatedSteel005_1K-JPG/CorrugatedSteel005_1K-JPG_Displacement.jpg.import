@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caxnlecouk7e1"
-path.s3tc="res://.godot/imported/DiamondPlate006C_2K-JPG_Metalness.jpg-862d21fc1ee7cd084a350dfe02e7e166.s3tc.ctex"
+uid="uid://ba0oduyvg38l3"
+path.s3tc="res://.godot/imported/CorrugatedSteel005_1K-JPG_Displacement.jpg-a43716eae82ca43f388a81f70bce4a87.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://materiales/DiamondPlate006C_2K-JPG/DiamondPlate006C_2K-JPG_Metalness.jpg"
-dest_files=["res://.godot/imported/DiamondPlate006C_2K-JPG_Metalness.jpg-862d21fc1ee7cd084a350dfe02e7e166.s3tc.ctex"]
+source_file="res://materiales/CorrugatedSteel005_1K-JPG/CorrugatedSteel005_1K-JPG_Displacement.jpg"
+dest_files=["res://.godot/imported/CorrugatedSteel005_1K-JPG_Displacement.jpg-a43716eae82ca43f388a81f70bce4a87.s3tc.ctex"]
 
 [params]
 
@@ -24,8 +24,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=7
+roughness/src_normal="res://materiales/CorrugatedSteel005_1K-JPG/CorrugatedSteel005_1K-JPG_NormalGL.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
