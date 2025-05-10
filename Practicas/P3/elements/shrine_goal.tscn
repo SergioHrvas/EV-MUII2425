@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://3rygovqjnn16"]
+
+[ext_resource type="PackedScene" uid="uid://bpwg4vbr0wjlb" path="res://elements/Nintendo Switch - The Legend of Zelda Tears of the Kingdom - Shrine Goal/Shrine Goal/shrine_goal.fbx" id="1_vmkw2"]
+
+[node name="shrine_goal" instance=ExtResource("1_vmkw2")]
+
+[node name="Floor_Geo01__Mt_DgnObj_Small_GoalGateKaresansui_A" parent="Armature/Skeleton3D" index="6"]
+visible = false
+
+[node name="RoofHigh_Grp_RoofHigh_L_pCube321__Mt_DgnObj_Small_BoxPartsFloor" parent="Armature/Skeleton3D" index="7"]
+visible = false
+
+[node name="StampStone_A_Geo01_1__Mt_DgnObj_Small_GoalGateStamp_A" parent="Armature/Skeleton3D" index="13"]
+visible = false
