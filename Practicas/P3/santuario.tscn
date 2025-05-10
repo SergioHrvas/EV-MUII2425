@@ -18,3 +18,10 @@ size = Vector3(5, 10, 5)
 [node name="PasilloInterior" type="CSGBox3D" parent="Pasillo"]
 operation = 2
 size = Vector3(4.9, 10, 4.9)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.640418, 0.768027, 0, -0.768027, -0.640418, 0, 76.759, -17.1236)
+light_cull_mask = 4294967279
+shadow_enabled = true
+shadow_opacity = 0.5
+shadow_caster_mask = 4294967279
