@@ -77,12 +77,6 @@ transform = Transform3D(0.00298109, 0, 0.114224, 0, 0.114263, 0, -0.114224, 0, 0
 [node name="gancho_ani" parent="." instance=ExtResource("7_6j36w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96961)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0034906, 0.999994, 0, -0.999994, -0.0034906, 0, 16.3499, 0)
-light_color = Color(0.715998, 1, 0.688543, 1)
-light_energy = 0.523
-light_indirect_energy = 1.67
-
 [node name="cofre" parent="." instance=ExtResource("8_san7q")]
 transform = Transform3D(-0.997893, 0, -0.0648806, 0, 1, 0, 0.0648806, 0, -0.997893, 15.8234, -1.27679, 1.50986)
 

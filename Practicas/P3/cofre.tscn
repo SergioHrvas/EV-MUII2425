@@ -22,7 +22,7 @@ light_energy = 2.228
 light_size = 0.134
 light_specular = 3.106
 shadow_enabled = true
-omni_range = 7.902
+omni_range = 18.086
 omni_attenuation = 0.91
 
 [node name="Caja" parent="." index="1"]

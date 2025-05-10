@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="3_h8uj6"]
 [ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://habitacion2.gdshader" id="4_ty8r2"]
+[ext_resource type="PackedScene" uid="uid://c5ixgq0or4888" path="res://camara360.tscn" id="5_4sf3t"]
 [ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="6_8plxl"]
 [ext_resource type="Shader" uid="uid://bkfshn8p6t353" path="res://shader2.gdshader" id="6_whvtv"]
 [ext_resource type="Texture2D" uid="uid://dtasb0cuafk0s" path="res://materiales/NightSkyHDRI012_2K-TONEMAPPED.jpg" id="7_vvsux"]
 [ext_resource type="Texture2D" uid="uid://bwqdusqc4t267" path="res://materiales/NightSkyHDRI012_2K-HDR.exr" id="8_250mc"]
 [ext_resource type="PackedScene" uid="uid://3rygovqjnn16" path="res://elements/shrine_goal.tscn" id="11_4sf3t"]
-[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://camera.gd" id="11_250mc"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://runa.tscn" id="12_4sf3t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ty8r2"]
@@ -69,16 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945287, 6.58483, 0)
 [node name="cofre" parent="." instance=ExtResource("6_8plxl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0825, -5.32042, -0.0342397)
 
-[node name="CaperaPivot" type="Node3D" parent="cofre"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.670529)
-script = ExtResource("11_250mc")
-
-[node name="CameraPitch" type="Node3D" parent="cofre/CaperaPivot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
-
-[node name="Camera3D" type="Camera3D" parent="cofre/CaperaPivot/CameraPitch"]
-transform = Transform3D(1, 0, 5.96046e-09, 0, 1, 0, -5.96046e-09, 0, 1, -15.7396, -3.39457, 8.2497)
-current = true
+[node name="Camara" parent="cofre" instance=ExtResource("5_4sf3t")]
 
 [node name="TechoSuelo" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 11.118, 0)
@@ -111,17 +102,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.481, 0)
 operation = 2
 size = Vector3(5, 2, 5)
 
-[node name="shrine_goal" parent="." instance=ExtResource("11_4sf3t")]
+[node name="TotemSantuario" parent="." instance=ExtResource("11_4sf3t")]
 transform = Transform3D(-1.83588e-08, 0, 0.42, 0, 0.42, 0, -0.42, 0, -1.83588e-08, -27.7092, -1.73864, -0.0589824)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7124, 1.70828, 0)
-light_color = Color(0.215686, 1, 0.301961, 1)
-light_energy = 2.158
-omni_range = 11.883
-
-[node name="MeshInstance3D" parent="." instance=ExtResource("12_4sf3t")]
+[node name="Runa1" parent="." instance=ExtResource("12_4sf3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.92561, -5.83661)
 
-[node name="MeshInstance3D2" parent="." instance=ExtResource("12_4sf3t")]
+[node name="Runa2" parent="." instance=ExtResource("12_4sf3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.92561, 5.55702)
