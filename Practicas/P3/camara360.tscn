@@ -12,5 +12,5 @@ script = ExtResource("1_wuppi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
 
 [node name="Camera3D" type="Camera3D" parent="CaperaPivot/CameraPitch"]
-transform = Transform3D(1, 0, 5.96046e-09, 0, 1, 0, -5.96046e-09, 0, 1, -15.7396, -3.39457, 8.2497)
+transform = Transform3D(1, 0, 5.96046e-09, 0, 1, 0, -5.96046e-09, 0, 1, -15.7396, -3.39457, 14.3457)
 current = true
