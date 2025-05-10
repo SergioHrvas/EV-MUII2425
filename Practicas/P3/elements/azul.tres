@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://2go2bwnd8otn"]
 
-[ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://habitacion2.gdshader" id="1_p23yy"]
+[ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://techo.gdshader" id="1_p23yy"]
 
 [resource]
 render_priority = 0
