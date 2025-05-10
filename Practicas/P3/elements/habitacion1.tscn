@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3g517ra8mka5"]
+[gd_scene load_steps=20 format=3 uid="uid://d3g517ra8mka5"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
+[ext_resource type="Script" uid="uid://hx1kv8bq367j" path="res://elements/habitacion_1.gd" id="1_l82dh"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="2_hvtsi"]
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
 [ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://elements/gancho.tscn" id="3_nqbf4"]
@@ -10,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://gancho.tscn" id="6_bh3rd"]
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="8_san7q"]
+[ext_resource type="Script" uid="uid://dslho6df61i4m" path="res://elements/setLayers.gd" id="8_vwrra"]
 [ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://elements/azul.tres" id="11_rvkbe"]
-[ext_resource type="PackedScene" uid="uid://c5ixgq0or4888" path="res://camara360.tscn" id="11_vwrra"]
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://elements/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://elements/techo.tres" id="13_c342v"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://runa.tscn" id="14_rvkbe"]
@@ -32,6 +33,7 @@ emission = Color(0.0500001, 1, 0, 1)
 emission_energy_multiplier = 3.12
 
 [node name="Node3D2" type="Node3D"]
+script = ExtResource("1_l82dh")
 
 [node name="Habitacion" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7.5, 0)
@@ -84,6 +86,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63844, -2.275, 4.30188)
 
 [node name="Silla" parent="." instance=ExtResource("5_0giyi")]
 transform = Transform3D(-0.00111688, 0, -0.799999, 0, 0.8, 0, 0.799999, 0, -0.00111688, 8.32429, -2.149, -11.7982)
+script = ExtResource("8_vwrra")
 
 [node name="gancho" parent="Silla" instance=ExtResource("6_bh3rd")]
 transform = Transform3D(0.00298109, 0, 0.114224, 0, 0.114263, 0, -0.114224, 0, 0.00298109, 30.8071, -0.383481, 4.66044)
@@ -93,8 +96,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96
 
 [node name="cofre" parent="." instance=ExtResource("8_san7q")]
 transform = Transform3D(-0.997893, 0, -0.0648806, 0, 1, 0, 0.0648806, 0, -0.997893, 15.8234, -1.35022, 1.50986)
-
-[node name="Camara" parent="cofre" instance=ExtResource("11_vwrra")]
 
 [node name="Techo2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 17.325, 0)

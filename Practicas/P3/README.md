@@ -12,6 +12,8 @@ Otra de las optimizaciones que se han realizado es en el albedo: en lugar de car
 
 Para mejorar el rendimiento también se han reutilizado algunos materiales en distintas partes del cofre (a continuación se verá). Esta estrategia ha permitido reducir la cantidad de texturas y materiales únicos, optimizando el uso de recursos sin sacrificar la calidad visual. Al reutilizar materiales como el metallic_gold en diferentes componentes del cofre, se ha logrado minimizar el impacto en el rendimiento.
 
+Al importar las texturas se ha comprobado que estén VRAM Compress y Generate Mipmap activados de forma automática porque estas opciones optimizan el uso de memoria de la GPU y mejoran el rendimiento del renderizado, especialmente en escenas 3D. La compresión en VRAM reduce el tamaño de las texturas cargadas en la tarjeta gráfica, mientras que los mipmaps mejoran la eficiencia al renderizar objetos.
+
 A continuación, explico los materiales utilizados en el cofre (el modelo más complejo):
 
 - **Caja:** Metal gris (Metal041A), compuesto por Albedo (color base), Metalness, Roughness, NormalGL y Height (desplazamiento). El material está configurado con un valor de Metallic de 0.75, Specular en 0.65, Roughness a 0.80 y una intensidad de normales (Normal Scale) de 3, lo que permite un acabado metálico envejecido con gran realismo superficial. Estas texturas permiten simular con precisión el comportamiento de la luz en diferentes zonas del objeto sin añadir complejidad geométrica.
@@ -27,7 +29,7 @@ A continuación, explico los materiales utilizados en el cofre (el modelo más c
 
 *Nota*: He sacado los materiales de AmbientCG.
 
-Para las normales de los materiales se ha utilizado la textura de NormalGL (en lugar de NormalDX), ya que Godot sigue la convención de OpenGL para las coordenadas normales, donde el eje Y está orientado hacia arriba.
+Para las normales de los materiales se ha utilizado la textura de NormalGL (en lugar de NormalDX), ya que Godot sigue la convención de OpenGL para las coordenadas normales, donde el eje Y está orientado hacia arriba. También se han evitado parámetros como transparencia o opciones GLES3, ya que incrementan significativamente el coste de renderizado.
 
 También se le han añadido los materiales al resto de objetos de la escena (muchos reutilizados) como:
 - **Bola:** Mármol + Plástico gris
@@ -56,7 +58,9 @@ A continuación se explican las luces utilizadas:
   Implementada para simular iluminación solar en la Habitación 1, aprovechando sus ventanas como fuente de entrada de luz natural. Para optimizar su comportamiento:  
   - Ubicada en la escena raíz del santuario, se ha pretendido que solo ilumine la habitación 1. Para lograr esto tenía dos dilemas:
     - Si lo ponía dentro de la escena de la habitación 1, el hueco superior para el pasillo iba a dejar pasar la luz. Probando varias formas (obstrudeLight, mesh con alpha 0...), no logré encontrar alguna que evitase que pasase esta luz.
-    - Si lo ponía en la escena del santuario, la luz (con sombra a 0.5), afectaba también a la habitación 2, lo cual no tenía sentido porque no tenía ninguna ventana. Para evitar que entrase luz solar, lo que hice fue que esta luz direccional afectase a todas las capas menos a la 5, y esta capa se la asigne a un MeshInstance invisible que es el padre de la habitación 2 entera, de esta forma, esa luz no puede entrar dentro. No sé si es lo más óptimo pero es lo que pude hacer para que la habitación 2 pudiese seguir teniendo esa luz "mágica" sin la direccional.
+    - Si lo ponía en la escena del santuario, la luz (con sombra a 0.5), afectaba también a la habitación 2, lo cual no tenía sentido porque no tenía ninguna ventana. 
+
+    Para evitar que entrase luz solar, lo que hice fue que esta luz direccional afectase a todas las capas menos a la 5 (desmarcando la casilla 5 en su Light > Culling Mask). A continuación, apliqué un script a la habitación 2 que, al cargarse, asigna de forma automática la capa 5 a todos sus nodos visuales (como MeshInstance3D, CSGBox3D, etc.), incluso si están anidados dentro de otros Node3D. Esto permite mantener escenas reutilizables entre habitaciones sin modificar nodo por nodo, ya que se recorren todos los hijos recursivamente y solo se actualizan los que son renderizables. De esta forma, la habitación 2 queda completamente excluida del efecto de la luz solar, sin trucos visuales ni objetos opacos, y sin perder modularidad en la estructura de escenas. Es la única forma sencilla y reutilizable que he encontrado, de todas formas se lo preguntaré en clase para ver si es posible mejorarlo.
 
     He usado esta luz para simular la luz solar, con un sombreado con opacidad 0.5 y una inclinación para que la luz ilumine sutilmente la habitación y entre por la ventana. 
   - Color: Amarillo pálido (#FFF4D6, temperatura 4500K).  

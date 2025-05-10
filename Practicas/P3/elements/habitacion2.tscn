@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dthtmwrllbf6c"]
+[gd_scene load_steps=19 format=3 uid="uid://dthtmwrllbf6c"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_4sf3t"]
+[ext_resource type="Script" uid="uid://dumn0ly7n84r7" path="res://elements/habitacion_2.gd" id="1_ivxyl"]
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="3_h8uj6"]
 [ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://techo.gdshader" id="4_ty8r2"]
+[ext_resource type="PackedScene" uid="uid://c5ixgq0or4888" path="res://camara360.tscn" id="5_2imnj"]
 [ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="6_8plxl"]
 [ext_resource type="Texture2D" uid="uid://dtasb0cuafk0s" path="res://materiales/NightSkyHDRI012_2K-TONEMAPPED.jpg" id="7_vvsux"]
@@ -51,6 +53,7 @@ uv1_scale = Vector3(1.315, 1.315, 1.315)
 uv1_offset = Vector3(-0.4, 1.325, -0.09)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ivxyl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -10, 2.5, 0.009)
@@ -86,6 +89,8 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.452736, 0.204241, 
 
 [node name="cofre" parent="MeshInstance3D" instance=ExtResource("6_8plxl")]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0486228, -0.391021, -0.00216199)
+
+[node name="Camara" parent="MeshInstance3D/cofre" instance=ExtResource("5_2imnj")]
 
 [node name="Techos" type="Node3D" parent="MeshInstance3D"]
 transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.4309, -0.00045)

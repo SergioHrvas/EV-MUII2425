@@ -22,7 +22,7 @@ volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0, 0, 0)
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.993, 37.3168, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9258, 37.3168, -0.0884233)
 
 [node name="Pasillo" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 21.6668, 0)
