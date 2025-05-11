@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dfhnf8wl4y7p1"]
 
 [ext_resource type="Material" uid="uid://bgujjkh5nihk7" path="res://materiales/silla_respaldo.tres" id="1_k8a43"]
-[ext_resource type="Material" uid="uid://basknyugt18v5" path="res://elements/silla_plastico.tres" id="2_gfl0x"]
+[ext_resource type="Material" uid="uid://basknyugt18v5" path="res://materiales/silla_plastico.tres" id="2_gfl0x"]
 
 [node name="Node3D" type="Node3D"]
 

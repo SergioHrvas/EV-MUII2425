@@ -1,21 +1,33 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3g517ra8mka5"]
+[gd_scene load_steps=21 format=3 uid="uid://qrdai0nmq1mb"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
-[ext_resource type="Script" uid="uid://hx1kv8bq367j" path="res://elements/habitacion_1.gd" id="1_l82dh"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="2_hvtsi"]
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
 [ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://elements/gancho.tscn" id="3_nqbf4"]
 [ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://elements/palanca.tscn" id="4_vy1a3"]
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://elements/silla.tscn" id="5_0giyi"]
-[ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://gancho.tscn" id="6_bh3rd"]
+[ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://elements/ganchoBlender.tscn" id="6_bh3rd"]
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
-[ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="8_san7q"]
-[ext_resource type="Script" uid="uid://dslho6df61i4m" path="res://elements/setLayers.gd" id="8_vwrra"]
-[ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://elements/azul.tres" id="11_rvkbe"]
-[ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://elements/verde.tres" id="12_rvkbe"]
-[ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://elements/techo.tres" id="13_c342v"]
-[ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://runa.tscn" id="14_rvkbe"]
+[ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://elements/cofreBlender.tscn" id="8_san7q"]
+[ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://materiales/azul.tres" id="11_rvkbe"]
+[ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
+[ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
+[ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
+[ext_resource type="Material" uid="uid://b4genisxtfb3a" path="res://materiales/adorno_material.tres" id="16_l82dh"]
+
+[sub_resource type="GDScript" id="GDScript_vwrra"]
+
+[sub_resource type="GDScript" id="GDScript_l82dh"]
+script/source = "extends Node
+
+# Establece la capa de luz recursivamente para que llegue a todos los nodos del cofre
+func set_visual_layer_recursively(node: Node, layer_mask: int) -> void:
+	if node is VisualInstance3D:
+		node.layers = layer_mask
+	for child in node.get_children():
+		set_visual_layer_recursively(child, layer_mask)
+"
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_rvkbe"]
 top_radius = 2.0
@@ -33,7 +45,7 @@ emission = Color(0.0500001, 1, 0, 1)
 emission_energy_multiplier = 3.12
 
 [node name="Node3D2" type="Node3D"]
-script = ExtResource("1_l82dh")
+script = SubResource("GDScript_vwrra")
 
 [node name="Habitacion" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7.5, 0)
@@ -86,10 +98,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63844, -2.275, 4.30188)
 
 [node name="Silla" parent="." instance=ExtResource("5_0giyi")]
 transform = Transform3D(-0.00111688, 0, -0.799999, 0, 0.8, 0, 0.799999, 0, -0.00111688, 8.32429, -2.149, -11.7982)
-script = ExtResource("8_vwrra")
+script = SubResource("GDScript_l82dh")
 
 [node name="gancho" parent="Silla" instance=ExtResource("6_bh3rd")]
-transform = Transform3D(0.00298109, 0, 0.114224, 0, 0.114263, 0, -0.114224, 0, 0.00298109, 30.8071, -0.383481, 4.66044)
+transform = Transform3D(0.00521795, 0, 0.199932, 0, 0.2, 0, -0.199932, 0, 0.00521795, 30.8071, -0.142169, 4.66044)
 
 [node name="gancho_ani" parent="." instance=ExtResource("7_6j36w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96961)
@@ -137,6 +149,7 @@ skeleton = NodePath("../Runa")
 [node name="Ascensor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77745, -2.22505, 0)
 mesh = SubResource("CylinderMesh_rvkbe")
+surface_material_override/0 = ExtResource("16_l82dh")
 
 [node name="RunaLampara" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.77335, 15.9427, 0.0978231)
@@ -146,7 +159,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rvkbe")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="RunaLampara"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-light_color = Color(0.53, 1, 0.616167, 1)
-light_energy = 7.508
-spot_range = 171.971
+light_color = Color(0, 0.89, 0.445, 1)
+light_energy = 7.798
+spot_range = 51.57
+spot_attenuation = 0.92
 spot_angle = 65.95

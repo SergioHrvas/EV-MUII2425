@@ -1,17 +1,32 @@
-[gd_scene load_steps=19 format=3 uid="uid://dthtmwrllbf6c"]
+[gd_scene load_steps=19 format=3 uid="uid://cmcmbmsdkxfaa"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_4sf3t"]
-[ext_resource type="Script" uid="uid://dumn0ly7n84r7" path="res://elements/habitacion_2.gd" id="1_ivxyl"]
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="3_h8uj6"]
-[ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://techo.gdshader" id="4_ty8r2"]
-[ext_resource type="PackedScene" uid="uid://c5ixgq0or4888" path="res://camara360.tscn" id="5_2imnj"]
-[ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://luz_titilar.tscn" id="5_ty8r2"]
-[ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://cofre.tscn" id="6_8plxl"]
+[ext_resource type="Shader" uid="uid://tupa77xlmimv" path="res://materiales/techo.gdshader" id="4_ty8r2"]
+[ext_resource type="PackedScene" uid="uid://c5ixgq0or4888" path="res://elements/camara360.tscn" id="5_2imnj"]
+[ext_resource type="PackedScene" uid="uid://bgi7tr713sk84" path="res://elements/luz_titilar.tscn" id="5_ty8r2"]
+[ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://elements/cofreBlender.tscn" id="6_8plxl"]
 [ext_resource type="Texture2D" uid="uid://dtasb0cuafk0s" path="res://materiales/NightSkyHDRI012_2K-TONEMAPPED.jpg" id="7_vvsux"]
 [ext_resource type="Texture2D" uid="uid://bwqdusqc4t267" path="res://materiales/NightSkyHDRI012_2K-HDR.exr" id="8_250mc"]
 [ext_resource type="PackedScene" uid="uid://3rygovqjnn16" path="res://elements/shrine_goal.tscn" id="11_4sf3t"]
-[ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://runa.tscn" id="12_4sf3t"]
+[ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="12_4sf3t"]
+
+[sub_resource type="GDScript" id="GDScript_xkhij"]
+script/source = "extends Node3D
+
+const LAYER_MASK := 1 << 4  # Capa 5 (binario, desplazaria 4 veces el uno a la izquierda)
+
+func _ready():
+	apply_layer_to_visuals(self, LAYER_MASK)
+
+func apply_layer_to_visuals(node: Node, layer_mask: int) -> void:
+	if node is VisualInstance3D:
+		node.layers = layer_mask
+		print(\"Aplicando capa a:\", node.name)
+	for child in node.get_children():
+		apply_layer_to_visuals(child, layer_mask)
+"
 
 [sub_resource type="BoxMesh" id="BoxMesh_4sf3t"]
 size = Vector3(5, 5, 5)
@@ -53,7 +68,7 @@ uv1_scale = Vector3(1.315, 1.315, 1.315)
 uv1_offset = Vector3(-0.4, 1.325, -0.09)
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_ivxyl")
+script = SubResource("GDScript_xkhij")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -10, 2.5, 0.009)

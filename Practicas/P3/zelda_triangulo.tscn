@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://618qgs0f55a5"]
-
-[ext_resource type="PackedScene" uid="uid://dk3qwl0vg5p4k" path="res://zelda_triforce_lamp.glb" id="1_ku1cj"]
-
-[node name="Sketchfab_Scene" instance=ExtResource("1_ku1cj")]
