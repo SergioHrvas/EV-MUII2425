@@ -52,7 +52,7 @@ También se le han añadido los materiales al resto de objetos de la escena (muc
     - Mesh con una imagen de estrechas en Albedo y un fichero exr en Emission.
     - Dos meshes azul y verde con movimiento que simulan una especie de niebla o efecto sobre el techo (se pretende mejorar para la siguiente práctica). Este movimiento se ha realizado mediante shaders. Este shader crea un efecto de niebla dinámica que fluye suavemente, como si fuese humo moviéndose en cámara lenta. Usa varias capas de ondas superpuestas (como si fuesen olas invisibles) que se mezclan para dar esa sensación de movimiento aleatorio. Se puede controlar su color, velocidad y densidad, ajustando qué tan espesa o transparente se ve la niebla y la suavidad de sus bordes. Me he basado en lo explicado en clase para el agua y en algunos tutoriales e implementaciones como https://godotshaders.com/shader/stylized-cloud-as-texture/
 - **Escaleras:** Pavimento de piedra (PavingStones128)
-- **Palanca:** Para el soporte se ha escogido el mármol y para el 
+- **Palanca:** Para el soporte se ha escogido el mármol y para la palanca 
 - **Silla:** Para el respaldo y asiento se ha usado un material rugoso llamado Carpet, mientras que para las patas y el esqueleto, se ha utilizado un material Rubber.
 - **Runas:** Material con emisión de colores (azul y verde)
 - **Ascensor:** Se ha usado la chapa diamantada de los adornos del cofre. En este caso se ha usado UV triplanar para que los laterales se mapeen correctamente.

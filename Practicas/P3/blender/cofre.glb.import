@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bs6jdsuv4gos4"
-path="res://.godot/imported/cofre.glb-a5bf3a23226f8c391c6e7ab4d9e67ae6.scn"
+path="res://.godot/imported/cofre.glb-893ae1c1af80c693226aa7dafb3db3e2.scn"
 
 [deps]
 
-source_file="res://blender/CON_UV/cofre.glb"
-dest_files=["res://.godot/imported/cofre.glb-a5bf3a23226f8c391c6e7ab4d9e67ae6.scn"]
+source_file="res://blender/cofre.glb"
+dest_files=["res://.godot/imported/cofre.glb-893ae1c1af80c693226aa7dafb3db3e2.scn"]
 
 [params]
 
