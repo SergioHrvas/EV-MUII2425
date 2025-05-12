@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyisfhk4cqe4y"]
+
+[ext_resource type="Script" uid="uid://dfxxfbka26x2b" path="res://avatar.gd" id="1_702cj"]
+
+[node name="Pivot" type="Node3D"]
+script = ExtResource("1_702cj")
+
+[node name="Pitch" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Pitch"]

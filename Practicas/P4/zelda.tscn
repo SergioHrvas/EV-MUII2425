@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwxsu5vhm5p4l"]
+
+[ext_resource type="PackedScene" uid="uid://xcivlrfouq3a" path="res://elements/Wii U - The Legend of Zelda Breath of the Wild - Princess Zelda/Zelda.dae" id="1_x54ej"]
+
+[node name="Zelda" instance=ExtResource("1_x54ej")]
+
+[node name="Armature" parent="." index="0"]
+bones/3/rotation = Quaternion(0.00419549, 0.00082327, 0.000114032, 0.999991)
+bones/5/rotation = Quaternion(7.98318e-08, -4.00184e-08, 0.460928, 0.887438)
+bones/29/rotation = Quaternion(-5.68356e-06, -2.49223e-06, -0.398573, 0.917137)

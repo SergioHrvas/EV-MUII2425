@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqr4oh1x1aytq"]
+[gd_scene load_steps=10 format=3 uid="uid://bqr4oh1x1aytq"]
 
 [ext_resource type="PackedScene" uid="uid://qrdai0nmq1mb" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
 [ext_resource type="PackedScene" uid="uid://cmcmbmsdkxfaa" path="res://elements/habitacion2.tscn" id="2_5hydm"]
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="3_5hydm"]
+[ext_resource type="PackedScene" uid="uid://cyisfhk4cqe4y" path="res://avatar.tscn" id="4_ikkem"]
+[ext_resource type="Script" uid="uid://crn5pb73wsbvh" path="res://test.gd" id="5_4y33u"]
+[ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://vigilante.tscn" id="7_ohn7k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xkxwq"]
 energy_multiplier = 0.0
@@ -20,6 +23,9 @@ volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 
 [node name="Habitacion1" parent="." instance=ExtResource("1_xkxwq")]
 transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0, 0, 0)
+
+[node name="Avatar" parent="Habitacion1" instance=ExtResource("4_ikkem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25132, 2.18806, -3.47558)
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9258, 37.3168, -0.0884233)
@@ -43,3 +49,12 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xkxwq")
+
+[node name="Test" type="Node" parent="."]
+script = ExtResource("5_4y33u")
+
+[node name="Vigilante" parent="." instance=ExtResource("7_ohn7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00079, 21.7304, 2.39862)
+
+[connection signal="activar_avatar" from="Test" to="Habitacion1/Avatar" method="_on_test_activar_avatar"]
+[connection signal="activar_vigilante" from="Test" to="Vigilante" method="_on_test_activar_vigilante"]

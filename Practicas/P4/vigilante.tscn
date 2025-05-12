@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf63glwlocl1p"]
+
+[ext_resource type="Script" uid="uid://so08txqy7pqt" path="res://vigilante.gd" id="1_pvyfq"]
+
+[node name="Pivot" type="Node3D"]
+script = ExtResource("1_pvyfq")
+
+[node name="Pitch" type="Node3D" parent="."]
+
+[node name="Vigilante" type="Camera3D" parent="Pitch"]
