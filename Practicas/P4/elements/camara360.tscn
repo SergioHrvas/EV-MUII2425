@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5ixgq0or4888"]
+
+[ext_resource type="Script" uid="uid://bbym1mfjl8ir4" path="res://elements/camera.gd" id="1_wuppi"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CaperaPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.670529)
+script = ExtResource("1_wuppi")
+
+[node name="CameraPitch" type="Node3D" parent="CaperaPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6866, 4.8836, -1.12793)
+
+[node name="Camera3D" type="Camera3D" parent="CaperaPivot/CameraPitch"]
+transform = Transform3D(1, 0, 5.96046e-09, 0, 1, 0, -5.96046e-09, 0, 1, -15.7396, -3.39457, 14.3457)
+current = true

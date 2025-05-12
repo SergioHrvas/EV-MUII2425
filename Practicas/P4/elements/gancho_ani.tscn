@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvr5pyxx5314u"]
+
+[ext_resource type="PackedScene" uid="uid://cekhiibt5fl6e" path="res://elements/gancho_ani.glb" id="1_snml0"]
+[ext_resource type="Script" uid="uid://dgmu5sw3urx8i" path="res://elements/gancho_ani.gd" id="2_t0v4c"]
+
+[node name="gancho_ani" instance=ExtResource("1_snml0")]
+script = ExtResource("2_t0v4c")
+
+[node name="GanchoFull" parent="." index="0"]
+transform = Transform3D(4.79295, -0.256811, 0.0683293, 0.0694729, 0.535178, -7.94927, 0.250612, 4.76315, 0.896847, -58.7089, 28.3652, -29.3268)
+
+[node name="Rail" parent="." index="1"]
+transform = Transform3D(13.1677, 0, 0, 0, 13.1677, 0, 0, 0, 13.1677, 1.54428, 25.099, 0.293373)
