@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqr4oh1x1aytq"]
+[gd_scene load_steps=13 format=3 uid="uid://bqr4oh1x1aytq"]
 
 [ext_resource type="PackedScene" uid="uid://qrdai0nmq1mb" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
 [ext_resource type="PackedScene" uid="uid://cmcmbmsdkxfaa" path="res://elements/habitacion2.tscn" id="2_5hydm"]
@@ -18,6 +18,13 @@ sky = SubResource("Sky_5hydm")
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
+
+[sub_resource type="FontVariation" id="FontVariation_3lhoi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8w4t"]
+font = SubResource("FontVariation_3lhoi")
 
 [node name="Node3D" type="Node3D"]
 
@@ -55,6 +62,39 @@ script = ExtResource("5_4y33u")
 
 [node name="Vigilante" parent="." instance=ExtResource("7_ohn7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00079, 21.7304, 2.39862)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 111.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 198.0
+offset_bottom = 33.0
+text = "C = Cambiar a Vigilante"
+label_settings = SubResource("LabelSettings_3lhoi")
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 239.0
+offset_bottom = 57.0
+text = "Mover Raton = Mover Camara"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 55.0
+offset_right = 217.0
+offset_bottom = 112.0
+text = "W = Avanzar | S = Atras
+A = Izquierda | L = Derecha"
+label_settings = SubResource("LabelSettings_g8w4t")
 
 [connection signal="activar_avatar" from="Test" to="Habitacion1/Avatar" method="_on_test_activar_avatar"]
 [connection signal="activar_vigilante" from="Test" to="Vigilante" method="_on_test_activar_vigilante"]

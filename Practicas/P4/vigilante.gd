@@ -24,6 +24,14 @@ func _input(event):
 		$Pitch.rotate_x(-event.relative.y / sensitivity)
 		$Pitch.rotation.x = clamp($Pitch.rotation.x, -1.2, 1.2)
 
+	# Zoom con rueda del ratón
+	if event is InputEventMouseButton and $Pitch/Vigilante.current == true:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			$Pitch/Vigilante.fov = clamp($Pitch/Vigilante.fov - 5, 10, 70)  # Acercar zoom
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			$Pitch/Vigilante.fov = clamp($Pitch/Vigilante.fov + 5, 10, 70)  # Alejar zoom
+
+
 	if event.is_action_pressed("ui_cancel"):  # Tecla Escape por defecto
 		get_tree().quit()  # Cierra el juego
 		
