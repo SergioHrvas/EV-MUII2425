@@ -7,6 +7,13 @@
 [ext_resource type="Script" uid="uid://crn5pb73wsbvh" path="res://scripts/test.gd" id="5_4y33u"]
 [ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://elements/vigilante.tscn" id="7_ohn7k"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
+
+[sub_resource type="FontVariation" id="FontVariation_3lhoi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8w4t"]
+font = SubResource("FontVariation_3lhoi")
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xkxwq"]
 energy_multiplier = 0.0
 
@@ -19,20 +26,10 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
-
-[sub_resource type="FontVariation" id="FontVariation_3lhoi"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_g8w4t"]
-font = SubResource("FontVariation_3lhoi")
-
 [node name="Node3D" type="Node3D"]
 
 [node name="Habitacion1" parent="." instance=ExtResource("1_xkxwq")]
 transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0, 0, 0)
-
-[node name="Avatar" parent="Habitacion1" instance=ExtResource("4_ikkem")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25132, 2.18806, -3.47558)
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9258, 37.3168, -0.0884233)
@@ -47,21 +44,11 @@ operation = 2
 size = Vector3(4.9, 10, 4.9)
 material = ExtResource("3_5hydm")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.640418, 0.768027, 0, -0.768027, -0.640418, 0, 76.759, -17.1236)
-light_color = Color(0.516893, 1, 0.815666, 1)
-light_volumetric_fog_energy = 5.0
-light_cull_mask = 4294967279
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xkxwq")
+[node name="Vigilante" parent="Pasillo" instance=ExtResource("7_ohn7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997859, 0.0636005, 2.39862)
 
 [node name="Test" type="Node" parent="."]
 script = ExtResource("5_4y33u")
-
-[node name="Vigilante" parent="." instance=ExtResource("7_ohn7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.00079, 21.7304, 2.39862)
 
 [node name="Panel" type="Panel" parent="."]
 offset_left = 1.0
@@ -96,5 +83,20 @@ text = "W = Avanzar | S = Atras
 A = Izquierda | L = Derecha"
 label_settings = SubResource("LabelSettings_g8w4t")
 
-[connection signal="activar_avatar" from="Test" to="Habitacion1/Avatar" method="_on_test_activar_avatar"]
-[connection signal="activar_vigilante" from="Test" to="Vigilante" method="_on_test_activar_vigilante"]
+[node name="Avatar" parent="." instance=ExtResource("4_ikkem")]
+transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, -0.960159, 2.2447, -5.43034)
+
+[node name="Luces" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Luces"]
+transform = Transform3D(1, 0, 0, 0, -0.640418, 0.768027, 0, -0.768027, -0.640418, 0, 76.759, -17.1236)
+light_color = Color(0.516893, 1, 0.815666, 1)
+light_volumetric_fog_energy = 5.0
+light_cull_mask = 4294967279
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Luces"]
+environment = SubResource("Environment_xkxwq")
+
+[connection signal="activar_avatar" from="Test" to="Avatar" method="_on_test_activar_avatar"]
+[connection signal="activar_vigilante" from="Test" to="Pasillo/Vigilante" method="_on_test_activar_vigilante"]

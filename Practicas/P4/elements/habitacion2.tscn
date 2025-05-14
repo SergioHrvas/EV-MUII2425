@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmcmbmsdkxfaa"]
+[gd_scene load_steps=16 format=3 uid="uid://cmcmbmsdkxfaa"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_4sf3t"]
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
@@ -12,13 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="12_4sf3t"]
 
 [sub_resource type="GDScript" id="GDScript_xkhij"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_4sf3t"]
-size = Vector3(5, 5, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4sf3t"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ty8r2"]
 size = Vector3(39.5, 0.25, 29.5)
@@ -55,86 +48,77 @@ uv1_offset = Vector3(-0.4, 1.325, -0.09)
 [node name="Node3D" type="Node3D"]
 script = SubResource("GDScript_xkhij")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -10, 2.5, 0.009)
-layers = 16
-mesh = SubResource("BoxMesh_4sf3t")
-skeleton = NodePath("Habitacion")
-surface_material_override/0 = SubResource("StandardMaterial3D_4sf3t")
-
-[node name="Habitacion" type="CSGBox3D" parent="MeshInstance3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, -2.91038e-11)
+[node name="Estructura" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2.5, 0.009)
 layers = 16
 size = Vector3(40, 27, 30)
 material = ExtResource("1_4sf3t")
 
-[node name="Interior" type="CSGBox3D" parent="MeshInstance3D/Habitacion"]
+[node name="Interior" type="CSGBox3D" parent="Estructura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.037)
 layers = 16
 operation = 2
 size = Vector3(39.5, 26.5, 29.5)
 material = ExtResource("1_4sf3t")
 
-[node name="Entrada" type="CSGBox3D" parent="MeshInstance3D/Habitacion"]
+[node name="Entrada" type="CSGBox3D" parent="Estructura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, -14.1, 0)
 layers = 16
 operation = 2
 size = Vector3(5, 2, 5)
 
-[node name="Escalera" parent="MeshInstance3D/Habitacion" instance=ExtResource("1_lxnyj")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.8864, -12.9515, 0.000170397)
+[node name="Techos" type="Node3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.618, -0.009)
 
-[node name="LuzTitilar" parent="MeshInstance3D" instance=ExtResource("5_ty8r2")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.452736, 0.204241, -0.00045)
-
-[node name="cofre" parent="MeshInstance3D" instance=ExtResource("6_8plxl")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, -0.0486228, -0.391021, -0.00216199)
-
-[node name="Techos" type="Node3D" parent="MeshInstance3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0.4309, -0.00045)
-
-[node name="TechoAnim2" type="MeshInstance3D" parent="MeshInstance3D/Techos"]
+[node name="TechoAnim2" type="MeshInstance3D" parent="Estructura/Techos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
 layers = 16
 mesh = SubResource("BoxMesh_ty8r2")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ShaderMaterial_whvtv")
 
-[node name="TechoAnim" type="MeshInstance3D" parent="MeshInstance3D/Techos"]
+[node name="TechoAnim" type="MeshInstance3D" parent="Estructura/Techos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
 layers = 16
 mesh = SubResource("BoxMesh_ty8r2")
 skeleton = NodePath("../TechoAnim2")
 surface_material_override/0 = SubResource("ShaderMaterial_8plxl")
 
-[node name="Techo" type="MeshInstance3D" parent="MeshInstance3D/Techos"]
+[node name="Techo" type="MeshInstance3D" parent="Estructura/Techos"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.563, 0)
 layers = 16
 mesh = SubResource("BoxMesh_ty8r2")
 skeleton = NodePath("../TechoAnim2")
 surface_material_override/0 = SubResource("StandardMaterial3D_whvtv")
 
-[node name="Suelo" type="CSGBox3D" parent="MeshInstance3D"]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -0.6601, -2.91038e-11)
+[node name="Suelo" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.202, 0)
 layers = 16
 size = Vector3(39.5, 0.1, 29.5)
 material = ExtResource("3_h8uj6")
 
-[node name="Entrada" type="CSGBox3D" parent="MeshInstance3D/Suelo"]
+[node name="Entrada" type="CSGBox3D" parent="Estructura/Suelo"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.481, 0)
 layers = 16
 operation = 2
 size = Vector3(5, 2, 5)
 
-[node name="TotemSantuario" parent="MeshInstance3D" instance=ExtResource("11_4sf3t")]
-transform = Transform3D(-1.00536e-09, 0, 0.023, 0, 0.023, 0, -0.023, 0, -1.00536e-09, -0.893287, -0.211932, -0.00339912)
+[node name="LuzTitilar" parent="." instance=ExtResource("5_ty8r2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94528, 6.58482, 0)
 
-[node name="Runa1" parent="MeshInstance3D" instance=ExtResource("12_4sf3t")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555502, -0.57128, -0.29228)
-layers = 16
-skeleton = NodePath("../..")
+[node name="cofre" parent="." instance=ExtResource("6_8plxl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9725, -5.32042, -0.0342398)
 
-[node name="Runa2" parent="MeshInstance3D" instance=ExtResource("12_4sf3t")]
-transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.555502, -0.57128, 0.277401)
+[node name="Runa1" parent="." instance=ExtResource("12_4sf3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11004, -8.9256, -5.8366)
 layers = 16
-skeleton = NodePath("../..")
+
+[node name="Runa2" parent="." instance=ExtResource("12_4sf3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11004, -8.9256, 5.55702)
+layers = 16
+
+[node name="Escalera" parent="." instance=ExtResource("1_lxnyj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.8864, -10.4515, 0.0091704)
+
+[node name="TotemSantuario" parent="Escalera" instance=ExtResource("11_4sf3t")]
+transform = Transform3D(0.46, 0, -4.26326e-14, 0, 0.46, 0, 4.26326e-14, 0, 0.46, 0.0681541, 8.71286, -28.7521)
