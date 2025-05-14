@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bgi7tr713sk84"]
 
-[ext_resource type="Script" uid="uid://dyhgsnwxhksoq" path="res://elements/titilar.gd" id="1_mq38n"]
+[ext_resource type="Script" uid="uid://dyhgsnwxhksoq" path="res://scripts/titilar.gd" id="1_mq38n"]
 [ext_resource type="PackedScene" uid="uid://618qgs0f55a5" path="res://elements/zeldaTriangulo/zelda_triangulo.tscn" id="2_wvlem"]
 
 [sub_resource type="Animation" id="Animation_lcyl0"]

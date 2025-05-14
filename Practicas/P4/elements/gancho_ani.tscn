@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvr5pyxx5314u"]
 
 [ext_resource type="PackedScene" uid="uid://cekhiibt5fl6e" path="res://elements/gancho_ani.glb" id="1_snml0"]
-[ext_resource type="Script" uid="uid://dgmu5sw3urx8i" path="res://elements/gancho_ani.gd" id="2_t0v4c"]
+[ext_resource type="Script" uid="uid://dgmu5sw3urx8i" path="res://scripts/gancho_ani.gd" id="2_t0v4c"]
 
 [node name="gancho_ani" instance=ExtResource("1_snml0")]
 script = ExtResource("2_t0v4c")

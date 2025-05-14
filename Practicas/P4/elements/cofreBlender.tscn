@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://drw6eg2q544qi"]
 
 [ext_resource type="PackedScene" uid="uid://c8b4h6ippype1" path="res://elements/cofreBlender.glb" id="1_pyqbx"]
-[ext_resource type="Script" uid="uid://b1h6xtk4wvymo" path="res://elements/cofreBlender.gd" id="2_qx4t4"]
+[ext_resource type="Script" uid="uid://b1h6xtk4wvymo" path="res://scripts/cofreBlender.gd" id="2_qx4t4"]
 [ext_resource type="Material" uid="uid://cjqu463r76657" path="res://materiales/tapadera.tres" id="3_holvd"]
 [ext_resource type="Material" uid="uid://b4genisxtfb3a" path="res://materiales/adorno_material.tres" id="4_ywqcc"]
 [ext_resource type="Material" uid="uid://dlqosehagpnau" path="res://materiales/tornillosmaterial.tres" id="5_5figr"]

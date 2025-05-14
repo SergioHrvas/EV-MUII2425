@@ -12,6 +12,7 @@ func _input(event):
 	if event is InputEventMouseMotion and mouse_captured and ($Pitch/Camera3D.current == true):
 		# Rotación horizontal (Pivot)
 		rotate_y(-event.relative.x / sensitivity)
+		
 		# Rotación vertical (Pitch, limitada)
 		$Pitch.rotate_x(-event.relative.y / sensitivity)
 		$Pitch.rotation.x = clamp($Pitch.rotation.x, -1.2, 1.2)
