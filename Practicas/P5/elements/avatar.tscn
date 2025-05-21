@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyisfhk4cqe4y"]
+
+[ext_resource type="Script" uid="uid://dfxxfbka26x2b" path="res://scripts/avatar.gd" id="1_702cj"]
+[ext_resource type="Script" uid="uid://cetxm8cakx0et" path="res://elements/avatar.gd" id="1_pyeqt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pyeqt"]
+radius = 1.0
+height = 4.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pyeqt"]
+radius = 1.0
+height = 3.0
+
+[node name="KinematicBody" type="CharacterBody3D"]
+script = ExtResource("1_pyeqt")
+speed = 7.0
+jump_velocity = 8.0
+
+[node name="Pivot" type="Node3D" parent="."]
+script = ExtResource("1_702cj")
+
+[node name="Pitch" type="Node3D" parent="Pivot"]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot/Pitch"]
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot/Pitch/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566388, 0)
+target_position = Vector3(0, 0, -3.5)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.59665, 0)
+shape = SubResource("CapsuleShape3D_pyeqt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.08712, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_pyeqt")

@@ -96,7 +96,7 @@ size = Vector3(5, 3, 5)
 [node name="RunaLampara" type="MeshInstance3D" parent="Estructura"]
 transform = Transform3D(0.999341, 0, 0, 0, 0.999341, 0, 0, 0, 0.999341, -1.7858, 8.16793, 0.0977586)
 mesh = SubResource("CylinderMesh_vwrra")
-skeleton = NodePath("../../../../../../Runa2")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_rvkbe")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Estructura/RunaLampara"]

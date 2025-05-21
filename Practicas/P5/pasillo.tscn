@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm02kffwn1028"]
+
+[ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_mn2d4"]
+
+[node name="Pasillo Vertical" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0198693, 0)
+size = Vector3(5, 20, 5)
+material = ExtResource("1_mn2d4")
+
+[node name="PasilloHorizontal" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4494, 7, 0)
+size = Vector3(10, 6, 5)
+material = ExtResource("1_mn2d4")
+
+[node name="PasilloVericalInterior" type="CSGBox3D" parent="."]
+transform = Transform3D(0.999994, 0, 0.00343829, 0, 1, 0, -0.00343829, 0, 0.999994, 0, -0.1, 0)
+operation = 2
+size = Vector3(4.8, 20, 4.8)
+material = ExtResource("1_mn2d4")
+
+[node name="PasilloHoizontalInterior" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.33001, 7, 0)
+operation = 2
+size = Vector3(10.5, 5.8, 4.8)
+material = ExtResource("1_mn2d4")

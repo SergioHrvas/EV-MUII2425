@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bk4kteesc62wm"]
+
+[ext_resource type="Texture2D" uid="uid://2lpj7tyxn0ca" path="res://materiales/Plastic018B_2K-JPG/Plastic018B_2K-JPG_Color.jpg" id="1_swvkc"]
+[ext_resource type="Texture2D" uid="uid://cbtmj2dvaumv6" path="res://materiales/Plastic018B_2K-JPG/Plastic018B_2K-JPG_Roughness.jpg" id="3_tjgew"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qej30"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ii4c3"]
+
+[resource]
+albedo_texture = ExtResource("1_swvkc")
+roughness_texture = ExtResource("3_tjgew")
+normal_scale = 1.55
+normal_texture = SubResource("CompressedTexture2D_ii4c3")
+heightmap_texture = SubResource("CompressedTexture2D_qej30")

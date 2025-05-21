@@ -1,0 +1,195 @@
+[gd_scene load_steps=24 format=3 uid="uid://qrdai0nmq1mb"]
+
+[ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
+[ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
+[ext_resource type="Script" uid="uid://b3js1euvapcbf" path="res://elements/habitacion_1.gd" id="1_l82dh"]
+[ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="2_hvtsi"]
+[ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
+[ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://elements/gancho.tscn" id="3_nqbf4"]
+[ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://elements/palanca.tscn" id="4_vy1a3"]
+[ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://elements/silla.tscn" id="5_0giyi"]
+[ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://elements/ganchoBlender.tscn" id="6_bh3rd"]
+[ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
+[ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://elements/cofreBlender.tscn" id="8_san7q"]
+[ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://materiales/azul.tres" id="11_rvkbe"]
+[ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
+[ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
+[ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
+[ext_resource type="PackedScene" uid="uid://bw07mev7w4owj" path="res://ascensor.tscn" id="14_vwrra"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vwrra"]
+top_radius = 3.5
+bottom_radius = 0.2
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvkbe"]
+emission_enabled = true
+emission = Color(0.0500001, 1, 0, 1)
+emission_energy_multiplier = 3.12
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5ay2"]
+size = Vector3(29.5, 0.1, 29.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vwrra"]
+size = Vector3(29.5, 3.6, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l82dh"]
+size = Vector3(19.6, 13, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_12d07"]
+size = Vector3(0.1, 19.5, 29.5)
+
+[sub_resource type="GDScript" id="GDScript_l82dh"]
+script/source = "extends Node
+
+# Establece la capa de luz recursivamente para que llegue a todos los nodos del cofre
+func set_visual_layer_recursively(node: Node, layer_mask: int) -> void:
+	if node is VisualInstance3D:
+		node.layers = layer_mask
+	for child in node.get_children():
+		set_visual_layer_recursively(child, layer_mask)
+"
+
+[node name="Raiz" type="Node3D"]
+script = ExtResource("1_l82dh")
+
+[node name="Estructura" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7.5, 0)
+size = Vector3(30, 20, 30)
+material = ExtResource("1_2l8mv")
+
+[node name="Interior" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543528, 0, 0)
+operation = 2
+size = Vector3(29.5, 19.5, 29.5)
+material = ExtResource("1_2l8mv")
+
+[node name="Ventana2" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -0.075, 15.5)
+operation = 2
+size = Vector3(9, 12, 2)
+
+[node name="Ventana1" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, -0.075, -15.5)
+operation = 2
+size = Vector3(9, 12, 2)
+
+[node name="Suelo" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109, -9.75998, 0)
+size = Vector3(29.5, 0.1, 29.5)
+material = ExtResource("2_hvtsi")
+
+[node name="Techo2" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.61, 0)
+size = Vector3(29.25, 0.25, 29.25)
+material = ExtResource("13_c342v")
+
+[node name="TechoAnim2" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.35821, 0)
+size = Vector3(29.25, 0.25, 29.25)
+material = ExtResource("11_rvkbe")
+
+[node name="TechoAnim3" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.09952, 0)
+size = Vector3(29.25, 0.25, 29.25)
+material = ExtResource("12_rvkbe")
+
+[node name="Salida2" type="CSGBox3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0312, 9.76628, 0)
+operation = 2
+size = Vector3(5, 3, 5)
+
+[node name="RunaLampara" type="MeshInstance3D" parent="Estructura"]
+transform = Transform3D(0.999341, 0, 0, 0, 0.999341, 0, 0, 0, 0.999341, -1.7858, 8.16793, 0.0977586)
+mesh = SubResource("CylinderMesh_vwrra")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_rvkbe")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Estructura/RunaLampara"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+light_color = Color(0, 0.89, 0.445, 1)
+light_energy = 7.798
+spot_range = 51.57
+spot_attenuation = 0.92
+spot_angle = 65.95
+
+[node name="SueloColision" type="StaticBody3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.39202, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/SueloColision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316642, 0)
+shape = SubResource("BoxShape3D_g5ay2")
+
+[node name="ParedColision" type="StaticBody3D" parent="Estructura"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87498, 14.6466)
+shape = SubResource("BoxShape3D_vwrra")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Estructura/ParedColision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91853, 0.425819, 14.647)
+shape = SubResource("BoxShape3D_l82dh")
+
+[node name="ParedColision2" type="StaticBody3D" parent="Estructura"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.6994)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87498, -0.396826)
+shape = SubResource("BoxShape3D_vwrra")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Estructura/ParedColision2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91853, 0.425819, -0.396437)
+shape = SubResource("BoxShape3D_l82dh")
+
+[node name="ParedColision3" type="StaticBody3D" parent="Estructura"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7989, 0, 0)
+shape = SubResource("BoxShape3D_12d07")
+
+[node name="ParedColision4" type="StaticBody3D" parent="Estructura"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8002, 0, 0)
+shape = SubResource("BoxShape3D_12d07")
+
+[node name="Plataforma1" parent="." instance=ExtResource("1_eb3sw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72588, -11.7276)
+
+[node name="Plataforma2" parent="." instance=ExtResource("1_eb3sw")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, -1.72588, -11.7276)
+
+[node name="Bola1" parent="." instance=ExtResource("2_wh65v")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.70087, 12.2818)
+
+[node name="Bola2" parent="." instance=ExtResource("2_wh65v")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64786, -1.68458, 12.2818)
+
+[node name="Gancho" parent="." instance=ExtResource("3_nqbf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11729, -0.829459, 12.4083)
+
+[node name="Palanca" parent="." instance=ExtResource("4_vy1a3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63844, -2.20535, 4.30188)
+
+[node name="Silla" parent="." instance=ExtResource("5_0giyi")]
+transform = Transform3D(-0.00111688, 0, -0.799999, 0, 0.8, 0, 0.799999, 0, -0.00111688, 8.32429, -2.1451, -11.7982)
+script = SubResource("GDScript_l82dh")
+
+[node name="gancho_ani" parent="." instance=ExtResource("7_6j36w")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96961)
+
+[node name="cofre" parent="." instance=ExtResource("8_san7q")]
+transform = Transform3D(-0.997893, 0, -0.0648806, 0, 1, 0, 0.0648806, 0, -0.997893, 15.8234, -1.35022, 1.50986)
+
+[node name="Runa" parent="." instance=ExtResource("14_rvkbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -0.706, 11)
+
+[node name="Runa2" parent="." instance=ExtResource("14_rvkbe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.855, -0.706, -11)
+skeleton = NodePath("../Runa")
+
+[node name="Ascensor" parent="." instance=ExtResource("14_vwrra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77745, -2.12193, 0)
+
+[node name="gancho" parent="." instance=ExtResource("6_bh3rd")]
+transform = Transform3D(0.15994, 0, -0.00439765, 0, 0.16, 0, 0.00439765, 0, 0.15994, 4.56153, -2.25884, 12.8422)

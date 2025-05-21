@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://qrdai0nmq1mb" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
 [ext_resource type="PackedScene" uid="uid://cmcmbmsdkxfaa" path="res://elements/habitacion2.tscn" id="2_5hydm"]
-[ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="3_5hydm"]
+[ext_resource type="PackedScene" uid="uid://bm02kffwn1028" path="res://pasillo.tscn" id="3_3lhoi"]
 [ext_resource type="PackedScene" uid="uid://cyisfhk4cqe4y" path="res://elements/avatar.tscn" id="4_ikkem"]
 [ext_resource type="Script" uid="uid://crn5pb73wsbvh" path="res://scripts/test.gd" id="5_4y33u"]
 [ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://elements/vigilante.tscn" id="7_ohn7k"]
@@ -32,20 +32,16 @@ volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0, 0, 0)
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9258, 37.3168, -0.0884233)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.327, 41.3492, 0)
 
-[node name="Pasillo" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 21.6668, 0)
-size = Vector3(5, 10, 5)
-material = ExtResource("3_5hydm")
+[node name="Pasillo" parent="." instance=ExtResource("3_3lhoi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 26.6492, 0)
 
-[node name="PasilloInterior" type="CSGBox3D" parent="Pasillo"]
-operation = 2
-size = Vector3(4.9, 10, 4.9)
-material = ExtResource("3_5hydm")
+[node name="BaseVigilante" type="Node3D" parent="Pasillo"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Vigilante" parent="Pasillo" instance=ExtResource("7_ohn7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.997859, 0.0636005, 2.39862)
+[node name="Vigilante" parent="Pasillo/BaseVigilante" instance=ExtResource("7_ohn7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230154, 7.83532, 2.33675)
 
 [node name="Test" type="Node" parent="."]
 script = ExtResource("5_4y33u")
@@ -99,4 +95,4 @@ shadow_enabled = true
 environment = SubResource("Environment_xkxwq")
 
 [connection signal="activar_avatar" from="Test" to="Avatar" method="_on_test_activar_avatar"]
-[connection signal="activar_vigilante" from="Test" to="Pasillo/Vigilante" method="_on_test_activar_vigilante"]
+[connection signal="activar_vigilante" from="Test" to="Pasillo/BaseVigilante/Vigilante" method="_on_test_activar_vigilante"]

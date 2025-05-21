@@ -1,0 +1,84 @@
+1. Mis tres componentes son:
+- Salud: Almacena puntos de vida, estado (vivo/muerto) y nivel de hambre
+- Movimiento: Contiene velocidad y dirección
+- HabilidadEspecial: Guarda el tipo de habilidad y su cooldown
+
+2. Mis entidades se representan computacionalmente como:
+
+Diccionarios con:
+    ID único
+    Lista de componentes asociados
+    Grupo al que pertenece
+
+3. Mis componentes se representan computacionalmente como:
+Clases simples con solo datos (sin lógica):
+
+class Salud:
+    var puntos_vida: int
+    var puntos_hambre: int
+    var max_vida: int
+    var max_hambre: int
+    var esta_vivo: bool
+
+class Movimiento:
+    var velocidad: Vector2
+    var direccion: Vector2
+
+class HabilidadEspecial:
+    var tipo: String
+    var cooldown: float
+    var cooldown_max: float
+
+4. Mis sistemas se representan computacionalmente como:
+Clases con métodos update(delta) que operan sobre componentes:
+
+class SistemaMovimientoSalud:
+    func update(delta):
+        for entidad in ECS.get_entidades_con(["Movimiento", "Salud"]):
+            # Lógica que usa ambos componentes
+
+class SistemaHabilidades:
+    func update(delta):
+        for entidad in ECS.get_entidades_con(["HabilidadEspecial"]):
+            # Lógica para manejar habilidades
+
+5. Las estructuras empleadas son:
+Nodos:
+
+    ECSSingleton (Autoload): Gestiona todas las entidades, componentes y sistemas
+
+Scripts:
+
+    ECS.gd: Implementa el singleton principal
+
+    Sistemas: Scripts separados para cada sistema
+
+    FabricaEntidades.gd: Para creación de entidades preconfiguradas
+
+Métodos (en ECSSingleton):
+
+    registrar_entidad(entidad)
+
+    eliminar_entidad(id_entidad)
+
+    agregar_componente(id_entidad, componente)
+
+    remover_componente(id_entidad, tipo_componente)
+
+    get_entidades_con(componentes: Array)
+
+    actualizar_sistemas(delta)
+
+Señales:
+
+    componente_agregado(id_entidad, tipo_componente)
+
+    componente_eliminado(id_entidad, tipo_componente)
+
+    entidad_creada(id_entidad)
+
+    entidad_eliminada(id_entidad)
+
+Grupos:
+
+    "enemigos", "jugadores", "proyectiles", "obstaculos"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://wrmv6e18yvjy"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_250mc"]
+top_radius = 0.01
+bottom_radius = 1.0
+height = 3.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_250mc"]
+emission_enabled = true
+emission = Color(0, 0.823529, 0.921569, 1)
+emission_energy_multiplier = 4.22
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+mesh = SubResource("CylinderMesh_250mc")
+surface_material_override/0 = SubResource("StandardMaterial3D_250mc")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69054, 0.0312462)
+light_color = Color(0, 1, 1, 1)
+light_energy = 1.652
+omni_range = 43.037
+omni_attenuation = 0.97

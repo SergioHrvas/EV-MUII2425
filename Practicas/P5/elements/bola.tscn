@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dapya1briq4pj"]
+
+[ext_resource type="Material" uid="uid://d4kqoypqlleou" path="res://materiales/gancho.tres" id="1_5t1a8"]
+[ext_resource type="Material" uid="uid://bk4kteesc62wm" path="res://materiales/plasticgrey.tres" id="2_tw8sx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tw8sx"]
+radius = 0.8
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+
+[node name="Esfera" type="CSGSphere3D" parent="RigidBody3D"]
+transform = Transform3D(1.00028, 0, 0, 0, 1.00028, 0, 0, 0, 1.00028, 0, 0, 0)
+radius = 0.8
+radial_segments = 30
+rings = 25
+material = ExtResource("1_5t1a8")
+
+[node name="Decoracion1" type="CSGTorus3D" parent="RigidBody3D/Esfera"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+operation = 2
+inner_radius = 0.75
+outer_radius = 0.9
+sides = 36
+ring_sides = 15
+material = ExtResource("2_tw8sx")
+
+[node name="Decoracion2" type="CSGTorus3D" parent="RigidBody3D/Esfera/Decoracion1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+inner_radius = 0.75
+outer_radius = 0.9
+sides = 36
+ring_sides = 15
+material = ExtResource("2_tw8sx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_tw8sx")

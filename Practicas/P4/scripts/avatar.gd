@@ -28,18 +28,19 @@ func _input(event):
 		get_tree().quit()  # Cierra el juego
 		
 func _process(delta):
-	# Movimiento con teclas WASD
-	var input_dir = Vector3.ZERO
-	if Input.is_action_pressed("delante"):
-		input_dir.z -= 1
-	if Input.is_action_pressed("atras"):
-		input_dir.z += 1
-	if Input.is_action_pressed("izquierda"):
-		input_dir.x -= 1
-	if Input.is_action_pressed("derecha"):
-		input_dir.x += 1
-	input_dir = input_dir.normalized()
-	translate_object_local(input_dir * delta * 8.0)  # Velocidad: 5 unidades/seg
-	
+	if($Pitch/Camera3D.current == true):
+		# Movimiento con teclas WASD
+		var input_dir = Vector3.ZERO
+		if Input.is_action_pressed("delante"):
+			input_dir.z -= 1
+		if Input.is_action_pressed("atras"):
+			input_dir.z += 1
+		if Input.is_action_pressed("izquierda"):
+			input_dir.x -= 1
+		if Input.is_action_pressed("derecha"):
+			input_dir.x += 1
+		input_dir = input_dir.normalized()
+		translate_object_local(input_dir * delta * 8.0)  # Velocidad: 5 unidades/seg
+		
 func _on_test_activar_avatar() -> void:
 	$Pitch/Camera3D.current = true
