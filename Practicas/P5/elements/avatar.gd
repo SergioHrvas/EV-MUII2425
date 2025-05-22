@@ -52,7 +52,7 @@ func _physics_process(delta):
 		
 		if collider is RigidBody3D:
 			# Calcula la dirección de empuje basada en el movimiento del jugador
-			var push_force = velocity * 2.0  # Ajusta el multiplicador
+			var push_force = velocity  # Ajusta el multiplicador
 			collider.apply_central_impulse(push_force * delta)
 		
 	if Input.is_action_just_pressed("interactuar"):
