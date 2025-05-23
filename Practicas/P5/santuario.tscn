@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqr4oh1x1aytq"]
+[gd_scene load_steps=17 format=3 uid="uid://bqr4oh1x1aytq"]
 
+[ext_resource type="Script" uid="uid://c4yx2gxap23ml" path="res://santuario.gd" id="1_ohn7k"]
 [ext_resource type="PackedScene" uid="uid://qrdai0nmq1mb" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
 [ext_resource type="PackedScene" uid="uid://cmcmbmsdkxfaa" path="res://elements/habitacion2.tscn" id="2_5hydm"]
 [ext_resource type="PackedScene" uid="uid://bm02kffwn1028" path="res://elements/pasillo.tscn" id="3_3lhoi"]
@@ -7,6 +8,12 @@
 [ext_resource type="Script" uid="uid://crn5pb73wsbvh" path="res://scripts/test.gd" id="5_4y33u"]
 [ext_resource type="PackedScene" uid="uid://du23c5nufysev" path="res://elements/xr_camera.tscn" id="7_g8w4t"]
 [ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://elements/vigilante.tscn" id="7_ohn7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ohn7k"]
+size = Vector3(60, 40, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g8w4t"]
+size = Vector3(40, 45, 40)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
 
@@ -29,15 +36,30 @@ volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Habitacion1" parent="." instance=ExtResource("1_xkxwq")]
-transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0, 0, 0)
+script = ExtResource("1_ohn7k")
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.327, 41.3492, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.9342, 41.3492, 0)
+
+[node name="Habitacion1" parent="." instance=ExtResource("1_xkxwq")]
+transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0.435947, 0, 0)
+
+[node name="Area2" type="Area3D" parent="."]
+transform = Transform3D(1.00107, 0, 0, 0, 1.00107, 0, 0, 0, 1.00107, -59.361, 41.3492, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82814, 8.02058, 0)
+shape = SubResource("BoxShape3D_ohn7k")
+
+[node name="Area1" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426859, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4278, 17.0718, -0.722092)
+shape = SubResource("BoxShape3D_g8w4t")
 
 [node name="Pasillo" parent="." instance=ExtResource("3_3lhoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00293, 26.6492, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57607, 26.6492, 0)
 
 [node name="BaseVigilante" type="Node3D" parent="Pasillo"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -109,5 +131,9 @@ environment = SubResource("Environment_xkxwq")
 [node name="XROrigin3D" parent="." instance=ExtResource("7_g8w4t")]
 visible = false
 
+[connection signal="body_entered" from="Area2" to="." method="_on_area_2_body_entered"]
+[connection signal="body_exited" from="Area2" to="." method="_on_area_2_body_exited"]
+[connection signal="body_entered" from="Area1" to="." method="_on_area_1_body_entered"]
+[connection signal="body_exited" from="Area1" to="." method="_on_area_1_body_exited"]
 [connection signal="activar_avatar" from="Test" to="Avatar" method="_on_test_activar_avatar"]
 [connection signal="activar_vigilante" from="Test" to="Pasillo/BaseVigilante/Vigilante" method="_on_test_activar_vigilante"]
