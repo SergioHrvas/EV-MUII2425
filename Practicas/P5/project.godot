@@ -99,4 +99,5 @@ interactuar={
 [xr]
 
 openxr/enabled=true
+openxr/default_action_map="res://elements/openxr_action_map.tres"
 shaders/enabled=true

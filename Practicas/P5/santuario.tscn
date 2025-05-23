@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://qrdai0nmq1mb" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
 [ext_resource type="PackedScene" uid="uid://cmcmbmsdkxfaa" path="res://elements/habitacion2.tscn" id="2_5hydm"]
-[ext_resource type="PackedScene" uid="uid://bm02kffwn1028" path="res://pasillo.tscn" id="3_3lhoi"]
+[ext_resource type="PackedScene" uid="uid://bm02kffwn1028" path="res://elements/pasillo.tscn" id="3_3lhoi"]
 [ext_resource type="PackedScene" uid="uid://cyisfhk4cqe4y" path="res://elements/avatar.tscn" id="4_ikkem"]
 [ext_resource type="Script" uid="uid://crn5pb73wsbvh" path="res://scripts/test.gd" id="5_4y33u"]
-[ext_resource type="PackedScene" uid="uid://du23c5nufysev" path="res://xr_camera.tscn" id="7_g8w4t"]
+[ext_resource type="PackedScene" uid="uid://du23c5nufysev" path="res://elements/xr_camera.tscn" id="7_g8w4t"]
 [ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://elements/vigilante.tscn" id="7_ohn7k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
@@ -23,6 +23,7 @@ sky_material = SubResource("ProceduralSkyMaterial_xkxwq")
 
 [sub_resource type="Environment" id="Environment_xkxwq"]
 sky = SubResource("Sky_5hydm")
+ambient_light_energy = 0.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)

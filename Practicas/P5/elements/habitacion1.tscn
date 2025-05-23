@@ -15,7 +15,7 @@
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
-[ext_resource type="PackedScene" uid="uid://bw07mev7w4owj" path="res://ascensor.tscn" id="14_vwrra"]
+[ext_resource type="PackedScene" uid="uid://bw07mev7w4owj" path="res://elements/ascensor.tscn" id="14_vwrra"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vwrra"]
 top_radius = 3.5

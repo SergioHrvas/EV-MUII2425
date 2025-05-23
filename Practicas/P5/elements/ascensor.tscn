@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bw07mev7w4owj"]
 
-[ext_resource type="Script" uid="uid://cjpau54a45leq" path="res://plataforma.gd" id="1_g67w4"]
+[ext_resource type="Script" uid="uid://cjpau54a45leq" path="res://scripts/plataforma.gd" id="1_g67w4"]
 [ext_resource type="Material" uid="uid://b4genisxtfb3a" path="res://materiales/adorno_material.tres" id="1_h1a2e"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_h1a2e"]

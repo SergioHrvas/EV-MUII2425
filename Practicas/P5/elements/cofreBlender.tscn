@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drw6eg2q544qi"]
+[gd_scene load_steps=12 format=3 uid="uid://drw6eg2q544qi"]
 
 [ext_resource type="PackedScene" uid="uid://c8b4h6ippype1" path="res://elements/cofreBlender.glb" id="1_pyqbx"]
 [ext_resource type="Script" uid="uid://b1h6xtk4wvymo" path="res://scripts/cofreBlender.gd" id="2_qx4t4"]
@@ -10,6 +10,12 @@
 [ext_resource type="Material" uid="uid://iandscsnx8gt" path="res://materiales/adornos_tapadera_material.tres" id="8_ja400"]
 [ext_resource type="Material" uid="uid://b0eli04alq1ap" path="res://materiales/llaveros_material.tres" id="9_pmhw4"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ot1h6"]
+size = Vector3(2.5, 2.1, 2.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvy6v"]
+size = Vector3(2, 2, 1)
+
 [node name="cofre" instance=ExtResource("1_pyqbx")]
 script = ExtResource("2_qx4t4")
 
@@ -17,7 +23,7 @@ script = ExtResource("2_qx4t4")
 transform = Transform3D(0.457182, 0, 0, 0, 0.457182, 1.28985e-07, 0, -1.28985e-07, 0.457182, 0.057621, -0.593906, -0.0132089)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Martillo" index="0"]
-transform = Transform3D(2.18731, 0, 0, 0, 2.18731, 0, 0, 0, 2.18731, -0.00783703, 1.78359, 0.0117834)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00783703, 1.78359, 0.0117834)
 light_color = Color(0.156863, 0.4, 0.964706, 1)
 light_energy = 2.228
 light_size = 0.134
@@ -51,6 +57,12 @@ surface_material_override/0 = ExtResource("5_5figr")
 [node name="TornillosZ" parent="Caja/Refuerzos" index="1"]
 surface_material_override/0 = ExtResource("5_5figr")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Caja" index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Caja/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.042831, 0)
+shape = SubResource("BoxShape3D_ot1h6")
+
 [node name="Tapadera" parent="." index="2"]
 transform = Transform3D(1.31879, 4.38317e-10, 0.00324251, 0.00305442, -3.77895e-07, -1.4, 3.64628e-10, 1.58531, -3.33723e-07, -1.32639, 1.09109, 0.00715792)
 surface_material_override/0 = ExtResource("3_holvd")
@@ -63,3 +75,9 @@ surface_material_override/0 = ExtResource("7_7r1d0")
 
 [node name="Llaveros" parent="Tapadera/Gancho" index="0"]
 surface_material_override/0 = ExtResource("9_pmhw4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Tapadera" index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Tapadera/StaticBody3D" index="0"]
+transform = Transform3D(1, 1.08247e-15, -6.97417e-17, -2.05391e-15, 1, 9.9476e-13, 2.32831e-10, 2.84217e-14, 1, 1.00821, 9.30845e-10, -0.46528)
+shape = SubResource("BoxShape3D_hvy6v")

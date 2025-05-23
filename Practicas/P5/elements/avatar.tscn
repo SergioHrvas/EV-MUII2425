@@ -14,7 +14,6 @@ height = 3.0
 [node name="KinematicBody" type="CharacterBody3D"]
 script = ExtResource("1_pyeqt")
 speed = 7.0
-jump_velocity = 8.0
 
 [node name="Pivot" type="Node3D" parent="."]
 script = ExtResource("1_702cj")
@@ -28,7 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566388, 0)
 target_position = Vector3(0, 0, -4.5)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.59665, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.47836, 0)
 shape = SubResource("CapsuleShape3D_pyeqt")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
