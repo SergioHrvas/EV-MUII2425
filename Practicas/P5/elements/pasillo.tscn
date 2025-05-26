@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bm02kffwn1028"]
+[gd_scene load_steps=9 format=3 uid="uid://bm02kffwn1028"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_mn2d4"]
+[ext_resource type="PackedScene" uid="uid://bw07mev7w4owj" path="res://elements/ascensor.tscn" id="2_71rfv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gku2v"]
 size = Vector3(4.8, 20, 0.1)
@@ -20,62 +21,67 @@ size = Vector3(45, 0.1, 4.8)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fwtcr"]
 size = Vector3(40, 6, 0.1)
 
-[node name="Pasillo Vertical" type="CSGBox3D"]
+[node name="Node3D" type="Node3D"]
+
+[node name="Ascensor" parent="." instance=ExtResource("2_71rfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45, -29.5, 0)
+
+[node name="Pasillo Vertical" type="CSGBox3D" parent="."]
 size = Vector3(5, 20, 5)
 material = ExtResource("1_mn2d4")
 
-[node name="PasilloHorizontal" type="CSGBox3D" parent="."]
+[node name="PasilloHorizontal" type="CSGBox3D" parent="Pasillo Vertical"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.449, 7, 0)
 size = Vector3(40, 6, 5)
 material = ExtResource("1_mn2d4")
 
-[node name="PasilloVericalInterior" type="CSGBox3D" parent="."]
+[node name="PasilloVericalInterior" type="CSGBox3D" parent="Pasillo Vertical"]
 transform = Transform3D(0.999994, 0, 0.00343829, 0, 1, 0, -0.00343829, 0, 0.999994, 0, -0.2, 0)
 operation = 2
 size = Vector3(4.8, 20, 4.8)
 material = ExtResource("1_mn2d4")
 
-[node name="PasilloHoizontalInterior" type="CSGBox3D" parent="."]
+[node name="PasilloHoizontalInterior" type="CSGBox3D" parent="Pasillo Vertical"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.449, 7, 0)
 operation = 2
 size = Vector3(40.5, 5.6, 4.6)
 material = ExtResource("1_mn2d4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pasillo Vertical"]
 visible = false
 
-[node name="IzquierdaPasilloV" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="IzquierdaPasilloV" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.50819)
 shape = SubResource("BoxShape3D_gku2v")
 
-[node name="DerechaPasilloV" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="DerechaPasilloV" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.53208)
 shape = SubResource("BoxShape3D_gku2v")
 
-[node name="AtrasPasillo" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="AtrasPasillo" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54194, 0, 0)
 shape = SubResource("BoxShape3D_mn2d4")
 
-[node name="DelantePasillo" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="DelantePasillo" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53401, -2.95, 0)
 shape = SubResource("BoxShape3D_3kny7")
 
-[node name="AbajoPasillo" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="AbajoPasillo" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3473, 4.06926, 0)
 shape = SubResource("BoxShape3D_07edq")
 
-[node name="ArribaPasillo" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="ArribaPasillo" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9273, 9.94796, 0)
 shape = SubResource("BoxShape3D_kleij")
 
-[node name="AbajoPasillo2" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="AbajoPasillo2" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3473, 4.06926, 0)
 shape = SubResource("BoxShape3D_07edq")
 
-[node name="IzquierdaPasilloH" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="IzquierdaPasilloH" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5077, 7.02053, 2.39876)
 shape = SubResource("BoxShape3D_fwtcr")
 
-[node name="DerechaPasilloH" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="DerechaPasilloH" type="CollisionShape3D" parent="Pasillo Vertical/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5077, 7.02053, -2.46296)
 shape = SubResource("BoxShape3D_fwtcr")

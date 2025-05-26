@@ -10,6 +10,7 @@ func _on_test_activar_avatar() -> void:
 @onready var ray = $Pivot/Pitch/Camera3D/RayCast3D
 
 var gravity := 9.8
+var objeto_agarrado: RigidBody3D = null
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -44,20 +45,55 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump_velocity
 	
+	if objeto_agarrado:
+		var cam = $Pivot/Pitch/Camera3D
+		var target_transform = cam.global_transform.translated(Vector3(0, 0, -2))
+		objeto_agarrado.global_transform = target_transform
 
-	move_and_slide()  
-
-   # Empujar RigidBody3D después de moverte
+	move_and_slide()
+	  
+	if Input.is_action_just_pressed("interactuar") and ray.is_colliding():
+			var obj = ray.get_collider()
+			if obj.has_method("activar"):
+				obj.activar()
+							
+			if objeto_agarrado:
+				soltar_objeto()
+			else:
+				print("aa")
+				intentar_agarrar()
+				
+	# Empujar RigidBody3D al colisionar caminando
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		
 		if collider is RigidBody3D:
-			# Calcula la dirección de empuje basada en el movimiento del jugador
-			var push_force = velocity  # Ajusta el multiplicador
-			collider.apply_central_impulse(push_force * delta)
-		
-	if Input.is_action_just_pressed("interactuar") and ray.is_colliding():
-			var obj = ray.get_collider()
-			if obj.has_method("activar"):
-				obj.activar()
+			var push_dir = -collision.get_normal()
+			push_dir.y = 0  # No empujar hacia arriba/abajo
+			push_dir = push_dir.normalized()
+
+			var force = push_dir * speed * 0.3
+			collider.apply_central_impulse(force)
+
+
+func intentar_agarrar():
+	var ray = $Pivot/Pitch/Camera3D/RayCast3D
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		if collider is RigidBody3D and collider.name == "Bola":
+			print("Agarrando pelota")
+			objeto_agarrado = collider
+			objeto_agarrado.freeze = true
+			$Pivot/Pitch/Camera3D.add_child(objeto_agarrado)
+			# Posicionar el objeto frente a la cámara en coordenadas globales
+			var cam = $Pivot/Pitch/Camera3D
+			objeto_agarrado.global_transform = cam.global_transform.translated(Vector3(0, 0, -1.5))
+
+
+func soltar_objeto():
+	print("Soltando pelota")
+	objeto_agarrado.freeze = false
+	get_parent().add_child(objeto_agarrado)
+	objeto_agarrado.global_transform = $Pivot/Pitch/Camera3D.global_transform.translated(Vector3(0, 0, -1.5))
+	objeto_agarrado = null

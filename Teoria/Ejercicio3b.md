@@ -3,7 +3,7 @@ Se ha decidido plantear un Entity Component System para un santuario de Zelda ap
 
 ## 1. Mis tres componentes son:
 1. **`Activador`**:  
-   - `tipo` (string): "presión", "palanca", "energía"  
+   - `tipo` (string): {"presión", "palanca", "energía" } 
    - `estado` (bool): True/False  
    - `objetivo_id` (string): ID del receptor vinculado  
 
@@ -22,7 +22,7 @@ Se ha decidido plantear un Entity Component System para un santuario de Zelda ap
 ```
 entidad = {
     "id": "unique_id",
-    "grupo": "puertas|interruptores|objetos",
+    "grupo": "interruptores" // por ejemplo
     "componentes": {
         "Activador": {...}, 
         "Receptor": {...},
@@ -59,27 +59,39 @@ Donde *entidad* puede ser un nombre como PuertaHabitacion1, InterruptorSalida, P
 
 ## 4. Mis sistema se representan computacionalmente como:
 
+```python
+class_name SistemaActivacion
+
+func update(entidades: Array) -> void:
+	for entidad in entidades:
+		if "Activador" in entidad["componentes"]:
+			var activador = entidad["componentes"]["Activador"]
+			
+			if activador["estado"]:
+				var objetivo_id = activador["objetivo_id"]
+				var receptor_entidad = _buscar_entidad_por_id(entidades, objetivo_id)
+
+				if receptor_entidad and "Receptor" in receptor_entidad["componentes"]:
+					var receptor = receptor_entidad["componentes"]["Receptor"]
+					receptor["contador"] += 1
+
+					if receptor["contador"] >= receptor["activaciones_requeridas"]:
+						_ejecutar_accion(receptor_entidad)
 ```
-class SistemaActivacion:
-    def update(entidades):
-        for entidad in entidades.filtrar("Activador"):
-            if entidad.Activador.estado == true:
-                receptor = entidades.get(entidad.Activador.objetivo_id)
-                receptor.Receptor.contador += 1
-                if receptor.Receptor.contador >= receptor.Receptor.activaciones_requeridas:
-                    ejecutar_accion(receptor)
 
+``` python
+class_name SistemaTemporal
 
-class SistemaTemporal:
-    def update(entidades, delta):
-        for entidad in entidades.filter("Temporal"):
-            temp = entidad["componentes"]["Temporal"]
-            if temp["congelado"]:
-                temp["tiempo_congelado_restante"] -= delta
-                if temp["tiempo_congelado_restante"] <= 0:
-                    temp["congelado"] = False
+func update(entidades: Array, delta: float) -> void:
+	for entidad in entidades:
+		if "Temporal" in entidad["componentes"]:
+			var temporal = entidad["componentes"]["Temporal"]
+			if temporal["congelado"]:
+				temporal["tiempo_congelado_restante"] -= delta
+				if temporal["tiempo_congelado_restante"] <= 0:
+					temporal["congelado"] = false
+
 ```
-
 ## 5. Las estructuras empleadas son:
 - Nodos:
     - SantuarioManager: Singleton que almacena todas las entidades y sistemas.
@@ -104,19 +116,17 @@ class SistemaTemporal:
     - entidad_mirada_por_jugador(): Obtiene la entidad que está mirando el jugador lanzando un rayo a la dirección.
 
 ## 6. Pseudo algoritmo que uniría las estructuras
-```
+``` python
 // Función que se ejecutaría en bucle
-def game_loop():
-    santuario = SantuarioManager.instance
-    
-    while juego_activo:
-        delta = get_process_delta_time()
-        santuario.update_all(delta)
+func _process(delta: float) -> void:
+    var santuario = SantuarioManager.instance
+    santuario.update_all(delta)
 
-        if Input.accion_usuario("activar_parar_tiempo"):
-            entidad = entidad_mirada_por_jugador() //se haría por ray casting (lanzando un rayo a la dirección de la cámara del jugador)
-            entidad["componentes"]["Temporal"] = { //Asignamos temporal en tiempo real
-                "congelado": True,
+    if Input.is_action_just_pressed("activar_parar_tiempo"):
+        var entidad = entidad_mirada_por_jugador()
+        if entidad and entidad.has("componentes"):
+            entidad["componentes"]["Temporal"] = {
+                "congelado": true,
                 "tiempo_congelado_restante": 5.0
             }
 
@@ -173,3 +183,14 @@ entidades = {
     - La puerta debería abrirse... pero está congelada por el componente Temporal.
     - El SistemaTemporal mantiene la puerta sin reaccionar durante 5 segundos.
     - Pasados los 5 segundos, se descongela y la acción del receptor (abrir puerta) se ejecuta si todavía es válida.
+
+Durante la secuencia, podemos ver cómo la **asignación dinámica del componente `Temporal` a la entidad `puerta_temporal`** modifica el comportamiento del sistema:
+1. **Antes de añadir el componente `Temporal`**, la puerta solo es gestionada por el `SistemaActivacion`, que actualiza su `contador` al recibir una señal de un `Activador`.
+2. **Cuando el jugador congela la puerta**, se añade en tiempo real el componente `Temporal`:
+```python
+   entidad["componentes"]["Temporal"] = {
+       "congelado": True,
+       "tiempo_congelado_restante": 5.0
+   }
+```
+Esto hace que la entidad empiece a ser procesada por el SistemaTemporal, porque ahora tiene el componente correspondiente. Aunque el SistemaActivacion siga procesando el Receptor, la acción final (abrir la puerta) se bloquea temporalmente, ya que el SistemaTemporal impide que se ejecute mientras congelado sea true. Cuando el tiempo de congelación se agota, el SistemaTemporal actualiza el estado "congelado" a false.

@@ -9,5 +9,6 @@ var moving_up = true
 
 # Método para activar
 func toggle_move():
+	print("aaaaaaaaaaa")
 	var anim_node = get_parent().get_node("AnimationPlayer")
 	anim_node.play("elevacion")

@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://qrdai0nmq1mb"]
+[gd_scene load_steps=22 format=3 uid="uid://qrdai0nmq1mb"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
-[ext_resource type="Script" uid="uid://b3js1euvapcbf" path="res://elements/habitacion_1.gd" id="1_l82dh"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="2_hvtsi"]
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
 [ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://elements/gancho.tscn" id="3_nqbf4"]
@@ -15,7 +14,6 @@
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
-[ext_resource type="PackedScene" uid="uid://bw07mev7w4owj" path="res://elements/ascensor.tscn" id="14_vwrra"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vwrra"]
 top_radius = 3.5
@@ -51,7 +49,6 @@ func set_visual_layer_recursively(node: Node, layer_mask: int) -> void:
 "
 
 [node name="Raiz" type="Node3D"]
-script = ExtResource("1_l82dh")
 
 [node name="Estructura" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 7.5, 0)
@@ -108,10 +105,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rvkbe")
 [node name="SpotLight3D" type="SpotLight3D" parent="Estructura/RunaLampara"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 light_color = Color(0, 0.89, 0.445, 1)
-light_energy = 7.798
-spot_range = 51.57
-spot_attenuation = 0.92
-spot_angle = 65.95
+light_energy = 5.208
+spot_range = 27.723
 
 [node name="SueloColision" type="StaticBody3D" parent="Estructura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.39202, 0)
@@ -187,9 +182,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -0.706, 11)
 [node name="Runa2" parent="." instance=ExtResource("14_rvkbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.855, -0.706, -11)
 skeleton = NodePath("../Runa")
-
-[node name="Ascensor" parent="." instance=ExtResource("14_vwrra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.77745, -2.12193, 0)
 
 [node name="gancho" parent="." instance=ExtResource("6_bh3rd")]
 transform = Transform3D(0.15994, 0, -0.00439765, 0, 0.16, 0, 0.00439765, 0, 0.15994, 4.56153, -2.25884, 12.8422)

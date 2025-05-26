@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce7m3t1x1n3ic"]
+[gd_scene load_steps=9 format=3 uid="uid://ce7m3t1x1n3ic"]
 
 [ext_resource type="Material" uid="uid://d4kqoypqlleou" path="res://materiales/gancho.tres" id="1_1dy1j"]
 [ext_resource type="Material" uid="uid://b0eli04alq1ap" path="res://materiales/llaveros_material.tres" id="1_j2u0w"]
@@ -52,10 +52,27 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_y37el"]
+resource_name = "palanca_no_giro"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Base/PalancaGiro:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.03, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.349066, 0), Vector3(0, -0.349066, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpndg"]
 _data = {
 &"RESET": SubResource("Animation_hpndg"),
-&"palanca_giro": SubResource("Animation_uj0sj")
+&"palanca_giro": SubResource("Animation_uj0sj"),
+&"palanca_no_giro": SubResource("Animation_y37el")
 }
 
 [node name="Node3D" type="Node3D"]

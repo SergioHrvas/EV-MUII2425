@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://elements/vigilante.tscn" id="7_ohn7k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohn7k"]
-size = Vector3(60, 40, 60)
+size = Vector3(10, 3, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g8w4t"]
-size = Vector3(40, 45, 40)
+size = Vector3(10, 3, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
 
@@ -31,9 +31,10 @@ sky_material = SubResource("ProceduralSkyMaterial_xkxwq")
 [sub_resource type="Environment" id="Environment_xkxwq"]
 sky = SubResource("Sky_5hydm")
 ambient_light_energy = 0.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.02
+volumetric_fog_density = 0.0056
 volumetric_fog_albedo = Color(0, 0.619214, 0.723165, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 0.0
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ohn7k")
@@ -42,20 +43,20 @@ script = ExtResource("1_ohn7k")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.9342, 41.3492, 0)
 
 [node name="Habitacion1" parent="." instance=ExtResource("1_xkxwq")]
-transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0.435947, 0, 0)
+transform = Transform3D(0.998929, 0, 0, 0, 0.998929, 0, 0, 0, 0.998929, 0.440317, -0.722063, 0)
 
 [node name="Area2" type="Area3D" parent="."]
 transform = Transform3D(1.00107, 0, 0, 0, 1.00107, 0, 0, 0, 1.00107, -59.361, 41.3492, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82814, 8.02058, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.9702, -12.2258, 0)
 shape = SubResource("BoxShape3D_ohn7k")
 
 [node name="Area1" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426859, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4278, 17.0718, -0.722092)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65171, 25.5182, -0.722092)
 shape = SubResource("BoxShape3D_g8w4t")
 
 [node name="Pasillo" parent="." instance=ExtResource("3_3lhoi")]
