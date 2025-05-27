@@ -11,9 +11,20 @@ func _on_test_activar_avatar() -> void:
 
 var gravity := 9.8
 var objeto_agarrado: RigidBody3D = null
+var objeto_seg: RigidBody3D = null
 
+var padre_original: Node = null  # nuevo
+
+# func _process(delta):
+# 	if(objeto_agarrado != null):
+# 		print(objeto_agarrado.position)
+# 	if(objeto_seg != null):
+# 		print(objeto_seg.position)
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if(objeto_agarrado != null):
+		print("POSICION INICIAL: ", objeto_agarrado.position)
+
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -60,7 +71,6 @@ func _physics_process(delta):
 			if objeto_agarrado:
 				soltar_objeto()
 			else:
-				print("aa")
 				intentar_agarrar()
 				
 	# Empujar RigidBody3D al colisionar caminando
@@ -77,23 +87,28 @@ func _physics_process(delta):
 			collider.apply_central_impulse(force)
 
 
+
 func intentar_agarrar():
 	var ray = $Pivot/Pitch/Camera3D/RayCast3D
 	if ray.is_colliding():
 		var collider = ray.get_collider()
-		if collider is RigidBody3D and collider.name == "Bola":
+		if collider is RigidBody3D and collider.name.begins_with("Bola"):
 			print("Agarrando pelota")
+			
 			objeto_agarrado = collider
+			
+			padre_original = objeto_agarrado.get_parent()  # guarda el padre actual (habitacion1)
 			objeto_agarrado.freeze = true
 			$Pivot/Pitch/Camera3D.add_child(objeto_agarrado)
-			# Posicionar el objeto frente a la cámara en coordenadas globales
-			var cam = $Pivot/Pitch/Camera3D
-			objeto_agarrado.global_transform = cam.global_transform.translated(Vector3(0, 0, -1.5))
+			objeto_agarrado.global_transform = $Pivot/Pitch/Camera3D.global_transform.translated(Vector3(0, 0, -1.5))
 
 
 func soltar_objeto():
-	print("Soltando pelota")
-	objeto_agarrado.freeze = false
-	get_parent().add_child(objeto_agarrado)
-	objeto_agarrado.global_transform = $Pivot/Pitch/Camera3D.global_transform.translated(Vector3(0, 0, -1.5))
-	objeto_agarrado = null
+	if objeto_agarrado:
+		print("Soltando pelota")
+		objeto_agarrado.freeze = false
+		padre_original.add_child(objeto_agarrado)  # vuelve a la habitación original
+		objeto_agarrado.global_transform = $Pivot/Pitch/Camera3D.global_transform.translated(Vector3(0, 0, -1.5))
+		objeto_seg = objeto_agarrado
+		objeto_agarrado = null
+		padre_original = null

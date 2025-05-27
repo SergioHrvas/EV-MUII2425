@@ -47,5 +47,5 @@ shape = SubResource("BoxShape3D_siyla")
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166049, 6.3537, 0)
 light_color = Color(0.215686, 1, 0.301961, 1)
-light_energy = 2.158
+light_energy = 1.026
 omni_range = 11.883

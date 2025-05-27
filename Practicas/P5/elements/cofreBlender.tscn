@@ -25,7 +25,7 @@ transform = Transform3D(0.457182, 0, 0, 0, 0.457182, 1.28985e-07, 0, -1.28985e-0
 [node name="OmniLight3D" type="OmniLight3D" parent="Martillo" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00783703, 1.78359, 0.0117834)
 light_color = Color(0.156863, 0.4, 0.964706, 1)
-light_energy = 2.228
+light_energy = 1.171
 light_size = 0.134
 light_specular = 3.106
 shadow_enabled = true

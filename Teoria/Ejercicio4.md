@@ -1,8 +1,60 @@
 # 🎮 Lanzamiento de un Objeto desde Cámara en Primera Persona (FPV)
 ## 1. Fuerzas fundamentales a considerar
 
-- **Masa del objeto (m):** Importante para la resistencia al aire.
-- **Fuerza inicial (F):** Dirección y magnitud del impulso desde la posición de la cámara. Determina la velocidad inicial.
-- **Dirección de lanzamiento:** Coincide con la dirección de visión de la cámara. Define el ángulo y la orientación del tiro.
-- **Gravedad (g):** Aceleración constante hacia abajo (`Vector3(0, -9.8, 0)`). Provoca la caída y la curvatura de la trayectoria.
-- **Resistencia del aire:** Fuerza que se opone al movimiento, proporcional a la velocidad. Reduce el alcance y modifica la curva de la trayectoria. 𝐹𝑑 = −𝑘 ⋅⃗ 𝑣
+- **Masa del objeto:** Importante para la resistencia al aire.
+- **Fuerza inicial:** Dirección y magnitud del impulso desde la posición de la cámara. Determina la velocidad inicial y está aplicada en un ángulo determinado.
+- **Gravedad:** Aceleración constante hacia abajo (`Vector3(0, -9.8, 0)`). Provoca la caída y la curvatura de la trayectoria.
+- **Resistencia del aire:** Fuerza que se opone al movimiento, proporcional a la velocidad. Reduce el alcance y modifica la curva de la trayectoria. 𝐹𝑑 = −𝑘 * 𝑣. En este ejemplo no se tomará en cuenta por simplicidad.
+
+## 2. Boceto de trayectoria desde FPV
+
+![](trazo.png)
+
+## 3. Fórmulas del movimiento parabólico
+- Posición horizontal: x(t) = v0.x * t
+- Posición vertical: y(t) = v0.y * t - 1/2 * g * t²
+- Velocidad horizontal: v.x(t) = v0.x (constante)
+- Velocidad vertical: v.y(t) = v0.y - g * t
+
+Donde:
+- p0 es la posición inicial de la cámara.
+- v0 es la velocidad inicial del objeto (dirección y fuerza de lanzamiento).
+- g es la gravedad (aceleración, en este caso, [0,−9.8,0]).
+- t es el tiempo transcurrido.
+
+Con resistencia al aire utilizaríamos la fórmula que hay en las diapositivas de partículas. Fd​=−k⋅v
+
+
+
+## 4. 💻 Pseudocódigo en GDScript (Godot)
+
+```python
+var gravedad = Vector3(0, -9.8, 0)
+var coeficiente_aire = 0.1
+var masa = 1.0
+var fuerza_inicial = 20.0
+
+# Estado del objeto lanzado
+var posicion = Vector3.ZERO
+var velocidad = Vector3.ZERO
+
+func throw_object(camera_transform):
+    # Inicializa el lanzamiento desde la posición de la cámara
+    posicion = camera_transform.origin
+    velocidad = camera_transform.basis.z.normalized() * fuerza_inicial / masa
+
+func _physics_process(delta):
+    # Aplicar gravedad
+    velocidad += gravedad * delta
+    
+    # Aplicar resistencia del aire (opcional)
+    var fuerza_aire = -coeficiente_aire * velocidad
+    velocidad += fuerza_aire / masa * delta
+    
+    # Actualizar posición
+    posicion += velocidad * delta
+    
+    # Mueve el objeto al suelo si se pasa
+    if posicion.y < 0.0:  # Asumiendo suelo en y=0
+        posicion.y = 0.0
+```

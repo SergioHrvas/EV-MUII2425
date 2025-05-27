@@ -1,15 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://qrdai0nmq1mb"]
+[gd_scene load_steps=23 format=3 uid="uid://qrdai0nmq1mb"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
 [ext_resource type="Material" uid="uid://bx3gmu8rtyfma" path="res://materiales/suelo.tres" id="2_hvtsi"]
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
-[ext_resource type="PackedScene" uid="uid://ka7vapa0a5r1" path="res://elements/gancho.tscn" id="3_nqbf4"]
 [ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://elements/palanca.tscn" id="4_vy1a3"]
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://elements/silla.tscn" id="5_0giyi"]
 [ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://elements/ganchoBlender.tscn" id="6_bh3rd"]
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
+[ext_resource type="Script" uid="uid://t4xecpdwqksu" path="res://elements/bola.gd" id="8_rvkbe"]
 [ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://elements/cofreBlender.tscn" id="8_san7q"]
+[ext_resource type="Script" uid="uid://5yurs7ng7868" path="res://elements/bola2.gd" id="9_vwrra"]
 [ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://materiales/azul.tres" id="11_rvkbe"]
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
@@ -156,12 +157,11 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, -1.72588, -11.7276)
 
 [node name="Bola1" parent="." instance=ExtResource("2_wh65v")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.70087, 12.2818)
+script = ExtResource("8_rvkbe")
 
 [node name="Bola2" parent="." instance=ExtResource("2_wh65v")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64786, -1.68458, 12.2818)
-
-[node name="Gancho" parent="." instance=ExtResource("3_nqbf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.11729, -0.829459, 12.4083)
+script = ExtResource("9_vwrra")
 
 [node name="Palanca" parent="." instance=ExtResource("4_vy1a3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63844, -2.20535, 4.30188)

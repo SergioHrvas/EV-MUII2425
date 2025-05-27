@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cmcmbmsdkxfaa"]
+[gd_scene load_steps=25 format=3 uid="uid://cmcmbmsdkxfaa"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_4sf3t"]
 [ext_resource type="PackedScene" uid="uid://b3ksltr0qw3yy" path="res://elements/escalera.tscn" id="1_lxnyj"]
@@ -45,8 +45,8 @@ emission_texture = ExtResource("8_250mc")
 uv1_scale = Vector3(1.315, 1.315, 1.315)
 uv1_offset = Vector3(-0.4, 1.325, -0.09)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xkhij"]
-size = Vector3(0.1, 6, 12.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_uw1jf"]
+size = Vector3(39.5, 26.5, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2imnj"]
 size = Vector3(0.1, 21, 29.5)
@@ -54,38 +54,34 @@ size = Vector3(0.1, 21, 29.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ivxyl"]
 size = Vector3(0.1, 6, 12.5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkhij"]
+size = Vector3(0.1, 6, 12.5)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_h58sk"]
 size = Vector3(40, 0.1, 29.5)
 
-[sub_resource type="Gradient" id="Gradient_xkhij"]
-colors = PackedColorArray(0.215686, 0.992157, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2imnj"]
-gradient = SubResource("Gradient_xkhij")
-
-[sub_resource type="Curve" id="Curve_xkhij"]
-_data = [Vector2(0, 0.145474), 0.0, 0.0, 0, 0, Vector2(0.99999, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_2imnj"]
-curve = SubResource("Curve_xkhij")
+[sub_resource type="BoxShape3D" id="BoxShape3D_4p5lk"]
+size = Vector3(0.1, 26.5, 29.5)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ivxyl"]
+lifetime_randomness = 0.25
 direction = Vector3(0, 1, 0)
-spread = 33.98
+spread = 90.919
 initial_velocity_min = 3.0
-initial_velocity_max = 10.0
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_2imnj")
-color_ramp = SubResource("GradientTexture1D_2imnj")
+initial_velocity_max = 6.0
+gravity = Vector3(0, 10, 0)
+scale_over_velocity_max = 143.15
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xkhij"]
 albedo_color = Color(0.325914, 1, 0.936514, 1)
+emission_enabled = true
+emission = Color(3.08037e-06, 0.645552, 0.619841, 1)
+emission_energy_multiplier = 16.0
 billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_xkhij"]
 material = SubResource("StandardMaterial3D_xkhij")
-size = Vector2(0.5, 0.5)
+size = Vector2(0.3, 0.3)
 
 [node name="Node3D" type="Node3D"]
 script = SubResource("GDScript_xkhij")
@@ -143,29 +139,33 @@ material = ExtResource("3_h8uj6")
 [node name="Colisiones" type="StaticBody3D" parent="Estructura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -2.5, -0.009)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/Colisiones"]
+[node name="ParedIzquierda" type="CollisionShape3D" parent="Estructura/Colisiones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 14.753)
-shape = SubResource("BoxShape3D_xkhij")
+shape = SubResource("BoxShape3D_uw1jf")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Estructura/Colisiones"]
+[node name="ParedDerecha" type="CollisionShape3D" parent="Estructura/Colisiones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -14.6731)
-shape = SubResource("BoxShape3D_xkhij")
+shape = SubResource("BoxShape3D_uw1jf")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Estructura/Colisiones"]
+[node name="ParedDelantera1" type="CollisionShape3D" parent="Estructura/Colisiones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.78053, 5.67164, 0)
 shape = SubResource("BoxShape3D_2imnj")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Estructura/Colisiones"]
+[node name="ParedDelantera2" type="CollisionShape3D" parent="Estructura/Colisiones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.781, -7.77738, -8.64146)
 shape = SubResource("BoxShape3D_ivxyl")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Estructura/Colisiones"]
+[node name="ParedDelantera3" type="CollisionShape3D" parent="Estructura/Colisiones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.781, -7.777, 8.7)
 shape = SubResource("BoxShape3D_xkhij")
 
 [node name="Suelo" type="CollisionShape3D" parent="Estructura/Colisiones"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0876, -10.766, 0)
 shape = SubResource("BoxShape3D_h58sk")
+
+[node name="Pared Trasera" type="CollisionShape3D" parent="Estructura/Colisiones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7849, 2.48965, 0)
+shape = SubResource("BoxShape3D_4p5lk")
 
 [node name="LuzTitilar" parent="." instance=ExtResource("5_ty8r2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94528, 6.58482, 0)
@@ -181,6 +181,7 @@ layers = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70954, 0)
 amount = 40
 lifetime = 2.0
+trail_lifetime = 16.7
 process_material = SubResource("ParticleProcessMaterial_ivxyl")
 draw_pass_1 = SubResource("QuadMesh_xkhij")
 
@@ -192,6 +193,7 @@ layers = 16
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70954, 0)
 amount = 40
 lifetime = 2.0
+trail_lifetime = 16.7
 process_material = SubResource("ParticleProcessMaterial_ivxyl")
 draw_pass_1 = SubResource("QuadMesh_xkhij")
 

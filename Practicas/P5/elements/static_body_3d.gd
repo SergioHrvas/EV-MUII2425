@@ -12,7 +12,6 @@ func activar():
 		# 1. Subimos al nodo raíz "Habitacion1"
 	var habitacion = get_parent().get_parent()  # porque estás en Palanca/Node3D/StaticBody
 	
-	print(habitacion.name)
 	# 2. Bajamos hasta el RigidBody dentro de Plataforma
 	var rigid_body = habitacion.get_node("Plataforma1/StaticBody3D")
 	var rigid_body2 = habitacion.get_node("Plataforma2/StaticBody3D")
@@ -51,4 +50,5 @@ func activar():
 
 # Esta función será llamada por el AnimationPlayer
 func emit_activation_signal():
+	print("EMITIENDO SEÑAL PALANCA")
 	emit_signal("palanca_activada")

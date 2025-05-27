@@ -11,7 +11,7 @@ height = 4.0
 radius = 1.0
 height = 3.0
 
-[node name="KinematicBody" type="CharacterBody3D"]
+[node name="Avatar" type="CharacterBody3D"]
 script = ExtResource("1_pyeqt")
 speed = 7.0
 
