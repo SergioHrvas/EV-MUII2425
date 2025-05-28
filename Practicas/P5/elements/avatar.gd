@@ -9,16 +9,17 @@ func _on_test_activar_avatar() -> void:
 @onready var ray = $Pivot/Pitch/Camera3D/RayCast3D
 
 var gravity := 9.8
+var inventario: Array = [null, null, null]
+var indice_actual := 0
+
 var objeto_agarrado: RigidBody3D = null
-var objeto_seg: RigidBody3D = null
+
 var padre_original: Node = null
 var grab_distance := 2.0  # Distancia a la que se agarra el objeto
 
 # Offset en local (X = derecha, Y = abajo, Z = hacia adelante negativo)
 var offset_local := Vector3(0.5, -0.5, -grab_distance)
 
-var col_layer_guardado := 0
-var col_mask_guardado := 0
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -28,7 +29,12 @@ func _unhandled_input(event):
 		$Pivot.rotate_y(-event.relative.x * mouse_sensitivity)
 		$Pivot/Pitch.rotate_x(-event.relative.y * mouse_sensitivity)
 		$Pivot/Pitch.rotation.x = clamp($Pivot/Pitch.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_1: seleccionar_objeto(0)
+			KEY_2: seleccionar_objeto(1)
+			KEY_3: seleccionar_objeto(2)
+			
 func _physics_process(delta):
 	var pivot_basis = $Pivot.global_transform.basis
 
@@ -70,12 +76,9 @@ func _physics_process(delta):
 	move_and_slide()
 	  
 	if Input.is_action_just_pressed("interactuar"):
-
-						
 		if objeto_agarrado:
 			soltar_objeto()
-		else:
-			if(ray.is_colliding()):
+		elif(ray.is_colliding()):
 				var obj = ray.get_collider()
 				if obj.has_method("activar"):
 					obj.activar()
@@ -98,34 +101,59 @@ func intentar_agarrar():
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider is RigidBody3D and collider.name.begins_with("Bola"):
-			print("Agarrando pelota")
-			objeto_agarrado = collider
-			objeto_agarrado.freeze = true
-			# Guardamos el estado de colisión original
-			col_layer_guardado = objeto_agarrado.collision_layer
-			col_mask_guardado = objeto_agarrado.collision_mask
+			# Buscar un espacio libre en el inventario
+			for i in range(3):
+				if inventario[i] == null:
 
-			objeto_agarrado.collision_layer = 0
-			objeto_agarrado.collision_mask = 0
-			# Desactivamos colisiones mientras está agarrado
-			objeto_agarrado.collision_layer = 0
-			objeto_agarrado.collision_mask = 0
+					print("Guardando objeto en inventario[", i, "]")
+					inventario[i] = collider
+
+						
+					collider.visible = false
+					collider.freeze = true
+					
+					collider.collision_layer = 0
+					collider.collision_mask = 0
+					
+					return
+			print("Inventario lleno")
+
 
 func soltar_objeto():
 	if objeto_agarrado:
 		print("Soltando pelota")
-		# Restauramos las colisiones
-		objeto_agarrado.collision_layer = col_layer_guardado
-		objeto_agarrado.collision_mask = col_mask_guardado
+
+		# Restauramos colisiones (ajusta según tu configuración)
+		objeto_agarrado.collision_layer = 1
+		objeto_agarrado.collision_mask = 1
 		objeto_agarrado.freeze = false
 
-		# Dirección de lanzamiento (frente a la cámara)
 		var cam = $Pivot/Pitch/Camera3D
 		var forward = -cam.global_transform.basis.z.normalized()
-
-		# Calculamos el impulso: velocidad del jugador + impulso hacia adelante
 		var impulso = forward * 4.0 + velocity * 0.5
 		objeto_agarrado.apply_central_impulse(impulso)
 
-		objeto_seg = objeto_agarrado
+		# Quitar del inventario
+		inventario[indice_actual] = null
+		objeto_agarrado = null
+
+		
+func seleccionar_objeto(indice: int):
+	if indice < 0 or indice >= inventario.size():
+		return
+	if inventario[indice] != null:
+		if objeto_agarrado != null and indice != indice_actual:
+			guardar_objeto()
+		
+		objeto_agarrado = inventario[indice]
+		objeto_agarrado.visible = true
+		objeto_agarrado.freeze = true
+		indice_actual = indice
+		print("Objeto del inventario seleccionado: ", indice)
+
+
+func guardar_objeto():
+	if objeto_agarrado:
+		objeto_agarrado.visible = false
+		objeto_agarrado.freeze = true
 		objeto_agarrado = null
