@@ -26,6 +26,9 @@ script = ExtResource("1_702cj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.566388, 0)
 target_position = Vector3(0, 0, -4.5)
 
+[node name="GrabPoint" type="Marker3D" parent="Pivot/Pitch/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.47836, 0)
 shape = SubResource("CapsuleShape3D_pyeqt")

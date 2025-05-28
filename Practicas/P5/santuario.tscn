@@ -61,10 +61,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.65171, 20.4951, -0.722092)
 shape = SubResource("BoxShape3D_g8w4t")
 
 [node name="Pasillo" parent="." instance=ExtResource("3_3lhoi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57607, 26.7421, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57607, -2.88862, 0)
 
 [node name="BaseVigilante" type="Node3D" parent="Pasillo"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -7.31488, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 30.7289, 0)
 
 [node name="Vigilante" parent="Pasillo/BaseVigilante" instance=ExtResource("7_ohn7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230154, 7.83532, 2.33675)
@@ -116,7 +116,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Avatar" parent="." instance=ExtResource("4_ikkem")]
-transform = Transform3D(0.998929, 0, 0, 0, 0.998399, -0.0325446, 0, 0.0325446, 0.998399, -0.960159, 0.531575, -5.43034)
+transform = Transform3D(0.998929, 0, 0, 0, 0.998399, -0.0325446, 0, 0.0325446, 0.998399, -0.960159, 0.777436, -5.43034)
 
 [node name="Luces" type="Node3D" parent="."]
 

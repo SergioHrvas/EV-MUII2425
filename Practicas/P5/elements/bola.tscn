@@ -12,7 +12,6 @@ radius = 0.8
 [node name="Node3D" type="Node3D"]
 
 [node name="Bola" type="RigidBody3D" parent="."]
-mass = 0.741
 physics_material_override = SubResource("PhysicsMaterial_tw8sx")
 
 [node name="Esfera" type="CSGSphere3D" parent="Bola"]

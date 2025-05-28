@@ -20,10 +20,12 @@ mesh = SubResource("CylinderMesh_250mc")
 surface_material_override/0 = SubResource("StandardMaterial3D_250mc")
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69054, 0.0312462)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240113, 0.0312462)
 light_color = Color(0, 1, 1, 1)
 light_energy = 0.472
-omni_range = 43.037
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+omni_range = 11.337
 omni_attenuation = 0.97
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

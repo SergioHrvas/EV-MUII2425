@@ -17,7 +17,7 @@ func activar():
 	var rigid_body2 = habitacion.get_node("Plataforma2/StaticBody3D")
 
 	# 3. Consultamos la variable
-	if rigid_body.bola_colocada or rigid_body2.bola_colocada:
+	if rigid_body.bola_colocada and rigid_body2.bola_colocada:
 		print("Bola colocada, palanca activada")
 		# Reproducir sonido
 		var sound = preload("res://sonidos/success.ogg")
@@ -33,7 +33,7 @@ func activar():
 		player.queue_free()
 
 	else:
-		print("Aún no está la bola en la plataforma")
+		print("Aún no están las bolas en las plataformas")
 		# Reproducir sonido
 		var sound = preload("res://sonidos/error.ogg")
 		var player = AudioStreamPlayer.new()
@@ -47,8 +47,6 @@ func activar():
 		await player.finished
 		player.queue_free()
 
-
 # Esta función será llamada por el AnimationPlayer
 func emit_activation_signal():
-	print("EMITIENDO SEÑAL PALANCA")
 	emit_signal("palanca_activada")
