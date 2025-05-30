@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbaaglv1nsauw"
 path.s3tc="res://.godot/imported/Rubber004_2K-JPG_NormalGL.jpg-b123700ed0e4a59f12e8c122caacd104.s3tc.ctex"
+path.etc2="res://.godot/imported/Rubber004_2K-JPG_NormalGL.jpg-b123700ed0e4a59f12e8c122caacd104.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/Rubber004_2K-JPG/Rubber004_2K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/Rubber004_2K-JPG_NormalGL.jpg-b123700ed0e4a59f12e8c122caacd104.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rubber004_2K-JPG_NormalGL.jpg-b123700ed0e4a59f12e8c122caacd104.s3tc.ctex", "res://.godot/imported/Rubber004_2K-JPG_NormalGL.jpg-b123700ed0e4a59f12e8c122caacd104.etc2.ctex"]
 
 [params]
 

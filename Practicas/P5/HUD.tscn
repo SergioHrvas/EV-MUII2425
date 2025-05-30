@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://1gfg2blx667u"]
+
+[ext_resource type="Script" uid="uid://c1eb0duxibyp7" path="res://scripts/inventario.gd" id="1_k5de2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3lhoi"]
+
+[sub_resource type="FontVariation" id="FontVariation_3lhoi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8w4t"]
+font = SubResource("FontVariation_3lhoi")
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Mirilla" type="Label" parent="."]
+offset_left = 641.0
+offset_top = 362.0
+offset_right = 681.0
+offset_bottom = 385.0
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Inventario" type="Panel" parent="."]
+offset_left = 540.0
+offset_top = 642.0
+offset_right = 763.0
+offset_bottom = 712.0
+script = ExtResource("1_k5de2")
+
+[node name="Slot1" type="TextureRect" parent="Inventario"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 6.0
+offset_right = 76.0
+offset_bottom = 63.0
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Slot2" type="TextureRect" parent="Inventario"]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 63.0
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Slot3" type="TextureRect" parent="Inventario"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 6.0
+offset_right = 210.0
+offset_bottom = 63.0
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 111.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 198.0
+offset_bottom = 33.0
+text = "C = Cambiar a Vigilante"
+label_settings = SubResource("LabelSettings_3lhoi")
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 239.0
+offset_bottom = 57.0
+text = "Mover Raton = Mover Camara"
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 55.0
+offset_right = 217.0
+offset_bottom = 112.0
+text = "W = Avanzar | S = Atras
+A = Izquierda | L = Derecha"
+label_settings = SubResource("LabelSettings_g8w4t")

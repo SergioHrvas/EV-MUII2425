@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b73mmwp8j7cgd"
 path.s3tc="res://.godot/imported/Metal034_2K-JPG_Roughness.jpg-af7a757f68d5d67a97d7c4a8c3d3aa55.s3tc.ctex"
+path.etc2="res://.godot/imported/Metal034_2K-JPG_Roughness.jpg-af7a757f68d5d67a97d7c4a8c3d3aa55.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/Metal034_2K-JPG/Metal034_2K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/Metal034_2K-JPG_Roughness.jpg-af7a757f68d5d67a97d7c4a8c3d3aa55.s3tc.ctex"]
+dest_files=["res://.godot/imported/Metal034_2K-JPG_Roughness.jpg-af7a757f68d5d67a97d7c4a8c3d3aa55.s3tc.ctex", "res://.godot/imported/Metal034_2K-JPG_Roughness.jpg-af7a757f68d5d67a97d7c4a8c3d3aa55.etc2.ctex"]
 
 [params]
 

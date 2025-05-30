@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cuuhna0ims4ut"
 path.s3tc="res://.godot/imported/PavingStones128_2K-JPG_Roughness.jpg-6552a9b418ef25d2a291226a053b113f.s3tc.ctex"
+path.etc2="res://.godot/imported/PavingStones128_2K-JPG_Roughness.jpg-6552a9b418ef25d2a291226a053b113f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/PavingStones128_2K-JPG/PavingStones128_2K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/PavingStones128_2K-JPG_Roughness.jpg-6552a9b418ef25d2a291226a053b113f.s3tc.ctex"]
+dest_files=["res://.godot/imported/PavingStones128_2K-JPG_Roughness.jpg-6552a9b418ef25d2a291226a053b113f.s3tc.ctex", "res://.godot/imported/PavingStones128_2K-JPG_Roughness.jpg-6552a9b418ef25d2a291226a053b113f.etc2.ctex"]
 
 [params]
 

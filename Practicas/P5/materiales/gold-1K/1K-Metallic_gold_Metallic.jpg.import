@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dccw25oviaq01"
 path.s3tc="res://.godot/imported/1K-Metallic_gold_Metallic.jpg-1aed6f7582117c2db59545425e06929c.s3tc.ctex"
+path.etc2="res://.godot/imported/1K-Metallic_gold_Metallic.jpg-1aed6f7582117c2db59545425e06929c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/gold-1K/1K-Metallic_gold_Metallic.jpg"
-dest_files=["res://.godot/imported/1K-Metallic_gold_Metallic.jpg-1aed6f7582117c2db59545425e06929c.s3tc.ctex"]
+dest_files=["res://.godot/imported/1K-Metallic_gold_Metallic.jpg-1aed6f7582117c2db59545425e06929c.s3tc.ctex", "res://.godot/imported/1K-Metallic_gold_Metallic.jpg-1aed6f7582117c2db59545425e06929c.etc2.ctex"]
 
 [params]
 

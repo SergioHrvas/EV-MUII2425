@@ -31,4 +31,5 @@ mesh = SubResource("BoxMesh_3lhoi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0.000485482, 0.000807819, 0, 0.857122, -0.515113, -0.000942478, 0.515113, 0.857122, 0, 0.00731206, -4.55261)
+visible = false
 mesh = SubResource("CylinderMesh_po0cn")

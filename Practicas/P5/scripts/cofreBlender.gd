@@ -2,5 +2,5 @@ extends Node3D
 
 
 func _process(_delta: float):
-	if Input.is_action_just_pressed("espacio"):
+	if Input.is_action_just_pressed("jump"):
 		$AnimationPlayer.play("Scene")

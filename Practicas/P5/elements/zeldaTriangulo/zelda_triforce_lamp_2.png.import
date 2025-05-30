@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8mpk70aj6hsw"
 path.s3tc="res://.godot/imported/zelda_triforce_lamp_2.png-522c3d4086d348198ab9448bdbc3bfaa.s3tc.ctex"
+path.etc2="res://.godot/imported/zelda_triforce_lamp_2.png-522c3d4086d348198ab9448bdbc3bfaa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://elements/zeldaTriangulo/zelda_triforce_lamp_2.png"
-dest_files=["res://.godot/imported/zelda_triforce_lamp_2.png-522c3d4086d348198ab9448bdbc3bfaa.s3tc.ctex"]
+dest_files=["res://.godot/imported/zelda_triforce_lamp_2.png-522c3d4086d348198ab9448bdbc3bfaa.s3tc.ctex", "res://.godot/imported/zelda_triforce_lamp_2.png-522c3d4086d348198ab9448bdbc3bfaa.etc2.ctex"]
 
 [params]
 

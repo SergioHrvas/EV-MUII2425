@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://m610m6fcuyfd"
 path.s3tc="res://.godot/imported/Carpet012_2K-JPG_Color.jpg-a1e91f500a37873dc37a5e42e29ececd.s3tc.ctex"
+path.etc2="res://.godot/imported/Carpet012_2K-JPG_Color.jpg-a1e91f500a37873dc37a5e42e29ececd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/Carpet012_2K-JPG/Carpet012_2K-JPG_Color.jpg"
-dest_files=["res://.godot/imported/Carpet012_2K-JPG_Color.jpg-a1e91f500a37873dc37a5e42e29ececd.s3tc.ctex"]
+dest_files=["res://.godot/imported/Carpet012_2K-JPG_Color.jpg-a1e91f500a37873dc37a5e42e29ececd.s3tc.ctex", "res://.godot/imported/Carpet012_2K-JPG_Color.jpg-a1e91f500a37873dc37a5e42e29ececd.etc2.ctex"]
 
 [params]
 

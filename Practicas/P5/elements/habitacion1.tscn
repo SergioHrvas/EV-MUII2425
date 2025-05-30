@@ -6,15 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://dapya1briq4pj" path="res://elements/bola.tscn" id="2_wh65v"]
 [ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://elements/palanca.tscn" id="4_vy1a3"]
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://elements/silla.tscn" id="5_0giyi"]
-[ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://elements/ganchoBlender.tscn" id="6_bh3rd"]
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
-[ext_resource type="Script" uid="uid://t4xecpdwqksu" path="res://elements/bola.gd" id="8_rvkbe"]
-[ext_resource type="PackedScene" uid="uid://drw6eg2q544qi" path="res://elements/cofreBlender.tscn" id="8_san7q"]
-[ext_resource type="Script" uid="uid://5yurs7ng7868" path="res://elements/bola2.gd" id="9_vwrra"]
+[ext_resource type="Script" uid="uid://t4xecpdwqksu" path="res://scripts/bola.gd" id="8_rvkbe"]
+[ext_resource type="Script" uid="uid://5yurs7ng7868" path="res://scripts/bola2.gd" id="9_vwrra"]
 [ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://materiales/azul.tres" id="11_rvkbe"]
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
+[ext_resource type="PackedScene" uid="uid://cptutqwbyrnbv" path="res://elements/ganchoFisico.tscn" id="15_vwrra"]
+[ext_resource type="PackedScene" uid="uid://bsph8a22atqu5" path="res://elements/soporte_gancho.tscn" id="16_l82dh"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vwrra"]
 top_radius = 3.5
@@ -173,9 +173,6 @@ script = SubResource("GDScript_l82dh")
 [node name="gancho_ani" parent="." instance=ExtResource("7_6j36w")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 26.6734, 2.00846, -2.96961)
 
-[node name="cofre" parent="." instance=ExtResource("8_san7q")]
-transform = Transform3D(-0.997893, 0, -0.0648806, 0, 1, 0, 0.0648806, 0, -0.997893, 15.8234, -1.35022, 1.50986)
-
 [node name="Runa" parent="." instance=ExtResource("14_rvkbe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -0.706, 11)
 
@@ -183,5 +180,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, -0.706, 11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.855, -0.706, -11)
 skeleton = NodePath("../Runa")
 
-[node name="gancho" parent="." instance=ExtResource("6_bh3rd")]
-transform = Transform3D(0.15994, 0, -0.00439765, 0, 0.16, 0, 0.00439765, 0, 0.15994, 4.56153, -2.25884, 12.8422)
+[node name="Gancho" parent="." instance=ExtResource("15_vwrra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64483, -1.89687, 10.4434)
+
+[node name="SoporteGancho" parent="." instance=ExtResource("16_l82dh")]
+transform = Transform3D(-0.136061, 0, -0.9907, 0, 1, 0, 0.9907, 0, -0.136061, 18.7824, 5.62747, 2.78255)
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1

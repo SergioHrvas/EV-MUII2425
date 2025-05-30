@@ -18,6 +18,11 @@ var plataforma_real: AnimatableBody3D = null
 var contador_area_1: int = 0
 var contador_area_2: int = 0
 
+func _process(delta):
+	if Input.is_action_just_pressed("l_key"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+		$End.visible = true
 	
 func _ready():
 	palanca = $Habitacion1/Palanca/StaticBody3D
@@ -37,6 +42,8 @@ func _ready():
 	if habitacion2:
 		habitacion2.queue_free()
 		habitacion2 = null
+		
+	$End.visible = false
 
 func _cargar_habitacion(ruta: String, nombre: String) -> Node:
 	var escena = load(ruta)

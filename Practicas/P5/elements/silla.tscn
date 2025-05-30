@@ -13,6 +13,8 @@ size = Vector3(0.7, 2.035, 2)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 mass = 10.0
+center_of_mass_mode = 1
+inertia = Vector3(0, 3.5, 0)
 
 [node name="Pata1" type="CSGBox3D" parent="RigidBody3D"]
 size = Vector3(0.2, 0.2, 2)

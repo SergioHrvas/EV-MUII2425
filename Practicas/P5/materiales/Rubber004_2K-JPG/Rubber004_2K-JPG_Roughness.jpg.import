@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmvjvjjtjj8bv"
 path.s3tc="res://.godot/imported/Rubber004_2K-JPG_Roughness.jpg-8cc766cd2d6379e2574a5ed7fab0824a.s3tc.ctex"
+path.etc2="res://.godot/imported/Rubber004_2K-JPG_Roughness.jpg-8cc766cd2d6379e2574a5ed7fab0824a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/Rubber004_2K-JPG/Rubber004_2K-JPG_Roughness.jpg"
-dest_files=["res://.godot/imported/Rubber004_2K-JPG_Roughness.jpg-8cc766cd2d6379e2574a5ed7fab0824a.s3tc.ctex"]
+dest_files=["res://.godot/imported/Rubber004_2K-JPG_Roughness.jpg-8cc766cd2d6379e2574a5ed7fab0824a.s3tc.ctex", "res://.godot/imported/Rubber004_2K-JPG_Roughness.jpg-8cc766cd2d6379e2574a5ed7fab0824a.etc2.ctex"]
 
 [params]
 

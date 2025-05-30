@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cyisfhk4cqe4y"]
 
-[ext_resource type="Script" uid="uid://dfxxfbka26x2b" path="res://scripts/avatar.gd" id="1_702cj"]
-[ext_resource type="Script" uid="uid://cetxm8cakx0et" path="res://elements/avatar.gd" id="1_pyeqt"]
+[ext_resource type="Script" uid="uid://dfxxfbka26x2b" path="res://scripts/avatar_pivot.gd" id="1_702cj"]
+[ext_resource type="Script" uid="uid://cetxm8cakx0et" path="res://scripts/avatar.gd" id="1_pyeqt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pyeqt"]
 radius = 1.0

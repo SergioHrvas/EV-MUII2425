@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfmjbly5q6w6h"
 path.s3tc="res://.godot/imported/MorningSkyHDRI002B_2K-TONEMAPPED.jpg-54148f6884e35083dae27044e4f56fbe.s3tc.ctex"
+path.etc2="res://.godot/imported/MorningSkyHDRI002B_2K-TONEMAPPED.jpg-54148f6884e35083dae27044e4f56fbe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/MorningSkyHDRI002B_2K-TONEMAPPED.jpg"
-dest_files=["res://.godot/imported/MorningSkyHDRI002B_2K-TONEMAPPED.jpg-54148f6884e35083dae27044e4f56fbe.s3tc.ctex"]
+dest_files=["res://.godot/imported/MorningSkyHDRI002B_2K-TONEMAPPED.jpg-54148f6884e35083dae27044e4f56fbe.s3tc.ctex", "res://.godot/imported/MorningSkyHDRI002B_2K-TONEMAPPED.jpg-54148f6884e35083dae27044e4f56fbe.etc2.ctex"]
 
 [params]
 

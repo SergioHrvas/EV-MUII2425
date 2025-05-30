@@ -15,9 +15,11 @@ func activar():
 	# 2. Bajamos hasta el RigidBody dentro de Plataforma
 	var rigid_body = habitacion.get_node("Plataforma1/StaticBody3D")
 	var rigid_body2 = habitacion.get_node("Plataforma2/StaticBody3D")
-
+	var soporte_gancho = habitacion.get_node("SoporteGancho")
+	
+	print(soporte_gancho.gancho_colocado)
 	# 3. Consultamos la variable
-	if rigid_body.bola_colocada and rigid_body2.bola_colocada:
+	if rigid_body.bola_colocada and rigid_body2.bola_colocada and soporte_gancho.gancho_colocado:
 		print("Bola colocada, palanca activada")
 		# Reproducir sonido
 		var sound = preload("res://sonidos/success.ogg")

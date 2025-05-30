@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://eurl8wrhh1d2"
 path.s3tc="res://.godot/imported/DgnObj_Small_GoalGateBakeParts_C_Alb.png-8d9fe133a61a783faa83b42d05313efc.s3tc.ctex"
+path.etc2="res://.godot/imported/DgnObj_Small_GoalGateBakeParts_C_Alb.png-8d9fe133a61a783faa83b42d05313efc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://elements/Nintendo Switch - The Legend of Zelda Tears of the Kingdom - Shrine Goal/Shrine Goal/DgnObj_Small_GoalGateBakeParts_C_Alb.png"
-dest_files=["res://.godot/imported/DgnObj_Small_GoalGateBakeParts_C_Alb.png-8d9fe133a61a783faa83b42d05313efc.s3tc.ctex"]
+dest_files=["res://.godot/imported/DgnObj_Small_GoalGateBakeParts_C_Alb.png-8d9fe133a61a783faa83b42d05313efc.s3tc.ctex", "res://.godot/imported/DgnObj_Small_GoalGateBakeParts_C_Alb.png-8d9fe133a61a783faa83b42d05313efc.etc2.ctex"]
 
 [params]
 

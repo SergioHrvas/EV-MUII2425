@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cptutqwbyrnbv"]
+
+[ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://elements/ganchoBlender.tscn" id="1_r37me"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r37me"]
+size = Vector3(2.8, 0.5, 2.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ukjg"]
+size = Vector3(1.2, 2, 1.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mwo67"]
+size = Vector3(0.5, 2.6, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nw2gi"]
+size = Vector3(0.5, 2.43823, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ic2qw"]
+size = Vector3(0.5, 0.9, 0.5)
+
+[node name="Gancho" type="RigidBody3D"]
+mass = 2.522
+inertia = Vector3(0, 2, 0)
+
+[node name="gancho" parent="." instance=ExtResource("1_r37me")]
+
+[node name="Base1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.301757, 0.251757, 0)
+shape = SubResource("BoxShape3D_r37me")
+
+[node name="Base2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.333137, 1.19937, 0)
+shape = SubResource("BoxShape3D_1ukjg")
+
+[node name="Gancho1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.322382, 3.43318, 0)
+shape = SubResource("BoxShape3D_mwo67")
+
+[node name="Gancho2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.501722, 0.865029, 0, -0.865029, 0.501722, 0, 0, 0, 1, 0.91747, 5.04466, 0)
+shape = SubResource("BoxShape3D_nw2gi")
+
+[node name="Gancho3" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999499, 0.031655, 0, -0.031655, 0.999499, 0, 0, 0, 1, 1.58705, 6.11272, 0)
+shape = SubResource("BoxShape3D_nw2gi")
+
+[node name="Gancho4" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.599387, -0.80046, 0, 0.80046, 0.599387, 0, 0, 0, 1, 1.10191, 7.18303, 0)
+shape = SubResource("BoxShape3D_nw2gi")
+
+[node name="Gancho5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.660041, -0.751229, 0, 0.751229, -0.660041, 0, 0, 0, 1, -0.179165, 7.27763, 0)
+shape = SubResource("BoxShape3D_nw2gi")
+
+[node name="Gancho6" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.00420616, -0.999991, 0, 0.999991, 0.00420616, 0, 0, 0, 1, -1.15345, 6.67114, 0)
+shape = SubResource("BoxShape3D_ic2qw")

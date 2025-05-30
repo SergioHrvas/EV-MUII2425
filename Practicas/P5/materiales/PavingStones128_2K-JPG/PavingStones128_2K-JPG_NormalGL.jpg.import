@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://x21j3jya8s7v"
 path.s3tc="res://.godot/imported/PavingStones128_2K-JPG_NormalGL.jpg-15c05f24991a5e83f74b69a4b63ab112.s3tc.ctex"
+path.etc2="res://.godot/imported/PavingStones128_2K-JPG_NormalGL.jpg-15c05f24991a5e83f74b69a4b63ab112.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materiales/PavingStones128_2K-JPG/PavingStones128_2K-JPG_NormalGL.jpg"
-dest_files=["res://.godot/imported/PavingStones128_2K-JPG_NormalGL.jpg-15c05f24991a5e83f74b69a4b63ab112.s3tc.ctex"]
+dest_files=["res://.godot/imported/PavingStones128_2K-JPG_NormalGL.jpg-15c05f24991a5e83f74b69a4b63ab112.s3tc.ctex", "res://.godot/imported/PavingStones128_2K-JPG_NormalGL.jpg-15c05f24991a5e83f74b69a4b63ab112.etc2.ctex"]
 
 [params]
 

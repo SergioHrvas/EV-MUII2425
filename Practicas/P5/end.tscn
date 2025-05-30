@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdovcq42luh5m"]
+
+[ext_resource type="Script" uid="uid://ctfmy0ro27arj" path="res://end.gd" id="1_n735c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n735c"]
+font_size = 51
+
+[node name="End" type="CanvasLayer"]
+script = ExtResource("1_n735c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+offset_left = 482.0
+offset_top = 261.0
+offset_right = 629.0
+offset_bottom = 408.0
+
+[node name="Cuadrado1" type="ColorRect" parent="Control/Button"]
+layout_mode = 0
+offset_right = 147.0
+offset_bottom = 146.0
+mouse_filter = 2
+color = Color(0, 0.66963, 0.670375, 1)
+
+[node name="Button2" type="Button" parent="Control"]
+offset_left = 643.0
+offset_top = 261.0
+offset_right = 790.0
+offset_bottom = 408.0
+
+[node name="Cuadrado2" type="ColorRect" parent="Control/Button2"]
+layout_mode = 0
+offset_right = 147.0
+offset_bottom = 146.0
+mouse_filter = 2
+color = Color(0.247059, 1, 0.482353, 1)
+
+[node name="Button3" type="Button" parent="Control"]
+offset_left = 483.0
+offset_top = 418.0
+offset_right = 630.0
+offset_bottom = 565.0
+
+[node name="Cuadrado3" type="ColorRect" parent="Control/Button3"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 146.0
+offset_bottom = 147.0
+mouse_filter = 2
+color = Color(0.247059, 1, 0.482353, 1)
+
+[node name="Button4" type="Button" parent="Control"]
+offset_left = 642.0
+offset_top = 418.0
+offset_right = 789.0
+offset_bottom = 565.0
+
+[node name="Cuadrado4" type="ColorRect" parent="Control/Button4"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 148.0
+offset_bottom = 147.0
+mouse_filter = 2
+color = Color(0, 0.670588, 0.670588, 1)
+
+[node name="Control2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control2"]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 227.0
+offset_right = 897.0
+offset_bottom = 509.0
+
+[node name="Label" type="Label" parent="Control2/Panel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 442.0
+offset_bottom = 83.0
+text = "¡Fin de la partida!"
+label_settings = SubResource("LabelSettings_n735c")
+horizontal_alignment = 1
+
+[node name="BotonEmpezar" type="Button" parent="Control2/Panel"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 101.0
+offset_right = 431.0
+offset_bottom = 172.0
+text = "Volver a empezar"
+
+[node name="BotonQuitar" type="Button" parent="Control2/Panel"]
+offset_left = 22.0
+offset_top = 191.0
+offset_right = 431.0
+offset_bottom = 262.0
+text = "Abandonar juego"
+
+[connection signal="button_up" from="Control/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="Control/Button4" to="." method="_on_button_4_button_up"]
+[connection signal="button_up" from="Control2/Panel/BotonEmpezar" to="." method="_on_boton_empezar_button_up"]
+[connection signal="button_up" from="Control2/Panel/BotonQuitar" to="." method="_on_boton_quitar_button_up"]
