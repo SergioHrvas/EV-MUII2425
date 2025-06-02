@@ -18,11 +18,6 @@ var plataforma_real: AnimatableBody3D = null
 var contador_area_1: int = 0
 var contador_area_2: int = 0
 
-func _process(delta):
-	if Input.is_action_just_pressed("l_key"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-		$End.visible = true
 	
 func _ready():
 	palanca = $Habitacion1/Palanca/StaticBody3D
@@ -93,7 +88,6 @@ func _on_area_2_body_entered(body):
 			
 			# Descargar habitación 1
 			if habitacion1 and is_instance_valid(habitacion1):
-				# Obtener Bola1 sin importar dónde esté
 				var bola1 = get_tree().get_nodes_in_group("bola1")[0]
 				var rb1 = bola1.get_node("Bola")
 				rb1.freeze = true
@@ -106,8 +100,12 @@ func _on_area_2_body_entered(body):
 				estado_habitacion1["pos_bola2"] = rb2.global_transform.origin
 				rb2.freeze = false
 				
-				print(estado_habitacion1["pos_bola1"])
-				print(estado_habitacion1["pos_bola2"])
+				var gancho = get_tree().get_nodes_in_group("gancho")[0]
+				gancho.freeze = true
+				estado_habitacion1["pos_gancho"] = gancho.global_transform.origin
+				estado_habitacion1["rot_gancho"] = gancho.global_rotation
+				gancho.freeze = false
+	
 
 				habitacion1.queue_free()
 				habitacion1 = null
@@ -145,3 +143,13 @@ func _restaurar_estado_habitacion1():
 				rb2.global_transform.origin = estado_habitacion1["pos_bola2"]
 				rb2.freeze = false
 				print("Restaurando bola2 en ", rb2.global_transform.origin)
+
+		if estado_habitacion1.has("pos_gancho"):
+			var gancho = habitacion1.get_node("Gancho")
+			if gancho:
+				gancho.freeze = true
+				gancho.global_transform.origin = estado_habitacion1["pos_gancho"]
+				gancho.global_rotation = estado_habitacion1["rot_gancho"]
+
+				gancho.freeze = false
+				print("Restaurando gancho en ", gancho.global_transform.origin)

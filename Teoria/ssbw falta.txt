@@ -1,0 +1,6 @@
+PUblic servido por caddy y no por node
+variables env para produ y para desarrollo -> intentar que no estén en el dockerfile
+mirar migracion y datos de primeras
+astro
+
+

@@ -17,7 +17,6 @@ size = Vector3(2.5, 2.1, 2.2)
 size = Vector3(2, 2, 1)
 
 [node name="cofre" instance=ExtResource("1_pyqbx")]
-script = ExtResource("2_qx4t4")
 
 [node name="Martillo" parent="." index="0"]
 transform = Transform3D(0.457182, 0, 0, 0, 0.457182, 1.28985e-07, 0, -1.28985e-07, 0.457182, 0.057621, -0.593906, -0.0132089)
@@ -58,6 +57,7 @@ surface_material_override/0 = ExtResource("5_5figr")
 surface_material_override/0 = ExtResource("5_5figr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Caja" index="4"]
+script = ExtResource("2_qx4t4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Caja/StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.042831, 0)
@@ -77,6 +77,7 @@ surface_material_override/0 = ExtResource("7_7r1d0")
 surface_material_override/0 = ExtResource("9_pmhw4")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Tapadera" index="2"]
+script = ExtResource("2_qx4t4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Tapadera/StaticBody3D" index="0"]
 transform = Transform3D(1, 1.08247e-15, -6.97417e-17, -2.05391e-15, 1, 9.9476e-13, 2.32831e-10, 2.84217e-14, 1, 1.00821, 9.30845e-10, -0.46528)

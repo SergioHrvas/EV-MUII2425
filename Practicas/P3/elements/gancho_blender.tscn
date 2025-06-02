@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6ouxym8fttkp"]
-
-[ext_resource type="PackedScene" uid="uid://bsfrwbsmrqyra" path="res://elements/gancho.glb" id="1_46bv2"]
-
-[node name="gancho" instance=ExtResource("1_46bv2")]

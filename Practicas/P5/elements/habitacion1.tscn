@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://qrdai0nmq1mb"]
+[gd_scene load_steps=24 format=3 uid="uid://qrdai0nmq1mb"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
+[ext_resource type="Script" uid="uid://dinjwapiq4si2" path="res://elements/gancho.gd" id="15_l82dh"]
 [ext_resource type="PackedScene" uid="uid://cptutqwbyrnbv" path="res://elements/ganchoFisico.tscn" id="15_vwrra"]
 [ext_resource type="PackedScene" uid="uid://bsph8a22atqu5" path="res://elements/soporte_gancho.tscn" id="16_l82dh"]
 
@@ -182,6 +183,7 @@ skeleton = NodePath("../Runa")
 
 [node name="Gancho" parent="." instance=ExtResource("15_vwrra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64483, -1.89687, 10.4434)
+script = ExtResource("15_l82dh")
 
 [node name="SoporteGancho" parent="." instance=ExtResource("16_l82dh")]
 transform = Transform3D(-0.136061, 0, -0.9907, 0, 1, 0, 0.9907, 0, -0.136061, 18.7824, 5.62747, 2.78255)

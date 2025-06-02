@@ -15,6 +15,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 482.0
 offset_top = 261.0
 offset_right = 629.0
@@ -28,6 +29,7 @@ mouse_filter = 2
 color = Color(0, 0.66963, 0.670375, 1)
 
 [node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 643.0
 offset_top = 261.0
 offset_right = 790.0
@@ -41,6 +43,7 @@ mouse_filter = 2
 color = Color(0.247059, 1, 0.482353, 1)
 
 [node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 483.0
 offset_top = 418.0
 offset_right = 630.0
@@ -56,6 +59,7 @@ mouse_filter = 2
 color = Color(0.247059, 1, 0.482353, 1)
 
 [node name="Button4" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 642.0
 offset_top = 418.0
 offset_right = 789.0
@@ -103,6 +107,7 @@ offset_bottom = 172.0
 text = "Volver a empezar"
 
 [node name="BotonQuitar" type="Button" parent="Control2/Panel"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = 191.0
 offset_right = 431.0

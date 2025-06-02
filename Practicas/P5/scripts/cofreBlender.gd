@@ -1,6 +1,4 @@
-extends Node3D
+extends StaticBody3D
 
-
-func _process(_delta: float):
-	if Input.is_action_just_pressed("jump"):
-		$AnimationPlayer.play("Scene")
+func activar():
+		get_parent().get_parent().get_node("AnimationPlayer").play("Scene")

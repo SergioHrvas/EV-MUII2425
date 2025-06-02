@@ -59,7 +59,7 @@ shape = SubResource("BoxShape3D_g8w4t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57607, -2.88862, 0)
 
 [node name="BaseVigilante" type="Node3D" parent="Pasillo"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 30.7289, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 25.7255, 0)
 
 [node name="Vigilante" parent="Pasillo/BaseVigilante" instance=ExtResource("7_ohn7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230154, 7.83532, 2.33675)

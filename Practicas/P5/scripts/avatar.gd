@@ -82,6 +82,7 @@ func _physics_process(delta):
 			soltar_objeto()
 		elif(ray.is_colliding()):
 				var obj = ray.get_collider()
+				print(obj.name)
 				if obj.has_method("activar"):
 					obj.activar()
 				intentar_agarrar()
