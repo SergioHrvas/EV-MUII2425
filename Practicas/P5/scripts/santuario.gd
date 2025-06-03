@@ -20,6 +20,39 @@ var contador_area_2: int = 0
 
 	
 func _ready():
+	var label1 = $Start/Label
+	var label2 = $Start/Label2
+	
+	# Reproducir sonido
+	var sound = preload("res://sonidos/init_shrine.ogg")
+	var player = AudioStreamPlayer.new()
+	player.stream = sound
+	add_child(player)
+	player.play()		
+
+	
+	label1.modulate.a = 0.0
+	label2.modulate.a = 0.0
+	label1.visible = true
+	label2.visible = true
+	
+	# Crear el Tween para la animación FadeIn
+	var tween_in = create_tween()
+	tween_in.parallel().tween_property(label1, "modulate:a", 1.0, 1.0)
+	tween_in.parallel().tween_property(label2, "modulate:a", 1.0, 1.0)
+	
+	await get_tree().create_timer(4.0).timeout
+	
+	# Crear el Tween para la animación FadeOut
+	var tween_out = create_tween()
+	tween_out.parallel().tween_property(label1, "modulate:a", 0.0, 1.0)
+	tween_out.parallel().tween_property(label2, "modulate:a", 0.0, 1.0)
+	await tween_out.finished
+	
+	label1.visible = false
+	label2.visible = false
+	
+
 	palanca = $Habitacion1/Palanca/StaticBody3D
 	plataforma_real = $Pasillo/Ascensor/Plataforma
 	
@@ -39,7 +72,10 @@ func _ready():
 		habitacion2 = null
 		
 	$End.visible = false
-
+	
+	await player.finished
+	player.queue_free()
+	
 func _cargar_habitacion(ruta: String, nombre: String) -> Node:
 	var escena = load(ruta)
 	if escena:

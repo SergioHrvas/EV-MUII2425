@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch3ldg88fnh5f"]
+
+[ext_resource type="Script" uid="uid://8x74ph5xero2" path="res://chest_opened.gd" id="1_4c6yj"]
+[ext_resource type="Texture2D" uid="uid://bdsihlknp2gl5" path="res://img/hammer.png" id="1_r20pc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4spbd"]
+font_size = 26
+
+[node name="ChestOpened" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_4c6yj")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 280.0
+offset_top = 191.0
+offset_right = 979.0
+offset_bottom = 564.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 53.0
+offset_right = 333.0
+offset_bottom = 399.0
+texture = ExtResource("1_r20pc")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 155.0
+offset_right = 677.0
+offset_bottom = 228.0
+text = "Has obtenido \"Martillo\""
+label_settings = SubResource("LabelSettings_4spbd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonExit" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 646.0
+offset_top = 2.0
+offset_right = 696.0
+offset_bottom = 50.0
+text = "X"
+
+[connection signal="button_up" from="Panel/ButtonExit" to="." method="_on_button_exit_button_up"]

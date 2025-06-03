@@ -82,7 +82,6 @@ func _physics_process(delta):
 			soltar_objeto()
 		elif(ray.is_colliding()):
 				var obj = ray.get_collider()
-				print(obj.name)
 				if obj.has_method("activar"):
 					obj.activar()
 				intentar_agarrar()
@@ -108,7 +107,7 @@ func intentar_agarrar():
 			for i in range(3):
 				if inventario[i] == null:
 					if(collider.name.begins_with("Gancho")):
-						collider.rotation_degrees.y = 90  # Rotación fija en Y al guardar
+						collider.rotation_degrees.y = rotation_degrees.y
 						
 					print("Guardando objeto en inventario[", i, "]")
 					inventario[i] = collider
@@ -135,7 +134,7 @@ func soltar_objeto():
 		objeto_agarrado.freeze = false
 		
 		if(objeto_agarrado.name.begins_with("Gancho")):
-			objeto_agarrado.rotation_degrees = Vector3(0, 90, 0)  # Solo eje Y
+			objeto_agarrado.rotation_degrees = $Pivot.rotation_degrees + Vector3(0, -90, 0) # Solo eje Y
 		
 		var cam = $Pivot/Pitch/Camera3D
 		var forward = -cam.global_transform.basis.z.normalized()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqr4oh1x1aytq"]
+[gd_scene load_steps=18 format=3 uid="uid://bqr4oh1x1aytq"]
 
 [ext_resource type="Script" uid="uid://c4yx2gxap23ml" path="res://scripts/santuario.gd" id="1_ohn7k"]
 [ext_resource type="PackedScene" uid="uid://qrdai0nmq1mb" path="res://elements/habitacion1.tscn" id="1_xkxwq"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cf63glwlocl1p" path="res://elements/vigilante.tscn" id="7_ohn7k"]
 [ext_resource type="PackedScene" uid="uid://1gfg2blx667u" path="res://HUD.tscn" id="9_y8bt7"]
 [ext_resource type="PackedScene" uid="uid://bdovcq42luh5m" path="res://end.tscn" id="10_qmox0"]
+[ext_resource type="PackedScene" uid="uid://bxdpgiydhgev1" path="res://start.tscn" id="11_qmox0"]
+[ext_resource type="PackedScene" uid="uid://ch3ldg88fnh5f" path="res://chest_opened.tscn" id="12_cnha0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ohn7k"]
 size = Vector3(9.97, 6, 10)
@@ -33,6 +35,9 @@ volumetric_fog_gi_inject = 0.0
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ohn7k")
+
+[node name="Avatar" parent="." instance=ExtResource("4_ikkem")]
+transform = Transform3D(0.998929, 0, 0, 0, 0.998399, -0.0325446, 0, 0.0325446, 0.998399, -0.960159, 0.777436, -5.43034)
 
 [node name="Habitacion2" parent="." instance=ExtResource("2_5hydm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.9342, 41.6239, 0)
@@ -59,16 +64,13 @@ shape = SubResource("BoxShape3D_g8w4t")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.57607, -2.88862, 0)
 
 [node name="BaseVigilante" type="Node3D" parent="Pasillo"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 25.7255, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 20.398, 0)
 
 [node name="Vigilante" parent="Pasillo/BaseVigilante" instance=ExtResource("7_ohn7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.230154, 7.83532, 2.33675)
 
 [node name="Test" type="Node" parent="."]
 script = ExtResource("5_4y33u")
-
-[node name="Avatar" parent="." instance=ExtResource("4_ikkem")]
-transform = Transform3D(0.998929, 0, 0, 0, 0.998399, -0.0325446, 0, 0.0325446, 0.998399, -0.960159, 0.777436, -5.43034)
 
 [node name="Luces" type="Node3D" parent="."]
 
@@ -88,6 +90,11 @@ visible = false
 [node name="HUD" parent="." instance=ExtResource("9_y8bt7")]
 
 [node name="End" parent="." instance=ExtResource("10_qmox0")]
+visible = false
+
+[node name="Start" parent="." instance=ExtResource("11_qmox0")]
+
+[node name="ChestOpened" parent="." instance=ExtResource("12_cnha0")]
 
 [connection signal="body_entered" from="Area2" to="." method="_on_area_2_body_entered"]
 [connection signal="body_exited" from="Area2" to="." method="_on_area_2_body_exited"]

@@ -172,7 +172,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94528, 6.58482, 0)
 
 [node name="cofre" parent="." instance=ExtResource("6_8plxl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.9725, -5.32042, -0.0342398)
-script = null
 
 [node name="Runa1" parent="." instance=ExtResource("12_4sf3t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11004, -8.9256, -5.8366)

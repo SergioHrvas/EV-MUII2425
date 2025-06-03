@@ -1,10 +1,13 @@
 # 🎮 Lanzamiento de un Objeto desde Cámara en Primera Persona (FPV)
+Sergio Hervás Cobo - EV Ejercicio 4.
+
+Máster en Ingeniería Informática en la Universidad de Granada
 ## 1. Fuerzas fundamentales a considerar
 
 - **Masa del objeto:** Importante para la resistencia al aire.
 - **Fuerza inicial:** Dirección y magnitud del impulso desde la posición de la cámara. Determina la velocidad inicial y está aplicada en un ángulo determinado.
 - **Gravedad:** Aceleración constante hacia abajo (`Vector3(0, -9.8, 0)`). Provoca la caída y la curvatura de la trayectoria.
-- **Resistencia del aire:** Fuerza que se opone al movimiento, proporcional a la velocidad. Reduce el alcance y modifica la curva de la trayectoria. 𝐹𝑑 = −𝑘 * 𝑣. En este ejemplo no se tomará en cuenta por simplicidad.
+- **Resistencia del aire:** Fuerza que se opone al movimiento, proporcional a la velocidad. Reduce el alcance y modifica la curva de la trayectoria. 𝐹𝑑 = −𝑘 * 𝑣.
 
 ## 2. Boceto de trayectoria desde FPV
 
@@ -13,7 +16,7 @@
 ## 3. Fórmulas del movimiento parabólico
 - Posición horizontal: x(t) = v0.x * t
 - Posición vertical: y(t) = v0.y * t - 1/2 * g * t²
-- Velocidad horizontal: v.x(t) = v0.x (constante)
+- Velocidad horizontal: v.x(t) = v0.x (constante sin aire)
 - Velocidad vertical: v.y(t) = v0.y - g * t
 
 Donde:
@@ -26,7 +29,7 @@ Con resistencia al aire utilizaríamos la fórmula que hay en las diapositivas d
 
 
 
-## 4. 💻 Pseudocódigo en GDScript (Godot)
+## 4. 💻 Pseudocódigo en Godot
 
 ```python
 var gravedad = Vector3(0, -9.8, 0)
@@ -39,22 +42,22 @@ var posicion = Vector3.ZERO
 var velocidad = Vector3.ZERO
 
 func throw_object(camera_transform):
-    # Inicializa el lanzamiento desde la posición de la cámara
+    # Inicializamos el lanzamiento desde la posición de la cámara
     posicion = camera_transform.origin
     velocidad = camera_transform.basis.z.normalized() * fuerza_inicial / masa
 
 func _physics_process(delta):
-    # Aplicar gravedad
+    # Aplicamos la gravedad (irá cayendo en cada delta)
     velocidad += gravedad * delta
     
-    # Aplicar resistencia del aire (opcional)
+    # Aplicamos resistencia del aire
     var fuerza_aire = -coeficiente_aire * velocidad
     velocidad += fuerza_aire / masa * delta
     
-    # Actualizar posición
+    # Actualizamos la posición
     posicion += velocidad * delta
     
-    # Mueve el objeto al suelo si se pasa
-    if posicion.y < 0.0:  # Asumiendo suelo en y=0
+    # Movemos el objeto al suelo si se pasa
+    if posicion.y < 0.0:  # Asumiendo que el suelo está en y=0
         posicion.y = 0.0
 ```
