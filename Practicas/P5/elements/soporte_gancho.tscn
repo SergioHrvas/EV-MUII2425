@@ -21,7 +21,7 @@ radius = 0.8
 [sub_resource type="BoxShape3D" id="BoxShape3D_stw8s"]
 size = Vector3(1, 0.1, 2)
 
-[node name="SoporteGancho" type="RigidBody3D"]
+[node name="StaticBody3D" type="StaticBody3D"]
 script = ExtResource("1_stw8s")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]

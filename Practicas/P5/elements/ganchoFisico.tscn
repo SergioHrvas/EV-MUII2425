@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cptutqwbyrnbv"]
+[gd_scene load_steps=8 format=3 uid="uid://cptutqwbyrnbv"]
 
+[ext_resource type="Script" uid="uid://t4xecpdwqksu" path="res://scripts/cogible.gd" id="1_1ukjg"]
 [ext_resource type="PackedScene" uid="uid://bmkmv7rnwhkig" path="res://elements/ganchoBlender.tscn" id="1_r37me"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r37me"]
@@ -20,6 +21,7 @@ size = Vector3(0.5, 0.825, 0.5)
 [node name="Gancho" type="RigidBody3D"]
 mass = 2.522
 inertia = Vector3(0, 2, 0)
+script = ExtResource("1_1ukjg")
 
 [node name="gancho" parent="." instance=ExtResource("1_r37me")]
 

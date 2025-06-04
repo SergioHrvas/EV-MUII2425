@@ -1,8 +1,8 @@
 extends Node3D
 
+# Definimos las variables
 var mouse_captured = true
 var velocity = 10.0
-
 @export var sensitivity = 200.0
 
 func _ready():

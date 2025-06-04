@@ -27,34 +27,57 @@ offset_right = 763.0
 offset_bottom = 712.0
 script = ExtResource("1_k5de2")
 
-[node name="Slot1" type="TextureRect" parent="Inventario"]
+[node name="Slot1" type="ColorRect" parent="Inventario"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 6.0
+offset_top = 5.0
 offset_right = 76.0
-offset_bottom = 63.0
+offset_bottom = 66.0
+color = Color(0.244777, 0.244776, 0.244776, 1)
+
+[node name="Image1" type="TextureRect" parent="Inventario/Slot1"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 61.0
+offset_bottom = 59.0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Slot2" type="TextureRect" parent="Inventario"]
+[node name="Slot2" type="ColorRect" parent="Inventario"]
 layout_mode = 0
 offset_left = 82.0
-offset_top = 6.0
+offset_top = 5.0
 offset_right = 143.0
-offset_bottom = 63.0
+offset_bottom = 66.0
+color = Color(0.244777, 0.244776, 0.244776, 1)
+
+[node name="Image2" type="TextureRect" parent="Inventario/Slot2"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 61.0
+offset_bottom = 59.0
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Slot3" type="TextureRect" parent="Inventario"]
+[node name="Slot3" type="ColorRect" parent="Inventario"]
 layout_mode = 0
 offset_left = 149.0
-offset_top = 6.0
+offset_top = 5.0
 offset_right = 210.0
-offset_bottom = 63.0
+offset_bottom = 66.0
+color = Color(0.244777, 0.244776, 0.244776, 1)
+
+[node name="Image3" type="TextureRect" parent="Inventario/Slot3"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 61.0
+offset_bottom = 59.0
 expand_mode = 2
 stretch_mode = 4
 
 [node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_bottom = 0.0277778
 offset_left = 1.0
 offset_top = 2.0
 offset_right = 248.0
@@ -64,26 +87,34 @@ metadata/_edit_use_anchors_ = true
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 6.0
+offset_top = 3.0
 offset_right = 198.0
-offset_bottom = 33.0
+offset_bottom = 30.0
 text = "C = Cambiar a Vigilante"
 label_settings = SubResource("LabelSettings_3lhoi")
 
 [node name="Label3" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 30.0
+offset_top = 26.0
 offset_right = 239.0
-offset_bottom = 57.0
+offset_bottom = 53.0
 text = "Mover Raton = Mover Camara"
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 55.0
+offset_top = 77.0
 offset_right = 217.0
-offset_bottom = 112.0
+offset_bottom = 134.0
 text = "W = Avanzar | S = Atras
 A = Izquierda | L = Derecha"
 label_settings = SubResource("LabelSettings_g8w4t")
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 52.0
+offset_right = 239.0
+offset_bottom = 79.0
+text = "ESC = Saltar"

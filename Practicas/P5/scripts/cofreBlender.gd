@@ -1,5 +1,6 @@
 extends StaticBody3D
 
+# Funcion de activar
 func activar():
 		# Reproducimos la animacion y el sonido
 		get_parent().get_parent().get_node("AnimationPlayer").play("Scene")
@@ -13,7 +14,6 @@ func activar():
 		
 		#Mostramos la interfaz
 		get_parent().get_parent().get_parent().get_parent().get_node("ChestOpened").visible = true
-		print(Input.mouse_mode)
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 		await player.finished

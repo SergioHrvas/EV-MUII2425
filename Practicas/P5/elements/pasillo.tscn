@@ -27,7 +27,7 @@ size = Vector3(40, 6, 0.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0542545, 0)
 
 [node name="Pasillo Vertical" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 29.5543, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28.6258, 0)
 size = Vector3(5, 20, 5)
 material = ExtResource("1_mn2d4")
 

@@ -1,22 +1,24 @@
 extends CanvasLayer
 
-
-
 var button1_clicked = false
 var button4_clicked = false
 
+# Se pulsa el boton 1
 func _on_button_button_up() -> void:
 	$Control/Button/Cuadrado1.color = $Control/Button2/Cuadrado2.color
 	button1_clicked = true
 	check_buttons_clicked()  # Verificar si ambos fueron clickeados
 
+# Se pulsa el boton 4
 func _on_button_4_button_up() -> void:
 	$Control/Button4/Cuadrado4.color = $Control/Button2/Cuadrado2.color
 	button4_clicked = true
 	check_buttons_clicked()  # Verificar si ambos fueron clickeados
 
+# Verificamos si ambos fueron clickeados
 func check_buttons_clicked():
 	if button1_clicked and button4_clicked:
+		# Ocultamos el puzle y ponemos la pantalla de final de partida
 		$Control.visible = false
 		$Control2.visible = true
 		

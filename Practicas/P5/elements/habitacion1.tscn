@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qrdai0nmq1mb"]
+[gd_scene load_steps=23 format=3 uid="uid://qrdai0nmq1mb"]
 
 [ext_resource type="Material" uid="uid://dg6da2i877dn2" path="res://materiales/paredes.tres" id="1_2l8mv"]
 [ext_resource type="PackedScene" uid="uid://dcwx80nwehwv0" path="res://elements/plataforma.tscn" id="1_eb3sw"]
@@ -7,13 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://ce7m3t1x1n3ic" path="res://elements/palanca.tscn" id="4_vy1a3"]
 [ext_resource type="PackedScene" uid="uid://dfhnf8wl4y7p1" path="res://elements/silla.tscn" id="5_0giyi"]
 [ext_resource type="PackedScene" uid="uid://bvr5pyxx5314u" path="res://elements/gancho_ani.tscn" id="7_6j36w"]
-[ext_resource type="Script" uid="uid://t4xecpdwqksu" path="res://scripts/bola.gd" id="8_rvkbe"]
-[ext_resource type="Script" uid="uid://5yurs7ng7868" path="res://scripts/bola2.gd" id="9_vwrra"]
 [ext_resource type="Material" uid="uid://2go2bwnd8otn" path="res://materiales/azul.tres" id="11_rvkbe"]
 [ext_resource type="Material" uid="uid://u67tg5bj416i" path="res://materiales/verde.tres" id="12_rvkbe"]
 [ext_resource type="Material" uid="uid://bsinvuto4b6nt" path="res://materiales/techo.tres" id="13_c342v"]
 [ext_resource type="PackedScene" uid="uid://wrmv6e18yvjy" path="res://elements/runa.tscn" id="14_rvkbe"]
-[ext_resource type="Script" uid="uid://dinjwapiq4si2" path="res://elements/gancho.gd" id="15_l82dh"]
 [ext_resource type="PackedScene" uid="uid://cptutqwbyrnbv" path="res://elements/ganchoFisico.tscn" id="15_vwrra"]
 [ext_resource type="PackedScene" uid="uid://bsph8a22atqu5" path="res://elements/soporte_gancho.tscn" id="16_l82dh"]
 
@@ -38,6 +35,12 @@ size = Vector3(19.6, 13, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_12d07"]
 size = Vector3(0.1, 19.5, 29.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ig0u"]
+size = Vector3(24.6, 0.1, 29.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j7qau"]
+size = Vector3(5, 1, 12.5)
 
 [sub_resource type="GDScript" id="GDScript_l82dh"]
 script/source = "extends Node
@@ -110,45 +113,48 @@ light_color = Color(0, 0.89, 0.445, 1)
 light_energy = 5.208
 spot_range = 27.723
 
-[node name="SueloColision" type="StaticBody3D" parent="Estructura"]
+[node name="ColisionHabitacion" type="StaticBody3D" parent="Estructura"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.39202, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/SueloColision"]
+[node name="Suelo" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316642, 0)
 shape = SubResource("BoxShape3D_g5ay2")
 
-[node name="ParedColision" type="StaticBody3D" parent="Estructura"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87498, 14.6466)
+[node name="ParedIzquierda" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51704, 14.6466)
 shape = SubResource("BoxShape3D_vwrra")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Estructura/ParedColision"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91853, 0.425819, 14.647)
+[node name="ParezIzquierda2" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91853, 9.81784, 14.647)
 shape = SubResource("BoxShape3D_l82dh")
 
-[node name="ParedColision2" type="StaticBody3D" parent="Estructura"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.6994)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.87498, -0.396826)
+[node name="ParedDerecha" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51704, -14.0962)
 shape = SubResource("BoxShape3D_vwrra")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Estructura/ParedColision2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91853, 0.425819, -0.396437)
+[node name="ParedDerecha2" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91853, 9.81784, -14.0958)
 shape = SubResource("BoxShape3D_l82dh")
 
-[node name="ParedColision3" type="StaticBody3D" parent="Estructura"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7989, 0, 0)
+[node name="ParedTrasera" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.7989, 9.39202, 0)
 shape = SubResource("BoxShape3D_12d07")
 
-[node name="ParedColision4" type="StaticBody3D" parent="Estructura"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Estructura/ParedColision4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8002, 0, 0)
+[node name="ParedDelantera" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8002, 9.39202, 0)
 shape = SubResource("BoxShape3D_12d07")
+
+[node name="Techo" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.77269, 18.6676, 0)
+shape = SubResource("BoxShape3D_4ig0u")
+
+[node name="Techo2" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1595, 18.6676, -8.84479)
+shape = SubResource("BoxShape3D_j7qau")
+
+[node name="Techo3" type="CollisionShape3D" parent="Estructura/ColisionHabitacion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1595, 18.6676, 8.77059)
+shape = SubResource("BoxShape3D_j7qau")
 
 [node name="Plataforma1" parent="." instance=ExtResource("1_eb3sw")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72588, -11.7276)
@@ -157,12 +163,10 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.72588, -11.7276)
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4, -1.72588, -11.7276)
 
 [node name="Bola1" parent="." instance=ExtResource("2_wh65v")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -1.70087, 12.2818)
-script = ExtResource("8_rvkbe")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.70087, 12.2818)
 
 [node name="Bola2" parent="." instance=ExtResource("2_wh65v")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.64786, -1.68458, 12.2818)
-script = ExtResource("9_vwrra")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64786, -1.68458, 12.2818)
 
 [node name="Palanca" parent="." instance=ExtResource("4_vy1a3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63844, -2.20535, 4.30188)
@@ -183,10 +187,6 @@ skeleton = NodePath("../Runa")
 
 [node name="Gancho" parent="." instance=ExtResource("15_vwrra")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.64483, -1.89687, 10.4434)
-script = ExtResource("15_l82dh")
 
 [node name="SoporteGancho" parent="." instance=ExtResource("16_l82dh")]
 transform = Transform3D(-0.136061, 0, -0.9907, 0, 1, 0, 0.9907, 0, -0.136061, 18.7824, 5.62747, 2.78255)
-gravity_scale = 0.0
-freeze = true
-freeze_mode = 1

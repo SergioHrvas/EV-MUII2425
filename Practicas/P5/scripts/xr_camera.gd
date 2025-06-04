@@ -12,7 +12,7 @@ func _ready() -> void:
 	if xr_interace and xr_interace.is_initialized():
 		print("OpenXR initialized sucessfully")
 		
-		#Desactivamos v-sync!
+		#Desactivamos v-sync
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 		
 		#Cambiamos nuestro viewport principal a la salida del HMD

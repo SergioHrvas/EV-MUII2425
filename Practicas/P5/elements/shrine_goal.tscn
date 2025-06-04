@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3rygovqjnn16"]
 
 [ext_resource type="PackedScene" uid="uid://bpwg4vbr0wjlb" path="res://elements/Nintendo Switch - The Legend of Zelda Tears of the Kingdom - Shrine Goal/Shrine Goal/shrine_goal.fbx" id="1_vmkw2"]
-[ext_resource type="Script" uid="uid://ct6g3w7u11y65" path="res://elements/shrine_goal.gd" id="2_xip3i"]
+[ext_resource type="Script" uid="uid://ct6g3w7u11y65" path="res://scripts/shrine_goal.gd" id="2_xip3i"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vmkw2"]
 radius = 0.05
