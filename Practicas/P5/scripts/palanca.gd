@@ -15,7 +15,7 @@ func activar():
 	var soporte_gancho = habitacion.get_node("SoporteGancho")
 	
 	# Si tenemos las tres piezas del puzzle colocadas
-	if true or (rigid_body.bola_colocada and rigid_body2.bola_colocada and soporte_gancho.gancho_colocado):
+	if (rigid_body.bola_colocada and rigid_body2.bola_colocada and soporte_gancho.gancho_colocado):
 
 		# Reproducir sonido
 		var sound = preload("res://sonidos/success.ogg")
